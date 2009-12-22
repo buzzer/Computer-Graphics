@@ -100,8 +100,8 @@ intersection{
 #declare EnteGanz = merge{
 	object{Kopf translate <-0.04,-0.4,0> scale <1.3,1.3,1.3> rotate <KopfRoll,KopfYaw,KopfPitch> }
 	object{TorsoOBuerz}
-	object{Wing rotate y*-90*abs(sin(8*pi*clock)) translate z*-0.5 } // Right wing
-	object{Wing rotate y*90*abs(sin(8*pi*clock)) translate z*0.5 } // Left wing
+	object{Wing rotate y*-90*(1+(sin(8*pi*clock)))/2 translate z*-0.5 } // Right wing
+	object{Wing rotate y*90*(1+(sin(8*pi*clock)))/2 translate z*0.5 } // Left wing
 	object{EntenBuerzel rotate <0,0,BuerzelPitch> }
 }
 object{EnteGanz}
