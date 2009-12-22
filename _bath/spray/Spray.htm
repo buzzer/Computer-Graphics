@@ -1,0 +1,733 @@
+<HTML><HEAD><TITLE>Liquid Spray Include File</TITLE></HEAD>
+
+<FONT FACE="Arial, Helvetica, Switzerland"><BODY BGCOLOR=#FFFFFF>
+
+<TABLE WIDTH=100% BORDER=0 CELLPADDING=10><TR><TD BGCOLOR=#C0C0C0 ALIGN=CENTER>
+<FONT SIZE=+2><B>LIQUID SPRAY INCLUDE FILE </B></FONT><FONT SIZE=+1><I>for Persistence of Vision 3.x</I></FONT>
+</TD></TR></TABLE>
+
+<I>
+<P>Created by Chris Colefax, 23 May 1997
+<P>Updated 13 August 1998: updated for POV-Ray 3.1
+</I>
+
+<P><HR>
+
+<P><B><I><A HREF="#Installation">INSTALLATION</A></B></I>
+<P><B><I><A HREF="#Quick Start">QUICK START</A></B></I>
+<P><B><I><A HREF="#Options">OPTIONS</A></B></I>
+        <UL><B><A HREF="#Basic Options">BASIC OPTIONS</A></B>
+                <UL><A HREF="#spray_location">spray_location</A>
+                <BR><A HREF="#spray_direction">spray_direction</A>
+                <BR><A HREF="#spray_strength">spray_strength</A>
+                </UL>
+
+        <BR><B><A HREF="#Time Options">TIME OPTIONS</A></B>
+                <UL><A HREF="#spray_loop">spray_loop</A>
+                <BR><A HREF="#spray_start">spray_start</A>
+                <BR><A HREF="#spray_stop">spray_stop</A>
+                <BR><A HREF="#spray_start_time">spray_start_time</A>
+                <BR><A HREF="#spray_stop_time">spray_stop_time</A>
+                </UL>
+
+        <BR><B><A HREF="#Particle Options">PARTICLE OPTIONS</A></B>
+                <UL><A HREF="#particle_count">particle_count</A>
+                <BR><A HREF="#particle_life">particle_life</A>
+                <BR><A HREF="#particle_size">particle_size</A>
+                <BR><A HREF="#particle_stretch">particle_stretch</A>
+                <BR><A HREF="#particle_dist">particle_dist</A>
+                <BR><A HREF="#particle_sep">particle_sep</A>
+                <BR><A HREF="#evaporate">evaporate</A>
+                </UL>
+
+        <BR><B><A HREF="#Nozzle Options">NOZZLE OPTIONS</A></B>
+                <UL><A HREF="#nozzle_spin">nozzle_spin</A>
+                <BR><A HREF="#nozzle_angle">nozzle_angle</A>
+                <BR><A HREF="#nozzle_width">nozzle_width</A>
+                </UL>
+
+        <BR><B><A HREF="#Blob Options">BLOB OPTIONS</A></B>
+                <UL><A HREF="#use_blob">use_blob</A>
+                <BR><A HREF="#blob_threshold">blob_threshold</A>
+                <BR><A HREF="#components_only">components_only</A>
+                </UL>
+
+        <BR><B><A HREF="#Environment Options">ENVIRONMENT OPTIONS</A></B>
+                <UL><A HREF="#spray_gravity">spray_gravity</A>
+                <BR><A HREF="#spray_sky">spray_sky</A>
+                <BR><A HREF="#wind">wind</A>
+                </UL>
+
+        <BR><B><A HREF="#Ground Options">GROUND PLANE OPTIONS</A></B>
+                <UL><A HREF="#ground_plane">ground_plane</A>
+                <BR><A HREF="#ground_dist">ground_dist</A>
+                <BR><A HREF="#ground_reflection">ground_reflection</A>
+                <BR><A HREF="#max_bounces">max_bounces</A>
+                <BR><A HREF="#ground_friction">ground_friction</A>
+                <BR><A HREF="#puddle_thickness">puddle_thickness</A>
+                <BR><A HREF="#puddle_scale">puddle_scale</A>
+                </UL>
+
+        <BR><B><A HREF="#Texture Options">TEXTURE OPTIONS</A></B>
+                <UL><A HREF="#spray_texture">spray_texture</A>
+                <BR><A HREF="#spray_color_map">spray_color_map</A>
+                <BR><A HREF="#use_color_map">use_color_map</A>
+                <BR><A HREF="#color_map_triangle">color_map_triangle</A>
+                <BR><A HREF="#color_map_frequency">color_map_frequency</A>
+                </UL>
+
+        <BR><B><A HREF="#Turbulence Options">TURBULENCE OPTIONS</A></B>
+                <UL><A HREF="#spray_turb">spray_turb</A>
+                <BR><A HREF="#scale_turb">scale_turb</A>
+                <BR><A HREF="#vel_turb">vel_turb</A>
+                <BR><A HREF="#angle_turb">angle_turb</A>
+                <BR><A HREF="#spin_turb">spin_turb</A>
+                <BR><A HREF="#color_turb">color_turb</A>
+                <BR><A HREF="#wind_turb">wind_turb</A>
+                <BR><A HREF="#spray_seed">spray_seed</A>
+                </UL>
+
+        <BR><B><A HREF="#Other Options">OTHER OPTIONS</A></B>
+                <UL><A HREF="#spray_clock">spray_clock</A>
+                <BR><A HREF="#time_scale">time_scale</A>
+                <BR><A HREF="#flow_rate">flow_rate</A>
+                </UL>
+        </UL>
+
+<P><B><I><A HREF="#Troubleshooting">TROUBLESHOOTING</A></B></I>
+<P><B><I><A HREF="#Legal">COPYRIGHT AND LEGAL INFORMATION</A></B></I>
+<P><B><I><A HREF="#Contact">CONTACTING THE AUTHOR</A></B></I>
+
+
+<P>
+<BR>
+<A NAME="Installation"></A><TABLE WIDTH=100% BORDER=0 CELLPADDING=7><TR><TD BGCOLOR=#C0C0C0>
+<FONT SIZE=+1><B><I>INSTALLATION</B></I></FONT>
+</TD></TR></TABLE>
+Copy both include files (<I>Spray.inc</I> and <I>SprayG.inc</I>) to one of the
+directories (folders) in your POV-Ray library path.  Normally this is the
+<I>INCLUDE</I> sub-directory of the directory where you installed POV-Ray, so if
+you installed POV-Ray in C:\POVRAY you should copy the files to 
+<I>C:\POVRAY\INCLUDE</I>.  On a Windows 95 system, this is probably something 
+like:
+
+<P><I>C:\Program Files\POV-Ray for Windows\Include</I>
+
+<P>On UNIX and similar systems, where filenames are case-sensitive, you may
+have to rename the include files so that the case of the letters of both files is as shown above.
+This will enable you to render the sample files without modification.
+
+
+<P>
+<BR>
+<A NAME="Quick Start"></A><TABLE WIDTH=100% BORDER=0 CELLPADDING=7><TR><TD BGCOLOR=#C0C0C0>
+<FONT SIZE=+1><B><I>QUICK START</B></I></FONT>
+</TD></TR></TABLE>
+The Liquid Spray include file allows you to generate a whole range of
+spray-type particle objects, such as fountains, hoses, waterfalls, fireworks, etc.
+There are many options you can use to affect the way the spray is generated; to use any of these you simply add
+the following line to your POV-Ray scene file:
+
+<P><CODE>#declare </CODE> <I>[variable-name]</I><CODE> = </CODE><I>[value]</I>
+
+<P>substituting the desired variable name and value where appropriate.  After
+you have declared all the options you want to use, you add the following
+line to your POV-Ray scene file:
+
+<P><CODE>#include "Spray.inc"</CODE>
+
+<P>The Liquid Spray include file will then automatically create the spray
+object for you.  Although you don't have to use any of the options (the
+include file will use defaults if you don't specify a variable), you
+will want to use the options listed below to ensure you get the sort of
+spray object that you want.
+
+<P>Note that the Liquid Spray Include File should never be included at the start of a scene, like <I>colors.inc</I> or <I>textures.inc</I>.  It should only be included <B>after</B> declaring all the options you want to use.
+
+
+<P>
+<BR>
+<A NAME="Options"></A><TABLE WIDTH=100% BORDER=0 CELLPADDING=7><TR><TD BGCOLOR=#C0C0C0>
+<FONT SIZE=+1><B><I>OPTIONS</B></I></FONT>
+</TD></TR></TABLE>
+
+<P><HR><A NAME="Basic Options"></A>
+<B>BASIC OPTIONS</B>
+<HR>
+The variables in this section control the basic features of the liquid spray, and should generally be the first variables you declare.
+
+<P><A NAME="spray_location"></A>
+<B>spray_location</B>
+<HR>
+This vector specifies the point from where the spray object originates,
+ie. the point where the spray particles first appear.
+The default value for <I>spray_location</I> is &lt 0, 0, 0&gt 
+
+<P><A NAME="spray_direction"></A>
+<B>spray_direction</B>
+<HR>
+This vector specifies the direction of the spray object, ie. the initial
+direction of the spray particles.
+The default value for <I>spray_direction</I> is &lt 0, 1, 0&gt 
+
+<P><A NAME="spray_strength"></A>
+<B>spray_strength</B>
+<HR>
+This number specifies the strength of the spray object, ie. the initial
+speed of the spray particles.
+The default value for <I>spray_strength</I> is the length of the <I>spray_direction</I>.
+
+
+<P><HR><A NAME="Time Options"></A>
+<B>TIME OPTIONS</B>
+<HR>
+The following variables control how the spray object is animated (in relation to POV-Ray's clock variable).
+
+<P><A NAME="spray_loop"></A>
+<B>spray_loop</B>
+<HR>
+This true / false variable specifies whether or not to generate a
+perpetually looping spray object (for cyclic animations).  If <I>spray_loop</I>
+is true, then the spray object will be visible throughout the animation,
+and it will have a constant <A HREF="#spray_strength">spray_strength</A>.  If <I>spray_loop</I> is false, you
+can use the following options to control how the spray object is turned
+on or off:
+
+<P><A NAME="spray_start"></A>
+<B>spray_start</B>
+<HR>
+This number specifies the time to turn on the spray object, eg. if you
+use <CODE>spray_start = 0.5;</CODE> then the spray will turn on halfway through the
+animation (presuming the animation clock goes from 0 to 1).
+The default value for <I>spray_start</I> is 0
+
+<P><A NAME="spray_stop"></A>
+<B>spray_stop</B>
+<HR>
+This number specifies the time to turn off the spray object, eg. if you
+use <CODE>spray_stop = 0.5;</CODE> then the spray will turn off halfway through the
+animation.
+The default value for <I>spray_stop</I> is 1
+
+<P><A NAME="spray_start_time"></A>
+<B>spray_start_time</B>
+<HR>
+This numbers specifies the time it takes for the spray to reach full
+strength, eg. if you use <CODE>spray_start = 0.1;</CODE> and <CODE>spray_start_time = 0.3;</CODE> then
+the spray object will reach full strength at clock = 0.4
+The default value for <I>spray_start_time</I> is 0
+
+<P><A NAME="spray_stop_time"></A>
+<B>spray_stop_time</B>
+<HR>
+This number specifies the time it takes for the spray to turn off, eg.
+if you use <CODE>spray_stop = 0.7;</CODE> and <CODE>spray_stop_time = 0.2;</CODE> then the spray object
+will start to run down at clock = 0.5, and be fully stopped by clock = 0.7
+The default value for <I>spray_stop_time</I> is 0
+
+
+<P><HR><A NAME="Particle Options"></A>
+<B>PARTICLE OPTIONS</B>
+<HR>
+Each spray object contains a number of particles.  You can use the options
+in this section to specify the characteristics of these particles.
+
+<P><A NAME="particle_count"></A>
+<B>particle_count</B>
+<HR>
+This number specifies the number of particles used to create the spray
+object.  If <A HREF="#spray_loop">spray_loop</A> is true, then the spray object will always contain
+the same number of particles.  If <I>spray_loop</I> is false, then the number of
+particles will change as the spray is turned on and off.
+The default value for <I>particle_count</I> is 100
+
+<P><A NAME="particle_life"></A>
+<B>particle_life</B>
+<HR>
+This number specifies how long each particle is alive, eg. if you use
+<CODE>particle_life = 1.5</CODE>, then each particle will disappear after 1.5 units
+of time.  If <A HREF="#spray_loop">spray_loop</A> is true, then the spray object will be automatically
+adjusted so it always loops correctly.
+The default value for <I>particle_life</I> is 1
+
+<P><A NAME="particle_size"></A>
+<B>particle_size</B>
+<HR>
+This number specifies the size (in POV units) of each spray particle.  It
+is actually the radius of the spheres or blob components that make up the
+spray object.
+The default value for <I>particle_size</I> is 1
+
+<P><A NAME="particle_stretch"></A>
+<B>particle_stretch</B>
+<HR>
+This number specifies how much to stretch the spray particles by.  Numbers
+larger than one make the particle thinner and torpedo shaped, giving the
+effect of movement.  Numbers smaller than one make the particles look like
+discs (not usually recommended!).
+The default value for <I>particle_stretch</I> is 1 (ie. no stretch).
+
+<P><A NAME="particle_dist"></A>
+<B>particle_dist</B>
+<HR>
+This option can be used to generate a mixture of larger and smaller
+particles, rather than all the particles being the same size.  The number
+used specifies the size distribution of the particles, ie. the ratio of
+small particles to large particles:
+        <UL>1 - equal numbers of small and large particles
+        <BR>0 - all large particles
+        <BR>between 0 and 1 - more large particles than small particles
+        <BR>larger than 1 - more small particles than large particles
+        </UL>
+<BR>The default value for <I>particle_dist</I> is 1
+
+<P><A NAME="particle_sep"></A>
+<B>particle_sep</B>
+<HR>
+This option can be used to separate the smaller particles from the larger
+particles, giving the effect of a fine spray surrounding the main spray
+object.  It has no effect if <A HREF="#particle_dist">particle_dist</A> is 0.  Setting <I>particle_sep</I>
+to 0 specifies no separation between the differently sized particles,
+while numbers larger than 0 increase the separation.
+The default value for <I>particle_sep</I> is 0
+
+<P><A NAME="evaporate"></A>
+<B>evaporate</B>
+<HR>
+This number specifies the rate of evaporation of the particles.  Setting
+this option to 0 specifies no evaporation, while numbers larger than 0
+will cause the particles to grow smaller until they disappear at the end
+of their lives (see <A HREF="#particle_life">particle_life</A>).  The larger the number, the
+faster the particles disappear.
+The default value for <I>evaporate</CODE> is false (zero).
+
+
+<P><HR><A NAME="Nozzle Options"></A>
+<B>NOZZLE OPTIONS</B>
+<HR>
+The following options control the characteristics of the spray nozzle:
+
+<P><A NAME="nozzle_spin"></A>
+<B>nozzle_spin</B>
+<HR>
+This option specifies the number of spins the nozzle makes per unit of
+time.  Setting <I>nozzle_spin</I> to 0 will stop the nozzle from spinning.
+Negative numbers can be used to spin the nozzle in the opposite direction.
+The default value for <I>nozzle_spin</I> is 1
+
+<P><A NAME="nozzle_angle"></A>
+<B>nozzle_angle</B>
+<HR>
+This option specifies the angle (in degrees) of the spray nozzle.  If you
+think of the spray object as a cone, with its apex at <A HREF="#spray_location">spray_location</A>, this
+number is the angle at the apex of the cone (similar to the radius option
+in POV-Ray's spotlight).
+The default value for <I>nozzle_angle</I> is 20
+
+<P><A NAME="nozzle_width"></A>
+<B>nozzle_width</B>
+<HR>
+This option can be used to widen the nozzle, for waterfalls and other
+similar spray objects.
+The default value for <I>nozzle_width</I> is 0
+
+
+<P><HR><A NAME="Blob Options"></A>
+<B>BLOB OPTIONS</B>
+<HR>
+Normally the spray object is generated as a union of spheres.  You can use
+the following options to generate the spray object as a blob object
+instead:
+
+<P><A NAME="use_blob"></A>
+<B>use_blob</B>
+<HR>
+Setting this option to true will cause the spray object to be generated
+as a blob.  The default value for <I>use_blob</I> is false.
+
+<P><A NAME="blob_threshold"></A>
+<B>blob_threshold</B>
+<HR>
+This number specifies the threshold of the blob used to create the spray
+object (see the POV-Ray docs for more information on blob thresholds).
+The default value for <I>blob_threshold</I> is .5
+
+<P><A NAME="components_only"></A>
+<B>components_only</B>
+<HR>
+This option can be used to generate blob components only, rather than a
+complete blob object.  This is useful when you want to combine the liquid
+spray blob with another blob (so the components interact).  You will have
+to place the include statement inside the blob {} object, and apply
+textures manually.  For an example of this, see the sample scenes that
+came with the Liquid Spray include file.
+The default value for <I>components_only</I> is false
+
+
+<P><HR><A NAME="Environment Options"></A>
+<B>ENVIRONMENT OPTIONS</B>
+<HR>
+The following options can be used to alter the environment in which the
+spray object is created:
+
+<P><A NAME="spray_gravity"></A>
+<B>spray_gravity</B>
+<HR>
+This number specifies the strength of the gravity force applied to the
+spray particles.  Only positive numbers are accepted; the gravity force
+is always in an opposite direction to the <A HREF="#spray_sky">spray_sky</A> vector.
+The default value for <I>spray_gravity</I> is 9.8
+
+<P><A NAME="spray_sky"></A>
+<B>spray_sky</B>
+<HR>
+This specifies the direction vector that points in the up direction.
+It works in a similar way to the sky keyword in the POV-Ray camera, and
+it useful when using a different coordinate system (eg. use <CODE>spray_sky = z</CODE> if the z-axis points upwards).
+This vector determines the direction of the gravity (opposite to the sky, of course) and is also
+used as the normal of the <A HREF="#Ground Options">ground plane</A>, if one is specified.
+The default value for <I>spray_sky</I> is &lt 0, 1, 0&gt 
+
+<P><A NAME="wind"></A>
+<B>wind</B>
+<HR>
+You can use the <I>wind</I> option to blow the spray particles in a particular
+direction.  The direction of the <I>wind</I> vector is the direction in which
+the wind blows, and the size of the wind vector determines the strength
+of the wind force (multiplying by smaller values will create light breezes, while larger values will create strong gales).
+The default value for <I>wind</I> is &lt 0, 0, 0&gt (ie. no wind).
+
+
+<P><HR><A NAME="Ground Options"></A>
+<B>GROUND PLANE OPTIONS</B>
+<HR>
+The Liquid Spray include file has the ability to add a ground plane
+to the scene.  If a spray particle hits this ground plane it can
+automatically splash off it, or it can form puddles on the plane.
+Note that the Liquid Spray include file will not actually create a
+ground plane object for you, giving you the option to use any sort of
+object you like to represent the ground.
+
+<P><A NAME="ground_plane"></A>
+<B>ground_plane</B>
+<HR>
+This is a true / false value that indicates whether a ground plane is
+present or not.  The default value for <I>ground_plane</I> is false.
+
+<P><A NAME="ground_dist"></A>
+<B>ground_dist</B>
+<HR>
+This specifies the distance of the ground from the origin, and is the
+same as the distance value as specified in the plane object.  Note that
+the normal direction of the plane is always the same as <A HREF="#spray_sky">spray_sky</A>.
+The default value for <I>ground_dist</I> is 0
+
+<P><A NAME="ground_reflection"></A>
+<B>ground_reflection</B>
+<HR>
+This specifies the amount of energy a spray particle retains after splashing
+off the ground plane.  Setting <I>ground_reflection</I> to 1 means that the particle
+retains all its energy, and will bounce back to the same height each time
+it splashes.  Setting <I>ground_reflection</I> to 0 means that the particle
+retains none of its energy after hitting the plane, and therefore it
+forms a puddle.  Values in between 0 and 1 will cause the particle to
+splash less high each time it hits the plane, eventually coming to a stop.
+The default value for <I>ground_reflection</I> is 0.8
+
+<P><A NAME="max_bounces"></A>
+<B>max_bounces</B>
+<HR>
+This option specifies the maximum number of times a spray particle will
+splash off the ground plane before forming a puddle.
+The default value for <I>max_bounces</I> is 1
+
+<P><A NAME="ground_friction"></A>
+<B>ground_friction</B>
+<HR>
+After a spray particle stops splashing it will form a puddle which slides
+along the ground.  The <I>ground_friction</I> options specifies how quickly the
+spray particle stops moving after it forms a puddle.  Setting this option
+to 0 causes the particle to stop as soon as it hits the ground.  Setting
+this option to 1 causes the particle to slide along without stopping.
+Numbers in between 0 and 1 bring the particle to a gradual stop.
+The default value for <I>ground_friction</I> is 0.5
+
+<P><A NAME="puddle_thickness"></A>
+<B>puddle_thickness</B>
+<HR>
+This number specifies how thick the puddles formed by the spray particle
+will be.  Setting this option to 1 means that the puddles are as thick as
+original particles, while smaller numbers make the puddles thinner (and
+wider).
+The default value for <I>puddle_thickness</I> is 0.3
+
+<P><A NAME="puddle_scale"></A>
+<B>puddle_scale</B>
+<HR>
+You can use this option to artificially alter the size of the puddles, eg.
+<CODE>puddle_scale = 2</CODE> will make the puddles twice as large as normal.  This
+is most useful when using <A HREF="#Blob Options">blobs</A>, as thin blobs can
+sometimes cause rendering problems or become invisible.
+The default value for <I>puddle_scale</I> is 1 (ie. no change in puddle size).
+
+
+<P><HR><A NAME="Texture Options"></A>
+<B>TEXTURE OPTIONS</B>
+<HR>
+The following options can be used to change the texture and colour of the
+spray object and its particles:
+
+<P><A NAME="spray_texture"></A>
+<B>spray_texture</B>
+<HR>
+This specifies the texture used for the spray object.  You can use the
+name of a predefined texture, eg: <CODE>#declare spray_texture = MyTexture</CODE>, or
+you can specify a complete texture within a texture {} statement.
+By default a plain blue texture is used.
+
+<P><A NAME="spray_color_map"></A>
+<B>spray_color_map</B>
+<HR>
+You can use this option to change the color of the spray object over time.
+This option should be declared as a standard color_map, eg:
+
+<P><CODE>#declare spray_color_map =
+<BR>color_map {[0 rgb &lt 1, 1, 1&gt ] [1 rgb &lt 0, 0, 0&gt ]}</CODE>
+
+<P>This will cause the spray to gradually change from white at the beginning
+of the animation, to black at the end of the animation.
+
+<P><A NAME="use_color_map"></A>
+<B>use_color_map</B>
+<HR>
+You can set this option to false to turn OFF the color_map if you are
+creating multiple spray objects and have already declared <A HREF="#spray_color_map">spray_color_map</A>,
+which you no longer want to use.
+
+<P><A NAME="color_map_triangle"></A>
+<B>color_map_triangle</B>
+<HR>
+Setting this option to true will cause the color_map to go from 0 to 1,
+and back to 0 (just like using the triangle_map pigment option).  This
+is the default if <A HREF="#spray_loop">spray_loop</A> is true; otherwise, the default value for
+<I>color_map_triangle</I> is false.
+
+<P><A NAME="color_map_frequency"></A>
+<B>color_map_frequency</B>
+<HR>
+Normally the first color of the <A HREF="#spray_color_map">spray_color_map</A> is used at the beginning
+of the spray, and the last color is used at the end of the spray.  You can
+change this option to have the color_map repeat itself more than once
+through the life of the spray object, eg. using <CODE>color_map_frequency = 5</CODE> will
+make the color_map loop through 5 times.
+
+
+<P><HR><A NAME="Turbulence Options"></A>
+<B>TURBULENCE OPTIONS</B>
+<HR>
+The options in this section can be used to add randomness to certain
+aspects of the spray object.  You can use these options to make the
+spray object more (or less) realistic.
+
+<P><A NAME="spray_turb"></A>
+<B>spray_turb</B>
+<HR>
+This option controls the overall amount of turbulence added to the
+spray object.  Good values range from 0 (no turbulence) to 1 (lots of
+turbulence), but any value can be used.  Changing this value will add
+equal turbulence to all aspects of the spray object.  If you wish to
+adjust the turbulence of individual areas of the spray object you can use
+the following parameters.
+
+<P>Note that all the individual turbulence options are multiplied by <I>spray_turb</I> to find the final turbulence, so you
+will have to make sure that <I>spray_turb</I> is not 0 before using the other
+turbulence options).
+
+<P>The default value for <I>spray_turb</I> is 0
+
+<P><A NAME="scale_turb"></A>
+<B>scale_turb</B>
+<HR>
+This option controls the amount of turbulence added to the scaling of the
+spray particles.  It is specified as a factor of the particle size,
+eg. <CODE>scale_turb = 0.5</CODE> will give particles scaled up to 50% larger or smaller
+than normal.
+
+<P><A NAME="vel_turb"></A>
+<B>vel_turb</B>
+<HR>
+This option controls the amount of turbulence added to the velocity of the
+particles.  It is specified as a factor of the particle velocity,
+eg. <CODE>vel_turb = 0.3</CODE> will give particles with velocities up to 30% more or
+less than normal.
+
+<P><A NAME="angle_turb"></A>
+<B>angle_turb</B>
+<HR>
+This option controls the amount of turbulence added to the nozzle angle.
+It is specified as a fraction of the nozzle_angle option, eg.
+<CODE>angle_turb = 0.4</CODE> will give particles with nozzle angles up to 40% more
+or less than normal.
+
+<P><A NAME="spin_turb"></A>
+<B>spin_turb</B>
+<HR>
+This option controls the amount of turbulence added to the nozzle spin.
+It is specified as a fraction of 360 degrees, eg. <CODE>spin_turb = 0.1</CODE> will
+give particles that spin up to 36 degrees away from normal.
+
+<P><A NAME="color_turb"></A>
+<B>color_turb</B>
+<HR>
+This option controls the amount of turbulence added to the color_map.
+<CODE>color_turb = 1</CODE> means that colors will be picked randomly from the
+<A HREF="#spray_color_map">spray_color_map</A> to color each particle.
+
+<P><A NAME="wind_turb"></A>
+<B>wind_turb</B>
+<HR>
+This option controls the amount of turbulence added to the wind direction.
+It is specified as a fraction of 360 degrees, eg. <CODE>wind_turb = 0.2</CODE> will
+give particles that are blown up to 72 degrees away from normal.
+
+<P><A NAME="spray_seed"></A>
+<B>spray_seed</B>
+<HR>
+This option specifies that random number seed used when adding turbulence to
+the spray object.  Normally this is 0, but any integer value can be used.
+
+
+<P><HR><A NAME="Other Options"></A>
+<B>OTHER OPTIONS</B>
+<HR>
+
+<P><A NAME="spray_clock"></A>
+<B>spray_clock</B>
+<HR>
+This option specifies the clock value you want to use to generate the
+spray object.  By default this is equal to POV-Ray's internal clock, so
+you shouldn't normally have to use this option.  However, there are a
+number of interesting effects you can achieve by using the <I>spray_clock</I>.
+If you use <CODE>spray_clock = 0.6</CODE>, you will get a still scene of the spray
+object, as it would look at 0.6 units of time.  You can also use functions
+of the internal clock, eg:
+
+<P><CODE>#declare spray_clock = 1 - clock;</CODE>
+
+<P>will give you a spray object that animates backwards.
+
+<P><A NAME="time_scale"></A>
+<B>time_scale</B>
+<HR>
+This option behaves differently, depending on the <A HREF="#spray_loop">spray_loop</A> option.  If
+<I>spray_loop</I> is true, then <I>time_scale</I> changes the time taken for the spray
+object to complete one loop, eg. <CODE>time_scale = 3</CODE> will make the spray object
+loop three times per unit of time, rather than once.
+If <I>spray_loop</I> is false, then <I>time_scale</I> gives the effect of increasing (if
+you use a number larger than 1) or decreasing (if you use a number smaller
+than 1) the speed of the spray particles.  However, it has no effect
+on the <A HREF="#spray_start">spray_start</A>, <A HREF="#spray_stop">spray_stop</A>, <A HREF="#spray_start_time">spray_start_time</A>, or <A HREF="#spray_stop_time">spray_stop_time</A>
+options.
+The default value for <I>time_scale</I> is 1
+
+<P><A NAME="flow_rate"></A>
+<B>flow_rate</B>
+<HR>
+This option can be used to change the flow rate of the spray object, where
+0 is off and 1 is full strength.  Numbers between 0 and 1 give less than
+full strength, while numbers larger than 1 give more than full strength.
+Normally if you want to turn the spray object on or off you will use the
+<A HREF="Time Options">time options</A>.  However, you can use the <I>flow_rate</I> option
+to create different effects, eg:
+
+<P><CODE>#declare flow_rate = sin(clock * 4 * pi) * .5 + 1;</CODE>
+
+<P>will give an oscillating spray object.
+
+
+<P>
+<BR>
+<A NAME="Troubleshooting"></A><TABLE WIDTH=100% BORDER=0 CELLPADDING=7><TR><TD BGCOLOR=#C0C0C0>
+<FONT SIZE=+1><B><I>TROUBLESHOOTING</B></I></FONT>
+</TD></TR></TABLE>
+
+<P><HR>
+<B>Q: I have created an animation with the Liquid Spray include file but it seems to render very slowly?</B>
+<BR>A: This is probably related to POV-Ray's bounding threshold setting.
+The default is 25 objects, and if your animation starts with less than this (eg. before the time set by the <A HREF="#spray_start">spray_start</A> option), bounding will be turned off.
+When the (many) particle objects are created bounding will not be enabled and rendering will be much slower than normal.
+To enable bounding regardless of the number of objects in the animation's first frame, use the <I>Bounding=0</I> setting in an INI file, or the <I>+MB0</I> setting on the POV-Ray command line.
+
+<P><HR>
+<B>Q: I have set the use_blob option to true, but the spray doesn't render properly?</B>
+<BR>A: Rendering problems with blobs are usually the result of inaccurate calculations by the raytracer.
+To fix the problems you can use the <I>sturm</I> keyword within the blob object; to enable sturmian calculations with the liquid spray, use the <A HREF="#components_only">components_only</A> option, eg:
+
+<P><CODE>#declare use_blob = true;
+<BR>#declare components_only = true;
+<BR>blob {threshold 0.5 #include "Spray.inc" texture {spray_texture}
+<BR>sturm}</CODE>
+
+<P><HR>
+<B>Q: I want to use the spray object with media and/or interior?</B>
+<BR>A: If you want to place media <I>inside</I> the spray object, or use POV-Ray 3.1's new interior to create refraction or caustics using the spray, you should follow the same directions as for other objects with interiors, ie. the textures should be partly (or wholly) transparent, and the object should be set to hollow.
+To do this, simply surround the <CODE>#include "Spray.inc"</CODE> line in an object {} statement, and add the interior as normal, eg:
+
+<P><CODE>#declare spray_texture = texture {pigment {rgbt 1}}
+
+<P>object {#include "Spray.inc" hollow
+<BR> interior {ior 1.33 media {MyMedia}}}</CODE>
+
+
+<P>
+<BR>
+<A NAME="Legal"></A><TABLE WIDTH=100% BORDER=0 CELLPADDING=7><TR><TD BGCOLOR=#C0C0C0>
+<FONT SIZE=+1><B><I>COPYRIGHT AND LEGAL INFORMATION</B></I></FONT>
+</TD></TR></TABLE>
+The <B>Liquid Spray Include File</B>, including <I>Spray.inc</I>, <I>SprayG.inc</I>, all documentation, and
+associated sample *.POV files are <B>Copyright 1997, 1998</B> by <B>Chris Colefax</B>.  Full
+permission is granted to the user to modify any or all of the files for
+his/her own use.  If modified versions are to be distributed the user
+should make clear the modifications that have been made by him/herself.
+
+<P>The <B>Liquid Spray Include File</B> may be bundled with or without other
+software on CD-ROM collections, Bulletin Board systems and other file
+archives, providing that all associated files, including documentation and
+samples, are included.  I would also request that persons intending to
+distribute the <B>Liquid Spray Include File</B> in this manner or otherwise
+would first <A HREF="#Contact">contact me</A> to ensure that
+they are in possession of the latest available version.
+
+<P>Further, no restrictions of any sort are placed on the usage of the include
+files themselves (<I>Spray.inc</I> and <I>SprayG.inc</I>), and scene files or images created using the include
+files remain entirely the property of the user or users who have created
+them.  I claim no liability or responsibility for damages or loss resulting
+from usage of the include files, or any part of the include file package.
+
+
+<P>
+<BR>
+<A NAME="Contact"></A><TABLE WIDTH=100% BORDER=0 CELLPADDING=7><TR><TD BGCOLOR=#C0C0C0>
+<FONT SIZE=+1><B><I>CONTACTING THE AUTHOR</B></I></FONT>
+</TD></TR></TABLE>
+If you wish to contact me with bug reports, bug fixes, criticisms, 
+comments, suggested improvements, questions, etc. you can reach me by 
+email at:
+
+<P><A HREF="mailto:ccolefax@geocities.com">ccolefax@geocities.com</A>
+
+<P>or by regular mail at:
+
+<UL>Chris Colefax
+<BR>PO Box 110
+<BR>Kuranda, Queensland
+<BR>Australia  4872
+
+</UL>
+<HR>
+
+<DIV ALIGN=RIGHT><FONT SIZE=-1><I>
+POV-Ray<FONT SIZE=-2><SUP>TM</SUP></FONT> and Persistence of Vision<FONT SIZE=-2><SUP>TM</SUP></FONT> are registered trademarks of the POV-Ray Team<FONT SIZE=-2><SUP>TM</SUP></FONT>
+</I></FONT></DIV>
+
+</BODY></HTML>
