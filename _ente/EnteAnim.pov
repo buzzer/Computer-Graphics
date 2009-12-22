@@ -21,23 +21,19 @@ camera {
 light_source{ <500,500, -1000> White }
 light_source{ <-500,500, 1000> White }
 
-
 plane { <0.0, 1.0, 0.0>, -2.0 pigment {color Gray} }
 
 //object{ Grid ( 0.5, 0.035, pigment{color rgb<1,1,1>*1.5} ) rotate<-90,0,0>}
-
-#declare Ducky= union{
-	difference{
-    		union{
-			object{Ducky}
-			object{Ducky scale <-1,1,1>} 
-		}
-	}
+//========================DUCKY
+#declare Ducky= merge{
+	object{Ducky} // Rechte Seite
+	object{Ducky scale <-1,1,1>} // Linke Seite
     	scale 1/150
     	rotate y*90 //90 Degree: Nullposition
 //    scale <1,1,0.5>
 //    translate -y*1
-}    
+}
+//=====================KOPF
 #declare KopfKugel=
 sphere{0,1
 	pigment{color Yellow transmit 0.5}
@@ -48,7 +44,6 @@ sphere{0,1
 intersection{
 	object{Ducky}
 	object{KopfKugel}
-	scale <1.3,1.3,1.3>
 }
 //#declare KopfKugeloSchnabel =
 //	sphere{<0.0,0.0,0> 2 pigment {color Red transmit 0.75} translate <0.9,1.5,0> scale <0.297,0.5,0.5> }
@@ -58,19 +53,34 @@ intersection{
 //	object{KopfKugeloSchnabel}
 //	inverse
 //}
-#declare Torso=
-difference{
+//================SCHWKUGEL
+#declare SchwKugel= sphere{<-0.2,-0.2,0>, 1.1	pigment{color Yellow transmit 0.5} }
+//====================TORSO
+#declare Torso=difference{
 	object{Ducky}
 	object{KopfKugel}
 	scale <0.8,1,1>
 }
+#declare TorsoOBuerz= difference{
+	object{Torso}
+	object{SchwKugel inverse}	
+}
+//object{TorsoOBuerz}
+//====================BUERZEL
+#declare EntenBuerzel= intersection{
+	object{Torso}
+	object{SchwKugel inverse}
+}
+//object{EntenBuerzel}
+
 #declare KopfAngMax= 25;
 #declare KopfPitch = sin(clock * 2 *pi ) *KopfAngMax;
 #declare KopfRoll = sin(clock * 4 * pi ) *KopfAngMax;
 #declare KopfYaw = sin(clock *8*pi) *KopfAngMax;
-#declare Auge =
-union{
-}
+#declare BuerzelPitch= sin(clock*8*pi)*KopfAngMax;
+//#declare Auge =
+//union{
+//}
 
 //object{Kopf}
 //object{KopfKugel}
@@ -88,9 +98,10 @@ union{
 }
 //====================KOMPLETT
 #declare EnteGanz = merge{
-	object{Kopf translate <-0.04,-0.4,0> rotate <KopfRoll,KopfYaw,KopfPitch> }
-	object{Torso}
+	object{Kopf translate <-0.04,-0.4,0> scale <1.3,1.3,1.3> rotate <KopfRoll,KopfYaw,KopfPitch> }
+	object{TorsoOBuerz}
 	object{Wing rotate y*-90*abs(sin(8*pi*clock)) translate z*-0.5 } // Right wing
 	object{Wing rotate y*90*abs(sin(8*pi*clock)) translate z*0.5 } // Left wing
+	object{EntenBuerzel rotate <0,0,BuerzelPitch> }
 }
 object{EnteGanz}
