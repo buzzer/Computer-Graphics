@@ -17,8 +17,7 @@ camera {
 	look_at <0,0,0>
 	rotate <0,clock*360,0>
 }
-
-light_source{ <500,500, -1000> White }
+light_source{ <500,500, -1000> White }
 light_source{ <-500,500, 1000> White }
 
 plane { <0.0, 1.0, 0.0>, -2.0 pigment {color Gray} }
@@ -66,21 +65,36 @@ intersection{
 	object{SchwKugel inverse}	
 }
 //object{TorsoOBuerz}
-//====================BUERZEL
-#declare EntenBuerzel= intersection{
-	object{Torso}
-	object{SchwKugel inverse}
-}
-//object{EntenBuerzel}
 
 #declare KopfAngMax= 25;
 #declare KopfPitch = sin(clock * 2 *pi ) *KopfAngMax;
 #declare KopfRoll = sin(clock * 4 * pi ) *KopfAngMax;
 #declare KopfYaw = sin(clock *8*pi) *KopfAngMax;
-#declare BuerzelPitch= sin(clock*8*pi)*KopfAngMax;
-//#declare Auge =
-//union{
+#declare BuerzelPitch= sin(clock*8*pi)*KopfAngMax/2;
+
+//====================BUERZEL
+//#declare EntenBuerzel= intersection{
+//	object{Torso}
+//	object{SchwKugel inverse}
+//	translate <1.15, -0.4, 0>
+//	scale <1.5, 1.5, 1.2>
+//	rotate <0,0,BuerzelPitch> // Wackle mit dem Schwanz
+//	translate <-1.05, 0.35, 0>
 //}
+#declare EntenBuerzel= blob{
+		threshold 1.2
+		cylinder {	< 0, 0, 0>, < 0.0, 0.5, 0.0>, 0.5 strength 2 rotate z*35}
+		cylinder {	< 0, 0, 0>, < 0.0, 0.5, 0.0>, 0.5 strength 2}
+		cylinder {	< 0, 0, 0>, < 0.0, 0.5, 0.0>, 0.5 strength 2  rotate z*-35}
+		texture{ T_Body }
+		scale <1, 0.8, 0.5>
+		scale 0.8
+		translate <0, -0.3, 0>
+		rotate <-90, -90, 0> 
+		rotate z*-45
+		rotate z*BuerzelPitch
+}
+//object{EntenBuerzel}
 
 //object{Kopf}
 //object{KopfKugel}
@@ -94,7 +108,7 @@ intersection{
 		cylinder {	< 0, 0, 0>, < 0.0, 0.75, 0.0>, 0.5 strength 2}
 		cylinder {	< 0, 0, 0>, < 0.0, 1, 0.0>, 0.5 strength 2  rotate z*-20}
 		texture{ T_Body }
-		rotate z*90 scale 0.5
+		rotate z*90 scale <0.5, 0.5, 0.3>
 }
 //====================KOMPLETT
 #declare EnteGanz = merge{
@@ -102,6 +116,6 @@ intersection{
 	object{TorsoOBuerz}
 	object{Wing rotate y*-90*(1+(sin(8*pi*clock)))/2 translate z*-0.5 } // Right wing
 	object{Wing rotate y*90*(1+(sin(8*pi*clock)))/2 translate z*0.5 } // Left wing
-	object{EntenBuerzel rotate <0,0,BuerzelPitch> }
+	object{EntenBuerzel translate <-1, 0.3, 0>}
 }
 object{EnteGanz}
