@@ -1,5 +1,6 @@
 #include "toiletx01.inc"
 #include "Ente.inc"
+#include "tileWall.inc"
 
 camera {
 	perspective 
@@ -15,6 +16,7 @@ light_source {
 	rgb <1.000000, 1.000000, 1.000000> *2
 }
 plane {	<0.0, 1, 0.0>, 0.0	pigment {	rgb <0.524336, 0.523580, 0.549176> } }
-plane {	<0.0, 0.0, -1>, 0	material {		texture { pigment {	rgb <0.574731, 0.579588, 0.571909> }			normal {	brick 0.5 //amount			}			finish {	reflection {	rgb <0.000000, 0.000000, 0.000000>}				diffuse 0.6				brilliance 1.0			}		}		interior { ior 1.3 }	}} 
+
+object{MakeTileWall(10,10,2) translate x*-5} 
 object{toiletx01}
 object{EnteGanz rotate y*45 translate <0, 5, -5>}
