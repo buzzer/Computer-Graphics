@@ -1,6 +1,5 @@
 #include "colors.inc"
-//#include "tiles.inc"
-#include "tileWall"
+#include "tileWall.inc"
 
 light_source {
 	< 10, 10, -10>
@@ -8,12 +7,12 @@ light_source {
 //	shadowless
 }
 camera {
-	location < -2, 1, -5>
-	angle 80
-	look_at < 0, 1, 0>
+	location < 0, 2, -5>
+	angle 90
+	look_at < 2, 2, 0>
 }
 //===============
-object{MakeTileWall(10,10,1) } 
+object{MakeTileWall(7,5,1) } 
 sphere {	0, 0.3 
 	pigment {Green}
 	translate <1,1.5,-1>

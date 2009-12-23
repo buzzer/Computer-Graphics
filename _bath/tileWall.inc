@@ -25,10 +25,10 @@
 				#local Row = Row + 1;
 				#debug concat("Row: ", str(Row,2,0), "\n")
 			#end
-			#debug concat("Col: ", str(Row,2,0), "\n")
+			//#debug concat("Col: ", str(Row,2,0), "\n")
 			#local Col = Col + 1;
 			#debug concat("Col: ", str(Row,2,0), "\n")
 		#end
-//		object { SquareTile rotate x*-90 scale .9 translate <.05, 0, .05> }
+    object { SquareTile rotate x*-90 scale .9 translate <.05, 0, .05> }
 	}
 #end
