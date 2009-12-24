@@ -2,17 +2,18 @@
 #include "tileWall.inc"
 
 light_source {
-	< 10, 10, -10>
-	color White *2
+	< 100, 100, -100>
+	color White
 //	shadowless
 }
 camera {
-	location < 0, 2, -5>
-	angle 90
-	look_at < 2, 2, 0>
+	location < 1, 2, -2>
+	angle 110
+	look_at < 1.5, 1.5, 0>
 }
+//background { White }
 //===============
-object{MakeTileWall(7,5,1) } 
+object{ MakeTileWall(3,3,1) } 
 sphere {	0, 0.3 
 	pigment {Green}
 	translate <1,1.5,-1>
