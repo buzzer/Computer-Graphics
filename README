@@ -1,0 +1,20 @@
+This is the project folder for the IVC POV-Ray project at Uni Hamburg in WS 09.
+In the Interactive Visual Computer graphics course a shor animation with POV-Ray
+shall be created.
+More details on http://www.sebastianrockel.de/ivc09.
+
+To contribute/take part:
+
+1) Install Git
+2) > git pull origin master
+3) > git add <file>
+4) > git commit <file>
+
+Following files are here:
+
+_bath:  3D room created for the ducky bath scene
+_Baum:  3D tree model
+_ente:  3D model of the ducky
+_misc:  Misc. stuff, e.g. broken egg
+_sky:   Model of sky
+
