@@ -8,6 +8,10 @@
 
 //Note:  scale used: 1meter = 10 POV units
 
+#declare ToiletFinish = 
+	// finish {phong .7 reflection .085}
+	 finish {ambient .2 diffuse .85 phong .7 reflection .085}
+
 #declare bolatronox01 =  difference { sphere {  <0.0,0.0,0.0>,1.0
   scale <2.0000,2.5000,3.2500>  rotate <0.0000,0.0000,0.0000>  translate <0.0000,3.3000,-3.7000>}
 box {<-0.5,-0.5,-0.5>  <0.5,0.5,0.5>
@@ -72,6 +76,6 @@ object {  basex02} object {  basex03} object {  basex01} object {  topetaza} obj
 object {  esquitanque1} object {  esquitanque2} object {  esquitanque3} object {  esquitanque4}
 object {  ladotanque1} object {  ladotanque2} object {  tapatanque} object {  patax01}
 object {  bizcochox01} object {  tapatronox01} object {  bolatronox01}
-pigment {rgb <.9,.9,.9>} finish {phong .7 reflection .085}} object {boton01 translate <-1.75,6.1,-2.2>}}
+pigment {rgb <.9,.9,.9>} finish{ToiletFinish}} object {boton01 translate <-1.75,6.1,-2.2>}}
 
 //if you have any comments or suggestions about this object, you can e-mail me...

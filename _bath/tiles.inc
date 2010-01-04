@@ -12,6 +12,13 @@
 #include "shapes.inc"
 #include "textures.inc"
 
+#declare TileTexture =
+texture {
+	pigment {color White}
+//	finish {reflection .5 ambient .2 diffuse .04}
+	finish {reflection .1 ambient .2 diffuse .8}
+}
+
 #declare SquareTile=
 intersection {
 	box {<0,0,0>,<10,1,10>}
@@ -21,11 +28,7 @@ intersection {
 		plane {-z,0 rotate 45*x translate -.5*z}
 		plane {z,0 rotate -45*x translate 10.5*z}
 	}
-	texture {
-		pigment {color White}
-//		finish {reflection .5 ambient .2 diffuse .04}
-		finish {reflection .5 ambient .2 diffuse .5}
-	}
+	texture{TileTexture}
 	scale .1
 	bounded_by {box {<0,0,0>,<1,.1,1>}}
 }
@@ -60,11 +63,7 @@ union {
 	box {<0,0,0>,<10,.5,10>}
 	box {<.5,0,.5>,<9.5,1,9.5>}
 	object {mdcTileTubeEdge}
-	texture {
-		pigment {color White}
-//		finish {reflection .5 ambient .2 diffuse .04}
-		finish {reflection .5 ambient .2 diffuse 0.5}
-	}
+	texture{TileTexture}
 	scale .1
 	bounded_by {box {<0,0,0>,<1,.1,1>}}
 }
