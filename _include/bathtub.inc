@@ -1,8 +1,8 @@
 #include "tubwater.inc"
 
 // Bathtub
-#declare TubDepth=8;
-#declare TubWidth=15;
+#declare TubDepth=9;
+#declare TubWidth=17;
 #declare TubHeight=5;
 #declare TubScale=2;
 #declare TubInnerDepth=1;
