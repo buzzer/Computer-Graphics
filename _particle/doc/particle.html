@@ -1,0 +1,430 @@
+<html>
+<head>
+<title>Rune's Particle System v1.01</title>
+<style type="text/css">
+body   { color: #000000; background-color: #FFFFFF }
+td     { font-family: Verdana, Arial, Helvetica, sans-serif }
+td.tablehead { color: #FFFFFF; background-color: #666666; font-weight: bold }
+</style>
+</head>
+<body marginwidth=0 marginheight=50 topmargin=50 leftmargin=0 bgcolor="#FFFFFF">
+
+<table width="100%" border=0 cellspacing=0 cellpadding=0>
+   <tr><td valign="top" width=140 align="middle"><img src="b.gif" width=140 height=1><br><img src="rvlogo.gif" width=64 height=48 border=0></td><td valign="top">
+
+<table width="100%" border=0 cellspacing=0 cellpadding=0>
+
+<tr><td valign="top" width=50><img src="b.gif" width=50 height=1></td><td valign="top"></td></tr>
+
+<tr><td valign="top" colspan=2><dl>
+<b><font size=+3>Rune's Particle System</font> v1.01</b><br>
+<b>for POV-Ray 3.5</b>
+</dl></td></tr>
+
+<tr><td valign="top" width=50></td><td valign="top"><dl>
+Water, smoke, fire and sparks are just some of the uses of Rune's Particle System. With a generic and non-specialized engine, the system makes it easy to customize the simulation to a wide range of uses.
+<p>
+I sincerely hope you have fun with this package! If you have any problems with it, I would like to hear about it. Also, if you have any comments, questions or enhancements, please contact me!
+<br></dl></td></tr>
+
+<tr><td valign="top" colspan=2><dl>
+<font size=+1><b>Contents<br></b></font>
+</dl></td></tr>
+
+<tr><td valign="top" width=50></td><td valign="top"><dl>
+<ul>
+<li><a href="#system">Using the system</a>
+<li><a href="#clock">Clock settings</a>
+<li><a href="#general">General particle settings</a>
+<li><a href="#environment">Environment settings</a>
+<li><a href="#emitter">Emitter settings</a>
+<li><a href="#collision">Collision settings</a>
+<li><a href="#element">The particle_element macro</a>
+<li><a href="#calling">Calling the particle system</a>
+<li><a href="#loading">Loading a system</a>
+<li><a href="#questions">Questions and answers</a>
+<li><a href="#contact">Contacting the author</a>
+<li><a href="#terms">Terms of use</a>
+</ul>
+<br></dl></td></tr>
+
+<tr><td valign="top" colspan=2><dl>
+<a name="system"><font size=+1><b>Using the system<br></b></font></a>
+</dl></td></tr>
+
+<tr><td valign="top" width=50></td><td valign="top"><dl>
+The system is used by first including the particle.inc include file, then specifying all the options and the particle_element macro and lastly call the particle system. Here the order is described:
+<p>
+<dd>
+<pre>
+// 1) include particle system include file
+#include "particle.inc"
+
+// 2) define settings
+#declare particle_start  = 0.0;
+#declare particle_end    = 1.0;
+#declare particle_cyclic = off;
+#declare particle_steps  = 100;
+...
+
+// 3) define the particle_element macro
+#macro particle_element () ... #end
+
+// 4) call particle system
+particle_system ("my_particle_system")
+
+// If you want one more particle system in your scene, go to step 2.
+</pre>
+<dt>
+<p>
+Also see the quickref.pov scene file which has all options specified.
+<p>
+Note that the particle system uses file I/O to write the particle data to files in between the frames of an animation. These files have a .data extension and can safely be deleted once an image or animation has finished rendering. The more particles you use, the larger these files will be. However, in most cases, the sizes of the data files will be insignificant. The .data files will always be written to the same folder as the scene file itself.
+<br></dl></td></tr>
+
+<tr><td valign="top" colspan=2><dl>
+<a name="clock"><font size=+1><b>Clock settings<br></b></font></a>
+</dl></td></tr>
+
+<tr><td valign="top" width=50></td><td valign="top"><dl>
+The clock settings control how the particle system works with regard to the clock variable in POV-Ray. Remember that all #declared particle system settings must remain constant during an animation. All settings are optional. When a setting is not specified, the default setting will be used, if there is one.
+<p>
+<dt><b>particle_start, particle_end</b>
+<dd>The clock values defining the time interval in which the particle system is active.
+<br>Default:<br><tt>#declare particle_start = 0.0;</tt><br><tt>#declare particle_end = 1.0;</tt>
+<p>
+<dt><b>particle_cyclic</b>
+<dd>Setting this option to <i>on</i> makes the particle simulation cycle in the time interval defined by the particle_start and particle_end values. Note that this will make the first frame of the animation parse very slowly, because the system has to calculate particle activity far back in time.
+<br>Default:<br><tt>#declare particle_cyclic = off;</tt>
+<p>
+<dt><b>particle_steps</b>
+<dd>This value specifies how many calculation steps per clock value are performed. Lower values parse faster, while higher values lead to more precise results. To find out if you use enough steps, try to render the animation with only half as many steps as before. If the result differs noteworthy, too few steps are used. If on the other hand you render the animation with twice as many steps and the result is practically the same, then you are using enough steps, or maybe even more than what is necessary.
+<br>Default:<br><tt>#declare particle_steps = 100;</tt>
+<br></dl></td></tr>
+
+<tr><td valign="top" colspan=2><dl>
+<a name="general"><font size=+1><b>General particle settings<br></b></font></a>
+</dl></td></tr>
+
+<tr><td valign="top" width=50></td><td valign="top"><dl>
+The general particle settings control how many particles there are and how long they last. Remember that all #declared particle system settings must remain constant during an animation. All settings are optional. When a setting is not specified, the default setting will be used, if there is one.
+<p>
+<dt><b>particle_frequency</b>
+<dd>This value specifies how many particles are emitted per clock value.
+<br>Default:<br><tt>#declare particle_frequency = 100;</tt>
+<p>
+<dt><b>particle_life</b>
+<dd>This value controls how long time in clock units a particle lasts before it disappears.
+<br>Default:<br><tt>#declare particle_life = 1.0;</tt>
+<p>
+<dt><b>particle_lifeturb</b>
+<dd>This value controls the amount of randomness used for the life length of each particle. <i>0.0</i> is no randomness and <i>1.0</i> is 100% randomness.
+<br>Default:<br><tt>#declare particle_lifeturb = 0.0;</tt>
+<p>
+<dt><b>particle_seed</b>
+<dd>This value is the seed of all randomness in the particle simulation.
+<br>Default:<br><tt>#declare particle_seed = 123;</tt>
+<p>
+<dt><b>particle_maxnumber</b>
+<dd>If specified, this value defines the maximum number of particles allowed at a time. When not specified, the system will calculate the number automatically, and most of the time it does it effeciently. But if the <a href="#emitter_emitter">particle_emitting</a> option is only set to <i>on</i> a little bit of the time, then the automatic calculation will predict a too large number, which will make the parsing slower, and in that case you can specify it manually if you want.
+<br>Default:<br><tt>#declare particle_maxnumber =
+<br>ceil(particle_life*(1+particle_lifeturb)*particle_frequency+1)</tt>
+<br></dl></td></tr>
+
+<tr><td valign="top" colspan=2><dl>
+<a name="environment"><font size=+1><b>Environment settings<br></b></font></a>
+</dl></td></tr>
+
+<tr><td valign="top" width=50></td><td valign="top"><dl>
+The environment settings control the air, wind and gravity in the particle simulation. Remember that all #declared particle system settings must remain constant during an animation. All settings are optional. When a setting is not specified, the default setting will be used, if there is one.
+<p>
+<dt><b>particle_drag</b>
+<dd>This value specifies the air resistance. The higher value specified, the more the particles will be slowed down by the air, or follow the wind if there is any wind. The default is no air resistance.
+<br>Default:<br><tt>#declare particle_drag = 0.0;</tt>
+<p>
+Finding the right drag value can seem difficult, but if you know what the terminal velocity of the particles should be, then you can calculate the drag force using this formula (where gravity is the length of the <i>particle_gravity</i> vector):<br>
+<i>terminal_velocity = sqrt(gravity/drag)</i><br>
+Which can be rewritten to:<br>
+<i>drag = gravity/(terminal_velocity^2)</i>
+<p>
+<dt><b>particle_transfer</b>
+<dd>This value controls how much kinetic energy is transferred to the particles. It controls how much movement the particles gain from the particle emitter if the particle emitter is moving. <i>0.0</i> is no movement and <i>1.0</i> is 100% movement. The default is <i>0.0</i>. However, if a realistic simulation is desired, the value should be set to <i>1.0</i>, and the particle_drag option should be used to slow down the particles instead. The particle_transfer feature only detects movements of the particle_emitter setting, not movements of the optional particle_emitobj setting. Read more under the <a href="#emitter">emitter&nbsp;settings</a>.
+<br>Default:<br><tt>#declare particle_transfer = 0.0;</tt>
+<p>
+<dt><b>particle_gravity</b>
+<dd>This user-defined macro controls the gravity force that the particles are influenced by. It has two parameters: <i>Clock</i> and <i>Point</i>. With these two parameters you can make gravity which changes over time or which is different for different points in space. The macro must return a vector. A typical vector is <i>-y</i> or some multiple of that like </>-5*y</i>, but any vector can be used. It is important that the vector is only dependent on the <i>Clock</i> and <i>Point</i> parameters and not on any external values such as the clock variable.
+<br>Default:<br><tt>#macro particle_gravity (Clock,Point) <0,0,0> #end</tt>
+<p>
+<dt><b>particle_wind</b>
+<dd>This user-defined macro controls the wind that the particles are influenced by. It has two parameters: <i>Clock</i> and <i>Point</i>. With these two parameters you can make wind that changes over time or is different for different points in space. The macro must return a vector. The wind has no effect if the particle_drag option is set to <i>0.0</i>. It is important that the vector is only dependent on the <i>Clock</i> and <i>Point</i> parameters and not on any external values such as the clock variable.
+<br>Default:<br><tt>#macro particle_wind (Clock,Point) <0,0,0> #end</tt>
+<br></dl></td></tr>
+
+<tr><td valign="top" colspan=2><dl>
+<a name="emitter"><font size=+1><b>Emitter settings<br></b></font></a>
+</dl></td></tr>
+
+<tr><td valign="top" width=50></td><td valign="top"><dl>
+The emitter settings control the particle emitter, from which the particles are emitted. There are several settings that control the directions in which the particles are emitted. When more than one of these options are set, the direction vectors are simply added together. All settings are optional. When a setting is not specified, the default setting will be used, if there is one.
+<p>
+<dt><b>particle_emitter</b>
+<dd>This user-defined macro controls the location point of the particle emitter. It has one parameter: <i>Clock</i>. With this parameter you can make the emitter location move over time. The macro must return a vector. It is important that the vector is only dependent on the <i>Clock</i> parameter and not on any external values such as the clock variable.
+<br>Default:<br><tt>#macro particle_emitter (Clock) <0,0,0> #end</tt>
+<p>
+<dt><a name="emitter_emitter"><b>particle_emitting</b></a>
+<dd>This user-defined macro can be used to turn on and off the particle emitter over time. It has one parameter: <i>Clock</i>. The macro must return a boolean value which is either true or false. For example the expression <i>(Clock&lt;0.5)</i> will turn off the emitter when the clock value reaches 0.5. It is important that the expression is only dependent on the <i>Clock</i> parameter and not on any external values such as the clock variable.
+<br>Default:<br><tt>#macro particle_emitting (Clock) on #end</tt>
+<p>
+<dt><b>particle_emitvect</b>
+<dd>This user-defined macro controls the direction in which the particles are emitted and also the thrust with which they are emitted. It has one parameter: <i>Clock</i>. With this parameter you can make the emitter direction move over time. The macro must return a vector. It is important that the vector is only dependent on the <i>Clock</i> parameter and not on any external values such as the clock variable.
+<br>Default:<br><tt>#macro particle_emitvect (Clock) <0,0,0> #end</tt>
+<p>
+<dt><b>particle_emitturb</b>
+<dd>This user-defined macro controls the turbulence added to the directions in which the particles are emitted. It has one parameter: <i>Clock</i>. With this parameter you can make the turbulence vary over time. The macro must return a float. It is important that the float is only dependent on the <i>Clock</i> parameter and not on any external values such as the clock variable.
+<br>Default:<br><tt>#macro particle_emitturb (Clock) 0.0 #end</tt>
+<p>
+<dt><b>particle_emitobj</b>
+<dd>This optional user-defined macro can be used to make the particles be emitted from an object instead of a point. The particles are emitted from the surface of the object. It has one parameter: <i>Clock</i>. With this parameter you can move the emitter object over time. The macro must return a solid object. It is important that the object is only dependent on the <i>Clock</i> parameter and not on any external values such as the clock variable. The particle_emitobj object will automatically be translated by the point specified in the particle_emitter setting. So either the particle_emitobj should be centered on the origin all the time, or else the particle_emitter should be set to &lt;0,0,0&gt; all the time. Also read about particle_transfer in the <a href="#environment">environment&nbsp;settings</a>.
+<br>Default: none. If macro is not specified, a regular point emitter is used.
+<p>
+<dt><b>particle_emitobjn</b>
+<dd>When the particle_emitobj macro is defined to create an emitter object, the particle_emitobjn macro can be used to make the particles be emitted in the direction away from the emitter object. They are then emitted according to the normal of the surface of the emitter object. The macro has one parameter: <i>Clock</i>. With this parameter you can make the emitter direction move over time. The macro must return a float. This float controls the thrust with which the particles are emitted away from the emitter object. It is important that the float is only dependent on the <i>Clock</i> parameter and not on any external values such as the clock variable.
+<br>Default:<br><tt>#macro particle_emitobjn (Clock) 0.0 #end</tt>
+<br></dl></td></tr>
+
+<tr><td valign="top" colspan=2><dl>
+<a name="collision"><font size=+1><b>Collision settings<br></b></font></a>
+</dl></td></tr>
+
+<tr><td valign="top" width=50></td><td valign="top"><dl>
+The collision settings control what happens when particles collide with objects. Remember that all #declared particle system settings must remain constant during an animation. All settings are optional. When a setting is not specified, the default setting will be used, if there is one.
+<p>
+<dt><b>particle_blockobj</b>
+<dd>This is the object that the particle simulation performs collision detection against. If this option is not specified, collision detection is turned off.
+<br>Default: none. If object is not specified, collision detection is turned off.
+<p>
+<dt><b>particle_bounce</b>
+<dd>This value controls how much particles bounce when hitting a surface. <i>1.0</i> is 100% preservation of kinetic energy and <i>0.0</i> is no bouncing.
+<br>Default:<br><tt>#declare particle_bounce = 0.5;</tt>
+<p>
+<dt><b>particle_bounceturb</b>
+<dd>This value controls how much turbulence is added to the direction in which the particle bounces. When set to <i>0.0</i> the particles bounce perfectly like billiard balls and when set to <i>1.0</i> the particles bounce in random directions.
+<br>Default:<br><tt>#declare particle_bounceturb = 0.5;</tt>
+<p>
+<dt><b>particle_friction</b>
+<dd>When particle_friction is set to <i>0.0</i>, then the movement tangental to the surface at a collision is not reduced. When particle_friction is set to <i>1.0</i>, then the movement tangental to the surface is reduced equally much as the movement perpendicular to the surface, which is controlled by the particle_bounce variable. Generally, a low particle_friction value makes the particles flow better on surfaces, while a high particle_friction value makes the particles stop faster.
+<br>Default:<br><tt>#declare particle_friction = 0.0;</tt>
+<p>
+<dt><b>particle_bounceoffset</b>
+<dd>This value is used to avoid errors in the particle collision detection calculations. It controls how much a particle should be offset away from the surface when a collision has happened. By offsetting the particle a little bit away from the surface, it is avoided that the particle falls through the surface. The value should be small enough that it cannot be noticed in the animation, but if you notice particles falling through surfaces, you may consider increasing it.
+<br>Default:<br><tt>#declare particle_bounceoffset = 0.01;</tt>
+<p>
+<dt><b>particle_killobj</b>
+<dd>This optional user-defined macro can be used to make the particles disappear if they get inside the space occupied by a specific kill object. It has one parameter: <i>Clock</i>. With this parameter you can move the object over time. The macro must return a solid object. It is important that the object is only dependent on the <i>Clock</i> parameter and not on any external values such as the clock variable.
+<br>Default: none. If macro is not specified, there is no kill object.
+<br></dl></td></tr>
+
+<tr><td valign="top" colspan=2><dl>
+<a name="element"><font size=+1><b>The particle_element macro<br></b></font></a>
+</dl></td></tr>
+
+<tr><td valign="top" width=50></td><td valign="top"><dl>
+The particle_element macro is used to control what the particles actually look like. Whether you want water, smoke, sparks or something different is a matter of defining the right particle_element macro. You are basically just given some variables which you can the use as you wish to create the particles. Unlike in the other user-defined macros, you may also refer to the clock variable in the particle_element macro. The particle_element macros has no parameters and it is you who decide what it returns, but usually it is an object. The available variables are described here:
+<p>
+<dt><b>p_id</b>
+<dd>A unique integer id number for the particle.
+<p>
+<dt><b>p_random</b>
+<dd>A random number between 0 and 1 assigned to the current particle. If you need a random number, use this one, as in an animation you cannot rely on a regular random stream. If you need more than one random number, base them from this one, or from the p_id value.
+<p>
+<dt><b>p_location</b>
+<dd>The current location vector of the particle.
+<p>
+<dt><b>p_direction</b>
+<dd>The current direction vector of the particle. Speed can be derived from this using vlength(p_direction).
+<p>
+<dt><b>p_life</b>
+<dd>The predicted age of the particle in clock units. In other words, the time from it was born till it will die.
+<p>
+<dt><b>p_age</b>
+<dd>The current age of the particle in clock units.
+<p>
+<dt><b>p_birth</b>
+<dd>The clock value where the particle was born. If particle_cyclic is turned on, the p_birth value can be higher than the current clock value.
+<p>
+<dt><b>p_state</b>
+<dd>The age of the particle expressed in a value that goes from 0.0 to 1.0 from the particle is born till it dies. Same as (p_age/particle_life).
+<p>
+<dt><b>p_rotate</b>
+<dd>A rotation vector which will make the z direction of the particle point in the direction that the particle is moving.
+<dt>
+<p>
+The particle_element macro can be put in an include file and called from different scene files. This particle system package contains several such include files with custom particle_element macros. <b>Look at the files expl.inc, fire.inc, glitter.inc, glow.inc, smoke.inc, and water.inc to learn how they are used.</b>
+<br></dl></td></tr>
+
+<tr><td valign="top" colspan=2><dl>
+<a name="calling"><font size=+1><b>Calling the particle system<br></b></font></a>
+</dl></td></tr>
+
+<tr><td valign="top" width=50></td><td valign="top"><dl>
+After all settings have been specified, the particle system can be loaded by calling the particle_system macro:
+<br><tt>particle_system ("system1")</tt>
+<p>
+The string passed to the macro can be anything and is only used to identify the system and to name the data files where the particle data is stored in between frames. This is particularly useful if you have more than one particle system in your scene, in which case they must have different names so that they don't get mixed up. It also means that in the message windows where the debug messages are shown, you can see which statistics belong to which systems.
+
+The particle_system macro will do all the calculations and call your user-defined particle_element macro for each active particle. This means that if you want all your particle objects to be placed inside a union, the particle_system macro should be called from within that union:
+<p>
+<dd>
+<pre>
+union {
+   particle_system ("my_particle_system")
+}
+</pre>
+<dt>
+<p>
+Similarly, if your particle_element macro creates a blob element, you should place the particle_system macro inside a blob object:
+<p>
+<dd>
+<pre>
+blob {
+   threshold 1.0
+   particle_system ("my_particle_system")
+   texture {My_Water_Texture}
+}
+</pre>
+<dt>
+<p>
+If no particle_element macro is defined, the particles won't show up unless you use the Load System feature to create the particles.
+<br></dl></td></tr>
+
+<tr><td valign="top" colspan=2><dl>
+<a name="loading"><font size=+1><b>Loading a system<br></b></font></a>
+</dl></td></tr>
+
+<tr><td valign="top" width=50></td><td valign="top"><dl>
+Normally the particle_element macro is used to create the particles, but if you are an advanced user, in some cases you may need more control over how the particles are created. For this reason it is possible to load a system that has been defined. The load_system macro and load_particle macro is used for this. The macros should be used as shown here:
+<p>
+<dd>
+<pre>
+#declare Number_Of_Particles = load_system ("system1");
+
+#declare Counter = 0;
+#while (Counter&lt;Number_Of_Particles)
+   load_particle(Counter)
+   // Do things with the particle data here. Available data:
+   // p_id,        p_random,    p_location,  p_direction, p_life,
+   // p_age,       p_birth,     p_state,     p_rotate
+   #declare Counter = Counter+1;
+#end
+</pre>
+<dt>
+<p>
+The load_system macro takes the name of the system as input. The macro loads the system into memory and it also returns the number of currently active particles that are in the system. The load_particle macro calculates the data for a particle.
+<p>
+After having loaded a particle, you have access to the same data as you have in the particle_element macro. Please refer to the section about <a href="#element">the particle_element macro</a> for details about that data.
+<p>
+Note that since particles are created and destroyed all the time, the same counter value will not always load the same particle. If you need a unique integer value which identifies each particle, use the p_id variable which was made for this purpose.
+<br></dl></td></tr>
+
+<tr><td valign="top" colspan=2><dl>
+<a name="questions"><font size=+1><b>Questions and answers<br></b></font></a>
+</dl></td></tr>
+
+<tr><td valign="top" width=50></td><td valign="top"><dl>
+Please read this section before sending me questions. If you have a question not listed here, feel free to contact me.
+<p>
+<dt><b>How can I make a conical emitter / a spray emitter?</b>
+<dd>There is no special emitter type designed for this, but you can just use the particle_emitvect setting together with the particle_emitturb setting to have the particles emitted in a conical, spray-like fashion.
+<p>
+<dt><b>Can I move the particle_blockobj around in an animation?</b>
+<dd>No. It is not supported in this version, but may be supported in future versions.
+<p>
+<dt><b>How can I have one wind vector of for example <20,0,0> for particles lower than y=5 but no wind for the other particles?</b>
+<dd>You can do something like this:
+<pre>
+#macro particle_wind (Clock,Point)
+   #if (Point.y<5) <20,0,0> #else <0,0,0> #end
+#end
+</pre>
+<p>
+<dt><b>How can I simulate atmospheric turbulence?</b>
+<dd>You can use the vturbulence() function in POV-Ray in the particle_wind() macro. For example:
+<pre>
+#macro particle_wind (Clock,Point)
+   Amount*vturbulence( Lambda, Omega, Octaves, Point*Frequency + Speed*y*Clock );
+#end
+</pre>
+Where Amount, Lambda, Omega, Octaves, Frequency and Speed are constants. It's not a perfect method, but try to tweak it and see if you can get it working to your liking.
+<p>
+<dt><b>The media feature in POV-Ray is used to render particulate matter. Is your particle system related to this?</b>
+<dd>Not directly. In this particle system, each particle is only a point in space. Over time, the points are affected by forces such as gravity and wind, which make the points move, and they can also be set to bounce or glide upon collision with certain surfaces. You can place an object filled with media at the location of each particle, but you can also place any other object there, so the particle system is not directly related to the media feature in POV-Ray.
+<p>
+<dt><b>The particles are emitted in small groups. How can I avoid that?</b>
+<dd>Try to increase the particle_steps. If it doesn't help no matter how much you increase the particle_steps, then one of your emitter settings are probably dependent on external variables, which is not allowed. They must only be dependent on the Clock parameter.
+<p>
+<dt><b>Why can't I fill an object with particles, for example a glass of water?</b>
+<dd>See the next question.
+<p>
+<dt><b>Can I get the particles to interact with each other?</b>
+<dd>No. This particle system does not support particle interaction. It would be very difficult to implement in a satisfying way in a system aimed at so different uses as this system is. Particle interaction is better suited for more specialized systems that are aimed at specific goals, like for example simulating liquids. Besides, particle interaction would not be compatible with all features of this particle system, such as cyclic animation.
+<br></dl></td></tr>
+
+<tr><td valign="top" colspan=2><dl>
+<a name="contact"><font size=+1><b>Contacting the author<br></b></font></a>
+</dl></td></tr>
+
+<tr><td valign="top" width=50></td><td valign="top"><dl>
+<dt>If you have questions, comments, bug reports etc. or if you just want to tell about something you've made using this utility, please contact me through my website at
+<p>
+<dd><a href="http://runevision.com" target="newwindow">http://runevision.com</a>
+<br></dl></td></tr>
+
+<tr><td valign="top" colspan=2><dl>
+<a name="terms"><font size=+1><b>Terms of use<br></b></font></a>
+</dl></td></tr>
+
+<tr><td valign="top" width=50></td><td valign="top"><dl>
+<b>Rune's Particle System v1.01 for POV-Ray 3.5<br>
+Copyright (C) 2002  Rune S. Johansen
+<p>
+This program is free software; you can redistribute it and/or modify
+it under the terms of the <a href="../gpl.txt">GNU General Public License</a> as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+<p>
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+<p>
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA</b>
+<p>
+The above are the only terms you have to follow. However, I would be very thankful if you would consider helping me and supporting my work as described below.
+<p>
+<ul>
+<li><b>Give credit</b><br>
+If you make any images or animations using my particle system, I would appreciate it if you would give me credit where due, including both my name (Rune S. Johansen) and a link to my web site.
+<p>
+If you use my particle system in the creation process of images or animations for the Internet Ray-Tracing Competition located at http://www.irtc.org, I would also appreciate such credit written in the text file accompanying the entry. 
+<p>
+<li><b>Donate</b><br>
+I have made my particle system available for free, for everyone to use. However, if you find it to be a valuable tool in your work, I hope you will consider making a small donation. This way you can help support the further development of free utilities, in which I invest so much of my time. You can read more about the donation options on this page:
+<p>
+<a href="http://runevision.com/welcome/donate/">http://runevision.com/welcome/donate/</a>
+<p>
+<li><b>Contact me</b><br>
+I also always appreciate to hear from people who use the utilities I have made available, so if you have any comments, questions, or problems, please contact me, because I'd like to hear about it! (See <a href="#contact">contact information</a> above.)
+</ul>
+<p>
+Regards,<br>
+Rune S. Johansen
+<br></dl></td></tr>
+
+</table>
+
+</td><td valign="top" width=50><img src="b.gif" width=50 height=1></td></tr></table>
+
+</body>
+</html>
