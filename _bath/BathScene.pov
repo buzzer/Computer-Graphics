@@ -11,9 +11,10 @@
 #declare TileScaleFloor = 3.5;
 // Ducky
 // Entenposition
-#declare DuckX = 22-10*clock;
+#declare DuckX = 27-11*clock;
 #declare DuckY = 4;
 #declare DuckZ = -4;
+#declare DuckRot = 180*clock;
 //==================INCLUDE OBJECTS HERE=================
 #include "bathCamera.inc"
 camera{BathCamera}
@@ -27,7 +28,7 @@ light_source {	< 0, 100, -100> White }
 object{RoomWalls}
 #declare ToiletWidth = 6; // Approximated !!!
 object{toiletx01 translate x*ToiletWidth*1.5 }
-object{EnteGanz rotate y*180 translate <DuckX, DuckY, DuckZ>}
+object{EnteGanz rotate y*(180-DuckRot) translate <DuckX, DuckY, DuckZ>}
 
 object{Bathtub translate <(RoomWidth-TubWidth), 0, 0>}
 object{BathShelf scale 5 rotate y*90 translate <RoomWidth, 0, -RoomDepth*2/3>}
@@ -35,4 +36,4 @@ object{BathShelf scale 5 rotate y*90 translate <RoomWidth, 0, -RoomDepth*2/3>}
 object{tub_filler scale 0.4 rotate y*180 translate <RoomWidth*13/18, 6.5, 0>}
 
 // Steam
-//object{Steam}
+object{Steam}
