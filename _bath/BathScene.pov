@@ -18,7 +18,7 @@
 //==================INCLUDE OBJECTS HERE=================
 #include "bathCamera.inc"
 camera{BathCamera}
-light_source {	< 0, 100, -100> White }
+light_source {	< RoomWidth/2, RoomHeight-1, -RoomDepth/2> White }
 #include "bathtub.inc" // Has to be included after Ducky position declaration for normals!
 #include "roomSteam.inc" // Needs Room geometry declarations
 #include "roomWalls.inc" // Needs Room geometry declarations

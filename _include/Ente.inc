@@ -68,12 +68,14 @@ intersection{
 //object{TorsoOBuerz}
 
 #declare KopfAngMax= 25;
-#declare KopfPitch = 0;//sin(clock * 2 *pi ) *KopfAngMax;
-#declare KopfRoll = sin(clock * 4 * pi ) *KopfAngMax;
-#declare KopfYaw = sin(clock *8*pi) *KopfAngMax;
-#declare BuerzelPitch= sin(clock*8*pi)*KopfAngMax/2;
-#declare WingRAngle=  (1+(sin(8*pi*clock)))/2;
-#declare WingLAngle = (1+(sin(8*pi*clock)))/2;
+#declare KopfRollMax= 15;
+#declare KopfPitch = 0*KopfAngMax;
+#declare KopfRoll = KopfRollMax*sin(pi*5*clock);
+#declare KopfYaw = KopfAngMax*sin(pi*5*clock);
+#declare BuerzelPitch= KopfAngMax * abs(sin(pi*10*clock));
+#declare WingAngMax = 110;
+#declare WingRAngle= WingAngMax * abs(sin(pi*10*clock));
+#declare WingLAngle = WingRAngle;
 
 //====================BUERZEL
 //#declare EntenBuerzel= intersection{
@@ -117,8 +119,8 @@ intersection{
 #declare EnteGanz = merge{
 	object{Kopf translate <-0.04,-0.4,0> scale <1.3,1.3,1.3> rotate <KopfRoll,KopfYaw,KopfPitch> }
 	object{TorsoOBuerz}
-	object{Wing rotate y*-90*WingRAngle translate z*-0.5 } // Right wing
-	object{Wing rotate y*90*WingLAngle translate z*0.5 } // Left wing
+	object{Wing rotate -y*WingRAngle translate z*-0.6 } // Right wing
+	object{Wing rotate y*WingLAngle translate z*0.6 } // Left wing
 	object{EntenBuerzel translate <-1, 0.3, 0>}
 }
 //object{EnteGanz}
