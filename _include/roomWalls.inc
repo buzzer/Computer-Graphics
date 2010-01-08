@@ -6,8 +6,10 @@
 	object{MakeTileWall(RoomDepth,RoomHeight,TileScaleWall) rotate y*90 translate <RoomWidth, 0, 0>} // Right
 #declare WallCeiling =
 	box { < 0, 0, 0>, < RoomWidth, 0, -RoomDepth>
-		pigment{rgb <1,1,1>}
-		finish {			ambient rgb 0.8		}
+		pigment{rgb 0.7}
+		finish {
+			ambient rgb 0.8
+		}
 	}
 	
 #declare RoomWalls =

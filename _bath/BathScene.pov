@@ -28,7 +28,7 @@
 #include "tileWall.inc"
 #include "bathCamera.inc"
 camera{BathCamera}
-light_source {	< RoomWidth/2, RoomHeight-1, -RoomDepth/2> White*0.7 }
+light_source {	< RoomWidth/2, RoomHeight-1, -RoomDepth/2> White*0.6 }
 #include "bathtub.inc" // Has to be included after Ducky position declaration for normals!
 #include "roomSteam.inc" // Needs Room geometry declarations
 #include "roomWalls.inc" // Needs Room geometry declarations
@@ -37,10 +37,12 @@ light_source {	< RoomWidth/2, RoomHeight-1, -RoomDepth/2> White*0.7 }
 #if (EffWaterHose)
 	#include "tubHose.inc" // Hose particles
 #end
+#include "furniture.inc"
+#include "mirror.inc"
 //==================SCENE OBJECTS HERE==================
 object{RoomWalls}
 #declare ToiletWidth = 6; // Approximated !!!
-object{toiletx01 translate x*ToiletWidth*1.5 }
+object{toiletx01 translate <1/4*RoomWidth, 0, 0> }
 object{EnteGanz rotate y*(180-DuckRot) translate <DuckX, DuckY, DuckZ>}
 
 object{Bathtub translate <(RoomWidth-TubWidth), 0, 0>}
@@ -50,3 +52,9 @@ object{tub_filler  scale 0.4	 rotate y*180 translate TubFillerPos }
 
 // Steam
 #if (EffSteamDist) 	object{Steam} #end
+// Furniture
+object{Wardrobe scale 8 rotate y*180 translate <RoomWidth-1, 0, -RoomDepth> }
+object{Chest1 scale 8 rotate y*180 translate <RoomWidth*6/8, 0, -RoomDepth> }
+object{Chest2 scale 10 translate <1/6*RoomWidth, 1/2*RoomHeight, 0> }
+// Mirror
+object{Mirror scale 7 rotate y*180 translate <0.2*RoomWidth, 0.4*RoomHeight, -0.99*RoomDepth>}
