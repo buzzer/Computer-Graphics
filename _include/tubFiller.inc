@@ -1,4 +1,13 @@
-#declare chrome = texture { pigment { color rgbf < 0.5 0.5 0.5 0>} finish { diffuse 0.1 specular 0.5 reflection 0.7 roughness 0.005 metallic } }
+#declare chrome = texture {
+ 	pigment { color rgbf < 0.5 0.5 0.5 0>}
+	finish { 
+		diffuse 0.1 
+		specular 0.5 
+		reflection 0.5
+		roughness 0.005 
+		metallic
+	} 
+}
 
 #declare tub_filler=
 union {
