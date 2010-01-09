@@ -1,7 +1,7 @@
 #include "colors.inc"
 //#include "Koordinatensystem2.inc"
 
-#declare F_Plastic=finish{ambient 0 diffuse 1 phong 1} // reflection{0,0.1 fresnel}}
+#declare F_Plastic=finish{ambient 0.2 diffuse 0.8 phong 1} // reflection{0,0.1 fresnel}}
 #declare T_Bill=texture{pigment{Red} finish{F_Plastic}}
 #declare T_Eye=texture{pigment{White} finish{F_Plastic}}
 #declare T_Body=texture{pigment{rgb <0.8,0.75,0>} finish{F_Plastic}}

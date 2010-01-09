@@ -52,7 +52,7 @@
    #macro particle_emitter  (Clock) TubFillerOpening #end
    #macro particle_emitting (Clock) on      #end
 //   #macro particle_emitvect (Clock) vrotate(6.5*y,(30+20*sin(Clock*2*pi))*z) #end
-   #macro particle_emitvect (Clock) -y #end
+   #macro particle_emitvect (Clock) <0, -1, -1> #end
    #macro particle_emitturb (Clock) 0.2     #end
    //#macro particle_emitobj  (Clock) object {} #end
    #macro particle_emitobjn (Clock) 0.0     #end
