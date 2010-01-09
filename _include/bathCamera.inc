@@ -10,7 +10,7 @@ camera {
 //	right x * 1
 //	up y * 3/4
 	angle 80+60*clock
-//	angle 90
+//	angle 30
 //	look_at <1/3*RoomWidth,RoomHeight*1/2, 0> // Links hinten
 //	look_at <1/3*RoomWidth, 1/2*RoomHeight, -RoomDepth> // Links vorne
 //	look_at <RoomWidth, 1/2*RoomHeight, -RoomDepth> // Rechts vorne
