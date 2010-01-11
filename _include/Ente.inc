@@ -7,7 +7,11 @@
 #declare T_Body=texture{pigment{rgb <0.8,0.75,0>} finish{F_Plastic}}
 #declare T_Pupil=texture{pigment{Black} finish{F_Plastic}}
 
+#declare wm_POV_texture_2 = T_Body; //For torso only model
+
+
 #include "ducky.inc"
+#include "DuckyTorso.inc"
 
 //========================DUCKY
 #declare Ducky= merge{
@@ -15,8 +19,6 @@
 	object{Ducky scale <-1,1,1>} // Linke Seite
     	scale 1/150
     	rotate y*90 //90 Degree: Nullposition
-//    scale <1,1,0.5>
-//    translate -y*1
 }
 //=====================KOPF
 #declare KopfKugel=
@@ -35,16 +37,12 @@ difference{
 //	pigment{color Yellow transmit 0.5}
 }
 //====================TORSO
-#declare Torso= //merge{
-difference{
-	object{Ducky}
-	object{KopfKugel}
-	object{SchwKugel inverse}	
-//	bounded_by { object{SchwKugel} }
-//	clipped_by { bounded_by }
+#declare DuckyTorso2Side=merge{
+	object{DuckyTorso}
+	object{DuckyTorso scale <-1,1,1>}
+	scale 1/150
+	rotate y*90
 }
-//object{KopfKugel pigment {Yellow transmit 0.5} }
-//}
 
 #declare KopfAngMax= 25;
 #declare KopfRollMax= 15;
@@ -81,10 +79,10 @@ difference{
 }
 //====================KOMPLETT
 #declare EnteGanz = merge{
-//	object{Kopf translate <-0.04,-0.4,0> scale <1.3,1.3,1.3> rotate <KopfRoll,KopfYaw,KopfPitch> }
-//	object{Wing rotate -y*WingRAngle translate z*-0.6 } // Right wing
-//	object{Wing rotate y*WingLAngle translate z*0.6 } // Left wing
-//	object{EntenBuerzel translate <-1, 0.3, 0>}
-	object{Torso scale <0.8,1,1> }
+	object{Kopf translate <-0.04,-0.4,0> scale <1.3,1.3,1.3> rotate <KopfRoll,KopfYaw,KopfPitch> }
+	object{Wing rotate -y*WingRAngle translate z*-0.6 } // Right wing
+	object{Wing rotate y*WingLAngle translate z*0.6 } // Left wing
+	object{EntenBuerzel translate <-1, 0.3, 0>}
+	object{DuckyTorso2Side scale <0.8,1,1>}
 }
 //object{EnteGanz}

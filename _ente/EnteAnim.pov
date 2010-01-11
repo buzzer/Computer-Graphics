@@ -20,7 +20,7 @@ plane { <0.0, 1.0, 0.0>, -2.0 pigment {color Gray} }
 
 object{EnteGanz
 //	rotate y*360*clock
-	rotate y*80
+	rotate y*90
 	rotate x*-50
 	no_shadow
 }
