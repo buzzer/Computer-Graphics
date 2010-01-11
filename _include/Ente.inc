@@ -10,15 +10,18 @@
 #declare wm_POV_texture_2 = T_Body; //For torso only model
 
 
-#include "ducky.inc"
-#include "DuckyTorso.inc"
+#include "ducky.inc" // Original model
+#include "DuckyTorso.inc" // Model without head
+
+#declare DuckyScale150 = 1/150;
+#declare DuckyAng = y*90; // Standard orientation
 
 //========================DUCKY
 #declare Ducky= merge{
 	object{Ducky} // Rechte Seite
 	object{Ducky scale <-1,1,1>} // Linke Seite
-    	scale 1/150
-    	rotate y*90 //90 Degree: Nullposition
+    	scale DuckyScale150
+    	rotate DuckyAng
 }
 //=====================KOPF
 #declare KopfKugel=
@@ -40,8 +43,8 @@ difference{
 #declare DuckyTorso2Side=merge{
 	object{DuckyTorso}
 	object{DuckyTorso scale <-1,1,1>}
-	scale 1/150
-	rotate y*90
+    	scale DuckyScale150
+    	rotate DuckyAng
 }
 
 #declare KopfAngMax= 25;
