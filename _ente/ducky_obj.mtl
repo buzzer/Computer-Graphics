@@ -1,0 +1,65 @@
+#==================================================
+#Material list
+#This file has been created by PoseRay v3.12.2.456
+#3D model to POV-Ray/Moray Converter.
+#Author: FlyerX
+#Email: flyerx_2000@yahoo.com
+#Web: http://mysite.verizon.net/sfg0000/
+#==================================================
+ 
+#==================================================
+newmtl POV_texture_1
+Ns 2.5
+Ka 0 0 0
+Kd 1 1 1
+Ks 0 0 0
+d 1
+#r 0
+#blend 0
+#cell_hi
+#povmatactive
+#povmat,1
+#povcmd,t_bill
+ 
+#==================================================
+newmtl POV_texture_2
+Ns 2.5
+Ka 0 0 0
+Kd 1 1 1
+Ks 0 0 0
+d 1
+#r 0
+#blend 0
+#cell_hi
+#povmatactive
+#povmat,1
+#povcmd,t_body
+ 
+#==================================================
+newmtl POV_texture_3
+Ns 2.5
+Ka 0 0 0
+Kd 1 1 1
+Ks 0 0 0
+d 1
+#r 0
+#blend 0
+#cell_hi
+#povmatactive
+#povmat,1
+#povcmd,t_eye
+ 
+#==================================================
+newmtl POV_texture_4
+Ns 2.5
+Ka 0 0 0
+Kd 1 1 1
+Ks 0 0 0
+d 1
+#r 0
+#blend 0
+#cell_hi
+#povmatactive
+#povmat,1
+#povcmd,t_pupil
+ 
