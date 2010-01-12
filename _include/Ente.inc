@@ -1,43 +1,25 @@
 #include "colors.inc"
 //#include "Koordinatensystem2.inc"
 
+// Ducky colors
 #declare F_Plastic=finish{ambient 0.2 diffuse 0.8 phong 1} // reflection{0,0.1 fresnel}}
 #declare T_Bill=texture{pigment{Red} finish{F_Plastic}}
 #declare T_Eye=texture{pigment{White} finish{F_Plastic}}
 #declare T_Body=texture{pigment{rgb <0.8,0.75,0>} finish{F_Plastic}}
 #declare T_Pupil=texture{pigment{Black} finish{F_Plastic}}
 
-#declare wm_POV_texture_2 = T_Body; //For torso only model
-
-
-#include "ducky.inc" // Original model
-#include "DuckyTorso.inc" // Model without head
+#include "DuckyTorso.inc" // Body without head and tail
+#include "DuckyHead.inc" // Head without body
 
 #declare DuckyScale150 = 1/150;
 #declare DuckyAng = y*90; // Standard orientation
 
-//========================DUCKY
-#declare Ducky= merge{
-	object{Ducky} // Rechte Seite
-	object{Ducky scale <-1,1,1>} // Linke Seite
+//========================KOPF
+#declare Kopf = merge{
+	object{DuckyHead} // Rechte Seite
+	object{DuckyHead scale <-1,1,1>} // Linke Seite
     	scale DuckyScale150
     	rotate DuckyAng
-}
-//=====================KOPF
-#declare KopfKugel=
-sphere{0,1
-//	pigment{color Yellow transmit 0.5}
-	scale 0.75
-	translate <0.44,1.1,0>
-}
-#declare Kopf=
-difference{
-	object{Ducky}
-	object{KopfKugel inverse}
-}
-//================SCHWKUGEL
-#declare SchwKugel= sphere{<-0.2,-0.2,0>, 1.2
-//	pigment{color Yellow transmit 0.5}
 }
 //====================TORSO
 #declare DuckyTorso2Side=merge{
