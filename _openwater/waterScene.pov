@@ -3,13 +3,17 @@
 #include "textures.inc"
 #include "glass.inc"
 #include "Ente.inc"
-
+//#include "fastsky.inc"
+//================POVRAY SPECIFIC======================
+#include "ScenesGlobals.inc"
 //================SCENE CONSTANTS====================
 // Entenposition
 #declare DuckX = 0;
 #declare DuckY = 0;
 #declare DuckZ = 0;
-#declare DuckRot = 0;//180*clock;
+#declare DuckRot = <0,-90,0>;//180*clock;
+// Light: Sync light with moon/sun
+#declare LightPos = <0,40,1000>;//<500,500, -1000>;
 
 camera {
 	angle 36
@@ -22,11 +26,12 @@ camera {
 //            confidence 0.95           // [0...<1] when to move on while sampling (smaller is less accurate)
 //            variance 1/200            // [0...1] how precise to calculate (smaller is more accurate)
 }
-light_source{<500,500, -1000> White}
+light_source{ LightPos White*0.8}
 
 #declare SkyCeiling =
 sky_sphere{
-	S_Cloud1
+	S_Cloud1 // Day sky
+//	S_Cloud4 // Darker sky
       rotate  y*90*clock// Rotate around polaris.
 }
 #declare HorizontFog =
@@ -44,8 +49,8 @@ plane{y, 0
       texture{ Green_Glass
               normal{
               	 ripples 0.3 // More regular, e.g. indoor
-//              	 bumps 0.3 // Mor turbulenced, e.g. outdoor
-                     scale 0.25
+//              	 bumps 0.3 // Mor turbulenced, e.g. outdoor, but no dynamics!
+                     scale 2
                      turbulence 0.75
 		        translate <DuckX, 0, DuckZ> // Dynamic take duck position
 			 sine_wave phase -1/4*pi*clock  // Dynamic waves
@@ -68,11 +73,22 @@ plane { y, -5
              		diffuse 0.55}
        }// end of texture
 }
+#declare Moon =
+sphere {
+	//<0,40, 1000>,
+	LightPos,
+	80
+	pigment {Goldenrod}
+	normal {wrinkles -30 scale 30}
+	finish {ambient <1,0.3,0>*0.8 }
+}
 //==================SCENE OBJECTS HERE==================
 sky_sphere{SkyCeiling}
+//object{O_Cloud1} // Night sky
 fog{HorizontFog}
+object{Moon}
 object{Water}
-object{Ground}
+//object{Ground} // If water is not very deep
 object{ EnteGanz rotate DuckRot translate <DuckX, DuckY, DuckZ> }
-
+//object {Clouds scale 300} // distance above ground (y=0) to lowest parts of clouds
 
