@@ -78,9 +78,13 @@ sphere {
 	//<0,40, 1000>,
 	LightPos,
 	80
-	pigment {Goldenrod}
-	normal {wrinkles -30 scale 30}
-	finish {ambient <1,0.3,0>*0.8 }
+//	pigment {Goldenrod}
+	pigment{Orange}
+	normal {wrinkles 180 scale 30}
+	finish {
+//		ambient <1,0.3,0>*0.8
+		ambient 0.9
+	 }
 }
 //==================SCENE OBJECTS HERE==================
 sky_sphere{SkyCeiling}
