@@ -4,7 +4,7 @@
 #include "glass.inc"
 #include "Ente.inc"
 //#include "fastsky.inc"
-//================POVRAY SPECIFIC======================
+//================POVRAY GLOBALS======================
 #include "ScenesGlobals.inc"
 #declare Photons = on;
 global_settings {
@@ -25,6 +25,8 @@ global_settings {
 	#end
 #end
 //================SCENE CONSTANTS====================
+// Camera and caustics angle
+#declare CamAngle = 0; // 0 is looking to +z axis
 // Entenposition
 #declare DuckX = 0;
 #declare DuckY = 0;
@@ -42,31 +44,52 @@ global_settings {
 #declare WingAngMax = 110;
 #declare WingRAngle= WingAngMax * abs(sin(pi*5*clock));
 #declare WingLAngle = WingRAngle;
+// Water
+#declare WaterTexture =
+texture{ Green_Glass
+	normal{
+       	ripples 0.3 // More regular, e.g. indoor
+//           bumps 0.3 // Mor turbulenced, e.g. outdoor, but no dynamics!
+             scale 2
+             turbulence 0.75
+		sine_wave phase -1/2*pi*clock  // Dynamic waves
+	}
+       finish{
+       	ambient 0.15
+             diffuse 0.65
+             reflection 0.9
+	}
+}// end of texture
+#declare WaterInterior = interior{I_Glass}
 //================CAMERA==============================
 camera {
 	angle 36
-//	location <0 , 1.0 ,-10.0>
 	location <0,1,-10>
 	look_at <DuckX,DuckY,DuckZ>
-//	rotate   <0,-360*(clock+0.10),0>
-//            aperture 2           // [0...N] larger is narrower depth of field (blurrier)
-//            blur_samples 200        // number of rays per pixel for sampling
-//            focal_point <0,0,0>    // point that is in focus <X,Y,Z>
-//            confidence 0.95           // [0...<1] when to move on while sampling (smaller is less accurate)
-//            variance 1/200            // [0...1] how precise to calculate (smaller is more accurate)
+	rotate y*CamAngle
 }
-light_source{ LightPos White*0.8
-//	#if(Photons)
-//		photons {refraction off reflection on}
-//	#end
+//=================LIGHT SOURCES======================
+#declare Moon =
+sphere {0, 	80
+	pigment{Orange}
+	normal {wrinkles 180 scale 30}
+	finish { 	ambient 0.9 }
+	photons { collect off }
 }
-light_source{
-	<100,100,-100> White *0.8
+light_source{ LightPos White*2
 	#if(Photons)
 		photons {refraction off reflection on}
-	#end	
+	#end
+	looks_like {object{Moon}}
 }
-
+light_source{ // Only used for caustics from behind
+	<0,800,-500> White *0.3
+	#if(Photons)
+		photons {refraction off reflection on}
+	#end
+	rotate y*CamAngle	
+}
+//==================HORIZONT========================
 #declare SkyCeiling =
 sky_sphere{
 	S_Cloud1 // Day sky
@@ -76,26 +99,12 @@ sky_sphere{
 #declare HorizontFog =
 fog{ fog_type 2
 	distance 85
-	color rgb<1,0.99,0.9>
-    	fog_offset 0.1
+//	color rgb<1,0.99,0.9>
+	color rgb <0.687648, 0.692653, 0.443503>	fog_offset 0.1
     	fog_alt  2
     	turbulence 0.2
 }
-#declare WaterTexture=  texture{ Green_Glass
-              normal{
-              	 ripples 0.3 // More regular, e.g. indoor
-//              	 bumps 0.3 // Mor turbulenced, e.g. outdoor, but no dynamics!
-                     scale 2
-                     turbulence 0.75
-//		        translate <DuckX, 0, DuckZ> // Dynamic take duck position
-			 sine_wave phase -1/2*pi*clock  // Dynamic waves
-		}
-              finish{
-              	 ambient 0.15
-                     diffuse 0.65
-                     reflection 0.9}
-             }// end of texture
-#declare WaterInterior = interior{I_Glass}
+//====================WATER COMPONENTS============
 //Water
 #declare Water =
 plane{y, 0
@@ -116,49 +125,21 @@ difference{
 		     texture{WaterTexture}
 		     interior{WaterInterior}
 	}
-      photons { 
-      		collect off
-//		pass_through on
-      }
-
-}
-//Ground
-#declare Ground =
-plane { y, -5 
-	texture{ pigment{ color LightWood}
-		normal {bumps 0.25
-             		scale 0.05}
-             finish {ambient 0.45
-             		diffuse 0.55}
-       }// end of texture
-}
-#declare Moon =
-sphere {
-	LightPos+z*41,
-	80
-//	pigment {Goldenrod}
-	pigment{Orange}
-	normal {wrinkles 180 scale 30}
-	finish {
-//		ambient <1,0.3,0>*0.8
-		ambient 0.9
-	 }
-	photons { collect off }
+      photons { collect off }
 }
 //==================SCENE OBJECTS HERE==================
 background {
-		rgb <0.208116, 0.000000, 0.000000>
-}
+//	rgb <0.208116, 0.000000, 0.000000>
+//	rgb <0.157534, 0.079240, 0.201770>
+	rgb <0.080110, 0.000000, 0.200977>}
 //sky_sphere{SkyCeiling}
 //object{O_Cloud1} // Night sky
 fog{HorizontFog}
-object{Moon}
 //object{Water}
-merge{
+merge{ // Mandatory merge to not see gaps into water
 	object{WaterOuter}
 	object{WaterInner}
 }
-//object{Ground} // If water is not very deep
 object{ EnteGanz rotate DuckRot translate <DuckX, DuckY+0.1, DuckZ> }
 //object {Clouds scale 300} // distance above ground (y=0) to lowest parts of clouds
 
