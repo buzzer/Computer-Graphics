@@ -10,15 +10,25 @@
 // Entenposition
 #declare DuckX = 0;
 #declare DuckY = 0;
-#declare DuckZ = 0;
+#declare DuckZ = 0+clock*20;
 #declare DuckRot = <0,-90,0>;//180*clock;
 // Light: Sync light with moon/sun
 #declare LightPos = <0,40,1000>;//<500,500, -1000>;
-
+// Ducky movement
+#declare KopfAngMax= 25;
+#declare KopfRollMax= 15;
+#declare KopfPitch = 0*KopfAngMax;
+#declare KopfRoll = KopfRollMax*sin(pi*5*clock);
+#declare KopfYaw = 0;//KopfAngMax*sin(pi*5*clock);
+#declare BuerzelPitch= KopfAngMax * abs(sin(pi*5*clock));
+#declare WingAngMax = 110;
+#declare WingRAngle= WingAngMax * abs(sin(pi*5*clock));
+#declare WingLAngle = WingRAngle;
+//================CAMERA==============================
 camera {
 	angle 36
 	location <0 , 1.0 ,-10.0>
-	look_at <0,0,0>
+	look_at <DuckX,DuckY,DuckZ>
 //	rotate   <0,-360*(clock+0.10),0>
 //            aperture 2           // [0...N] larger is narrower depth of field (blurrier)
 //            blur_samples 200        // number of rays per pixel for sampling
@@ -52,7 +62,7 @@ plane{y, 0
 //              	 bumps 0.3 // Mor turbulenced, e.g. outdoor, but no dynamics!
                      scale 2
                      turbulence 0.75
-		        translate <DuckX, 0, DuckZ> // Dynamic take duck position
+//		        translate <DuckX, 0, DuckZ> // Dynamic take duck position
 			 sine_wave phase -1/4*pi*clock  // Dynamic waves
 		}
               finish{
