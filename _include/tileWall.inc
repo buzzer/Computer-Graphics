@@ -13,8 +13,8 @@
   #local Col = 0;
   #local TCntWeight = ceil(Weight / (TileScale + TileGap)); // get the tile count horizontal
   #local TCntHeight = ceil(Height / (TileScale + TileGap)); // get the tile count vertical
-  #debug concat("Tile weight count: ", str(TCntWeight, 5, 2), "\n")
-  #debug concat("Tile height count: ", str(TCntHeight, 5, 2), "\n")
+//  #debug concat("Tile weight count: ", str(TCntWeight, 5, 2), "\n")
+//  #debug concat("Tile height count: ", str(TCntHeight, 5, 2), "\n")
   union{ // Putz with tiles
     difference{ // Chop the tiles
       union{ // Tiles

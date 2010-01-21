@@ -9,7 +9,7 @@
 	} 
 }
 
-#declare tub_filler=
+#declare tub_filler =
 union {
   //fancy mountpoint
   cylinder { <0,0,0> <0,0,0.1> 1.65 }
@@ -32,3 +32,7 @@ union {
   torus { 0.5 0.1 rotate -15*x translate <0,-1,5.67> }
   texture { chrome }
 }
+
+#declare FillerKnob =
+cylinder {	<0.0, 0, 0.0>, <0.0, 0, -0.2>, 0.2
+	texture { chrome }}

@@ -56,7 +56,10 @@
 //============================                     
 // Furniture
 //============================                     
-#declare T_Furniture=texture{pigment{White} finish{ambient 0 diffuse 1 specular 0.5 roughness 0.08}}
+#declare T_Furniture=texture{
+//	pigment{White}
+	pigment{DMFWood4}
+	finish{ambient 0 diffuse 1 specular 0.5 roughness 0.08}}
 //============================                     
 // Drawer face
 //============================                     

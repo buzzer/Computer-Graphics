@@ -33,6 +33,8 @@ light_source {	< RoomWidth/2, RoomHeight-1, -RoomDepth/2> White*0.6 }
 #include "roomWalls.inc" // Needs Room geometry declarations
 #include "bathShelf.inc"
 #include "tubFiller.inc"
+#include "washTub.inc"
+#include "bathDoor.inc"
 #if (EffWaterHose)
 	#include "tubHose.inc" // Hose particles
 #end
@@ -40,20 +42,26 @@ light_source {	< RoomWidth/2, RoomHeight-1, -RoomDepth/2> White*0.6 }
 #include "mirror.inc"
 //==================SCENE OBJECTS HERE==================
 object{RoomWalls}
+object{BathDoor scale <3,3.5,1> rotate y*-90 translate z*-4/5*RoomDepth }
 #declare ToiletWidth = 6; // Approximated !!!
 object{toiletx01 translate <1/4*RoomWidth, 0, 0> }
 object{EnteGanz rotate y*(180-DuckRot) translate <DuckX, DuckY, DuckZ>}
 
 object{Bathtub translate <(RoomWidth-TubWidth), 0, 0>}
-object{BathShelf scale 5 rotate y*-90 translate <0, 0, -RoomDepth*1/5>}
-
 object{tub_filler  scale 0.4	 rotate y*180 translate TubFillerPos }
+object{FillerKnob scale 2  translate TubFillerPos-x*2}
+object{FillerKnob scale 2  translate TubFillerPos+x*2}
 
 // Steam
 #if (EffSteamDist) 	object{Steam} #end
 // Furniture
+object{BathShelf scale 5 rotate y*-90 translate <0, 0, -RoomDepth*0.3>}
 object{Wardrobe scale 8 rotate y*180 translate <RoomWidth-1, 0, -RoomDepth> }
 object{Chest1 scale 8 rotate y*180 translate <RoomWidth*6/8, 0, -RoomDepth> }
 object{Chest2 scale 10 translate <1/6*RoomWidth, 1/2*RoomHeight, 0> }
 // Mirror
-object{Mirror scale 7 rotate y*180 translate <0.2*RoomWidth, 0.4*RoomHeight, -0.99*RoomDepth>}
+object{Mirror scale 7 rotate y*180 translate <0.3*RoomWidth, 0.5*RoomHeight, -0.99*RoomDepth>}
+object{Washtub scale 2 rotate y*180 translate <0.3*RoomWidth, 0.4*RoomHeight, -RoomDepth>}
+object{tub_filler  scale 0.3	 translate <0.3*RoomWidth, 0.45*RoomHeight, -RoomDepth> }
+object{FillerKnob scale 2 rotate y*180 translate <0.25*RoomWidth, 0.45*RoomHeight, -RoomDepth>}
+object{FillerKnob scale 2 rotate y*180 translate <0.35*RoomWidth, 0.45*RoomHeight, -RoomDepth>}
