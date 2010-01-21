@@ -2,7 +2,7 @@
 #include "ScenesGlobals.inc"
 //================SCENE EFFECTS=======================
 #declare EffCamWave = false; // Make intro wave disturbance, camera
-#declare EffWaterHose = false; // Let the tub filler produce water
+#declare EffWaterHose = true; // Let the tub filler produce water
 #declare EffSteamDist = false; // Fill the room with fine steam with disturbance
 //================SCENE CONSTANTS====================
 // Room geometry
@@ -25,7 +25,7 @@
 #include "toiletx01.inc"
 #include "Ente.inc"
 #include "tileWall.inc"
-#include "bathCamera.inc"
+#include "bathCamera01.inc"
 camera{BathCamera}
 light_source {	< RoomWidth/2, RoomHeight-1, -RoomDepth/2> White*0.6 }
 #include "bathtub.inc" // Has to be included after Ducky position declaration for normals!
