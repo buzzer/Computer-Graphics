@@ -45,7 +45,7 @@ object{toiletx01 translate <1/4*RoomWidth, 0, 0> }
 object{EnteGanz rotate y*(180-DuckRot) translate <DuckX, DuckY, DuckZ>}
 
 object{Bathtub translate <(RoomWidth-TubWidth), 0, 0>}
-object{BathShelf scale 5 rotate y*90 translate <RoomWidth, 0, -RoomDepth*2/3>}
+object{BathShelf scale 5 rotate y*-90 translate <0, 0, -RoomDepth*1/5>}
 
 object{tub_filler  scale 0.4	 rotate y*180 translate TubFillerPos }
 

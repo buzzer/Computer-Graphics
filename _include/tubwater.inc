@@ -3,15 +3,14 @@
 // Water
 #declare Water =
 plane{y, 0
-  texture{
-    Green_Glass
+  texture{ Green_Glass
     normal{
       ripples 0.3
-      scale 0.25
+      scale 0.75
       // scale 0.1
       turbulence 0.75
       // turbulence 1
-      translate <DuckX, 0, DuckZ> // Dynamic take duck position
+//      translate <DuckX, 0, DuckZ> // Dynamic take duck position
       sine_wave phase -1/4*pi*clock  // Dynamic waves
     }
     finish{
