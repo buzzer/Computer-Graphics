@@ -55,7 +55,7 @@ texture{ Green_Glass
 		sine_wave phase -1/2*pi*clock  // Dynamic waves
 	}
        finish{
-       	ambient 0.15
+       	ambient 0.00
              diffuse 0.65
              reflection 0.9
 	}
@@ -72,8 +72,8 @@ camera {
 #declare Moon =
 sphere {0, 	80
 	pigment{Orange}
-	normal {wrinkles 180 scale 30}
-	finish { 	ambient 0.9 }
+//	normal { wrinkles 180 scale 30}
+	finish { 	ambient 20 }
 	photons { collect off }
 }
 light_source{ LightPos White*2
@@ -100,17 +100,24 @@ sky_sphere{
 fog{ fog_type 2
 	distance 85
 //	color rgb<1,0.99,0.9>
-	color rgb <0.687648, 0.692653, 0.443503>	fog_offset 0.1
-    	fog_alt  2
+//	color rgb <0.687648, 0.692653, 0.443503>
+//	rgb <0.646250, 0.351247, 0.174563>
+	rgb <0.677562, 0.407568, 0.195331>	fog_offset 0.1
+    	fog_alt  8
     	turbulence 0.2
+//	turbulence 1000
+//	omega 0.5//	lambda 0.2*100//	octaves 6//	turb_depth 0.5
 }
 //====================WATER COMPONENTS============
 //Water
 #declare Water =
-plane{y, 0
-     texture{WaterTexture}
-     interior{WaterInterior}
-}// end of plane 2
+difference {
+	plane{y, 0
+	     texture{WaterTexture}
+	     interior{WaterInterior}
+	}// end of plane 2
+	plane {y, -1.1	pigment{Black} } // Darker
+}
 #declare WaterInner=
 box{
 	<DuckX-2.001,-1.001,DuckZ+2.001>, <DuckX+2.001,0.002,DuckZ-2.001>
@@ -131,7 +138,14 @@ difference{
 background {
 //	rgb <0.208116, 0.000000, 0.000000>
 //	rgb <0.157534, 0.079240, 0.201770>
-	rgb <0.080110, 0.000000, 0.200977>}
+//	rgb <0.080110, 0.000000, 0.200977>
+//	rgb <0.748928, 0.357305, 0.068376>
+//	rgb <0.874998, 0.526329, 0.252247>
+//	rgb <0.194903, 0.465370, 0.539498>
+//	rgb <0.084459, 0.201663, 0.233783>
+//	rgb <0.025971, 0.062058, 0.071931>
+//	rgb <0.000000, 0.015442, 0.017975>
+	rgb <0.009369, 0.031022, 0.035950>}
 //sky_sphere{SkyCeiling}
 //object{O_Cloud1} // Night sky
 fog{HorizontFog}
