@@ -46,11 +46,6 @@ object{BathDoor scale <3,3.5,1> rotate y*-90 translate z*-4/5*RoomDepth }
 #declare ToiletWidth = 6; // Approximated !!!
 object{toiletx01 translate <1/4*RoomWidth, 0, 0> }
 // Ducky
-#declare KopfPitch = 0;
-#declare KopfRoll = KopfRollMax*sin(pi*40*clock);
-#declare KopfYaw = KopfAngMax*sin(pi*40*clock);
-#declare WingRAngle= WingAngMax * abs(sin(pi*80*clock));
-#declare WingLAngle = WingRAngle;
 object{EnteGanz rotate y*(180-DuckRot) translate <DuckX, DuckY, DuckZ>}
 
 object{Bathtub translate <(RoomWidth-TubWidth), 0, 0>}
