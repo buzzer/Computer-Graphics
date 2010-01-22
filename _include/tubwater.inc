@@ -11,7 +11,7 @@ plane{y, 0
       turbulence 0.75
       // turbulence 1
 //      translate <DuckX, 0, DuckZ> // Dynamic take duck position
-      sine_wave phase -1/4*pi*clock  // Dynamic waves
+      sine_wave phase 20*pi*clock  // Dynamic waves
     }
     finish{
       ambient 0.15

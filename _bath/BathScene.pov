@@ -45,6 +45,12 @@ object{RoomWalls}
 object{BathDoor scale <3,3.5,1> rotate y*-90 translate z*-4/5*RoomDepth }
 #declare ToiletWidth = 6; // Approximated !!!
 object{toiletx01 translate <1/4*RoomWidth, 0, 0> }
+// Ducky
+#declare KopfPitch = 0;
+#declare KopfRoll = KopfRollMax*sin(pi*40*clock);
+#declare KopfYaw = KopfAngMax*sin(pi*40*clock);
+#declare WingRAngle= WingAngMax * abs(sin(pi*80*clock));
+#declare WingLAngle = WingRAngle;
 object{EnteGanz rotate y*(180-DuckRot) translate <DuckX, DuckY, DuckZ>}
 
 object{Bathtub translate <(RoomWidth-TubWidth), 0, 0>}
@@ -56,8 +62,8 @@ object{FillerKnob scale 2  translate TubFillerPos+x*2}
 #if (EffSteamDist) 	object{Steam} #end
 // Furniture
 object{BathShelf scale 5 rotate y*-90 translate <0, 0, -RoomDepth*0.3>}
-object{Wardrobe scale 8 rotate y*180 translate <RoomWidth-1, 0, -RoomDepth> }
-object{Chest1 scale 8 rotate y*180 translate <RoomWidth*6/8, 0, -RoomDepth> }
+object{Wardrobe scale 8 rotate y*180 translate <RoomWidth-1, 0, -0.97*RoomDepth> }
+object{Chest1 scale 8 rotate y*180 translate <RoomWidth*3/4, 0, -0.97*RoomDepth> }
 object{Chest2 scale 10 translate <1/6*RoomWidth, 1/2*RoomHeight, 0> }
 // Mirror
 object{Mirror scale 7 rotate y*180 translate <0.3*RoomWidth, 0.5*RoomHeight, -0.99*RoomDepth>}
