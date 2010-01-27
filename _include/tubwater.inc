@@ -1,4 +1,5 @@
 #include "glass.inc" // for Water
+#include "textures.inc" // for green glass texture
 
 // Water
 #declare Water =
