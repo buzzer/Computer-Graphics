@@ -1,17 +1,19 @@
+// Flooding scene
+// Length shall be 10 sec.
 //================POVRAY SPECIFIC======================
 #include "ScenesGlobals.inc"
 //================SCENE EFFECTS=======================
 #declare EffCamWave = off; // Make intro wave disturbance, camera
 #declare EffWaterHose = on; // Let the tub filler produce water
 #declare EffSteamDist = off; // Fill the room with fine steam with disturbance
-//================SCENE CONSTANTS====================
+//================ROOM CONSTANTS=====================
 // Room geometry
 #declare RoomHeight = 20;
 #declare RoomWidth = 30;
 #declare RoomDepth = 20;
-// Room walls
-#declare TileScaleWall = 2.5;
-#declare TileScaleFloor = 3.5;
+//Tub Filler
+#declare TubFillerPos = <RoomWidth*13/18, 6.5, 0>;
+#declare TubFillerOpening = TubFillerPos - < 0, 0.4, 2.2>;
 // Water
 #declare WaterHeight = 3/4*RoomHeight*clock;
 #declare WaterDefault = 4;
@@ -22,9 +24,9 @@
 #else
 	#declare DuckY = WaterHeight;
 #end
-//Tub Filler
-#declare TubFillerPos = <RoomWidth*13/18, 6.5, 0>;
-#declare TubFillerOpening = TubFillerPos - < 0, 0.4, 2.2>;
+// Room walls
+#declare TileScaleWall = 2.5;
+#declare TileScaleFloor = 3.5;
 //==================INCLUDE FILES HERE=================
 #include "toiletx01.inc"
 #include "Ente.inc"
@@ -34,7 +36,9 @@ camera{BathCamera}
 light_source {	< RoomWidth/2, RoomHeight-1, -RoomDepth/2> White*0.6 }
 #include "tubwater.inc" // Has to be included before bathtub.inc!
 #include "bathtub.inc" // Has to be included after Ducky position declaration for normals!
-//#include "roomSteam.inc" // Needs Room geometry declarations
+#if (EffSteamDist)
+#include "roomSteam.inc" // Needs Room geometry declarations
+#end
 #include "roomWalls.inc" // Needs Room geometry declarations
 #include "bathShelf.inc"
 #include "tubFiller.inc"
@@ -49,6 +53,19 @@ light_source {	< RoomWidth/2, RoomHeight-1, -RoomDepth/2> White*0.6 }
 #include "duckySpline01.inc"
 #include "helferleinSitting.inc"
 #include "kugel.inc"
+//================SCENE CONSTANTS====================
+// Ducky movement
+#declare KopfAngMax= 25;
+#declare KopfRollMax= 15;
+#declare KopfPitch = 0*KopfAngMax;
+#declare KopfRoll = KopfRollMax*sin(pi*1.25*clock);
+#declare KopfYaw = 0;//KopfAngMax*sin(pi*5*clock);
+#declare BuerzelPitch= KopfAngMax * abs(sin(pi*1.25*clock));
+#declare WingAngMax = 110;
+#declare WingRAngle= WingAngMax * abs(sin(pi*1.25*clock));
+#declare WingLAngle = WingRAngle;
+#declare TubWaterPhase = 0.5*pi*clock; // Optimized for 10 sec per scene
+#declare CamKugelRotFreq = 360*20*clock; // Optimal for 10 sec per scene
 //==================SCENE OBJECTS HERE==================
 object{RoomWalls}
 object{BathDoor scale <3,3.5,1> rotate y*-90 translate z*-4/5*RoomDepth }
@@ -79,9 +96,7 @@ object{tub_filler  scale 0.3	 translate <0.3*RoomWidth, 0.45*RoomHeight, -RoomDe
 object{FillerKnob scale 2 rotate y*180 translate <0.25*RoomWidth, 0.45*RoomHeight, -RoomDepth>}
 object{FillerKnob scale 2 rotate y*180 translate <0.35*RoomWidth, 0.45*RoomHeight, -RoomDepth>}
 // Water rising, flood the bath
-#declare TubWaterPhase = 10*pi*clock; // Optimized for 10 sec per scene
 object{Water translate y*WaterHeight}
 //=======================OTHER OBJECTS========================
-#declare CamKugelRotFreq = 360*20*clock; // Optimal for 10 sec per scene
 object{CamKugel 	scale 0.2 translate <2/5*RoomWidth, 5/6*RoomHeight, -5/6*RoomDepth> }
 object{ helferlein rotate y*-90 scale 1 translate <0.32*RoomWidth, 0.77*RoomHeight, -0.05*RoomDepth> }
