@@ -10,4 +10,5 @@
 #declare flug_pz = 0; //translate
 #declare flug = 45; // rotation
 object { KUGL scale 0.05 rotate < flug_rx, flug_ry, flug_rz > translate < flug_px, flug_py, flug_pz > }
-object { Rotor scale 0.05 rotate < flug_rx, flug_ry + flug, flug_rz > translate < flug_px, flug_py, flug_pz > }
+//object { Rotor scale 0.05 rotate < flug_rx, flug_ry + flug, flug_rz > translate < flug_px, flug_py, flug_pz > }
+object { Rotor scale 0.05 rotate < flug_rx, 360*40*clock, flug_rz > translate < flug_px, flug_py, flug_pz > }

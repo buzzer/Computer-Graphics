@@ -5,9 +5,10 @@
 #include "Ente.inc"
 //#include "fastsky.inc"
 #include "helferleinSitting.inc"
+#include "kugel.inc"
 //================POVRAY GLOBALS======================
 #include "ScenesGlobals.inc"
-#declare Photons = off;
+#declare Photons = on;
 global_settings {
 	max_trace_level 10	
 	photons {
@@ -66,14 +67,16 @@ texture{ Green_Glass
 #declare WaterInterior = interior{I_Glass}
 //================CAMERA==============================
 #declare CamDefaultY = 1;
+#declare CamX = 0;
+#declare CamY = CamDefaultY + 1.5*(1/DuckZStart *DuckZ);
+#declare CamZ = -10;
 camera {
 	angle 36
-//	angle 90
 	#if (DuckZ < 0)
-		location <0,CamDefaultY+ 1.5*(1/DuckZStart *DuckZ) ,-10>
+		location <CamX, CamY ,CamZ>
 		look_at <DuckX, DuckY, 0>
 	#else
-		location <0,CamDefaultY,-10>
+		location <CamX, CamDefaultY, CamZ>
 		look_at <DuckX,DuckY,DuckZ>
 	#end
 	rotate y*CamAngle
@@ -94,19 +97,14 @@ light_source{ LightPos White*2
 	looks_like {object{Moon}}
 }
 light_source{ // Only used for caustics from behind
-	<0,100,-500> White *0.1
+//	<0,100,-500> White *0.1
+	<CamX, CamY, CamZ> White *0.1
 	#if(Photons)
 		photons {refraction off reflection on}
 	#end
 	rotate y*CamAngle	
 }
 //==================HORIZONT========================
-//#declare SkyCeiling =
-//sky_sphere{
-//	S_Cloud1 // Day sky
-////	S_Cloud4 // Darker sky
-//      rotate  y*90*clock// Rotate around polaris.
-//}
 #declare HorizontFog =
 fog{ fog_type 2
 	distance 85
@@ -170,15 +168,8 @@ merge{ // Mandatory merge to not see gaps into water
 	object{WaterOuter}
 	object{WaterInner}
 }
-object{ EnteGanz rotate DuckRot translate <DuckX, DuckY+0.1, DuckZ> }
 //object {Clouds scale 300} // distance above ground (y=0) to lowest parts of clouds
+object{ EnteGanz rotate DuckRot translate <DuckX, DuckY+0.1, DuckZ> }
 //======================OTHER OBJECTS=====================
-object{helferlein
-	rotate y*90
-	scale 1
-	translate <DuckX, DuckY-0.4, DuckZ-0.8>
-}
-//object{lamp_free_obj
-//	scale 0.1
-//	translate <0,0.1,0>
-//}
+object{ helferlein rotate y*90 scale 1 translate <DuckX, DuckY-0.4, DuckZ-0.8> }
+object{ CamKugel scale 0.2 translate <DuckX-2, DuckY+2, DuckZ-3> }
