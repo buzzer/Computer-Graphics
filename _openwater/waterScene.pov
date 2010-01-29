@@ -4,9 +4,10 @@
 #include "glass.inc"
 #include "Ente.inc"
 //#include "fastsky.inc"
+#include "helferleinSitting.inc"
 //================POVRAY GLOBALS======================
 #include "ScenesGlobals.inc"
-#declare Photons = on;
+#declare Photons = off;
 global_settings {
 	max_trace_level 10	
 	photons {
@@ -67,8 +68,9 @@ texture{ Green_Glass
 #declare CamDefaultY = 1;
 camera {
 	angle 36
+//	angle 90
 	#if (DuckZ < 0)
-		location <0,CamDefaultY+ (1/DuckZStart *DuckZ) ,-10>
+		location <0,CamDefaultY+ 1.5*(1/DuckZStart *DuckZ) ,-10>
 		look_at <DuckX, DuckY, 0>
 	#else
 		location <0,CamDefaultY,-10>
@@ -170,4 +172,13 @@ merge{ // Mandatory merge to not see gaps into water
 }
 object{ EnteGanz rotate DuckRot translate <DuckX, DuckY+0.1, DuckZ> }
 //object {Clouds scale 300} // distance above ground (y=0) to lowest parts of clouds
-
+//======================OTHER OBJECTS=====================
+object{helferlein
+	rotate y*90
+	scale 1
+	translate <DuckX, DuckY-0.4, DuckZ-0.8>
+}
+//object{lamp_free_obj
+//	scale 0.1
+//	translate <0,0.1,0>
+//}
