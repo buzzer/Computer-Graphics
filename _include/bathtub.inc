@@ -1,4 +1,4 @@
-#include "tubwater.inc"
+// Needs following include used before: #include "tubwater.inc"
 
 // Bathtub
 #declare TubDepth=9;

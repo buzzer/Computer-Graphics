@@ -1,9 +1,9 @@
 //================POVRAY SPECIFIC======================
 #include "ScenesGlobals.inc"
 //================SCENE EFFECTS=======================
-#declare EffCamWave = false; // Make intro wave disturbance, camera
-#declare EffWaterHose = false; // Let the tub filler produce water
-#declare EffSteamDist = false; // Fill the room with fine steam with disturbance
+#declare EffCamWave = off; // Make intro wave disturbance, camera
+#declare EffWaterHose = on; // Let the tub filler produce water
+#declare EffSteamDist = off; // Fill the room with fine steam with disturbance
 //================SCENE CONSTANTS====================
 // Room geometry
 #declare RoomHeight = 20;
@@ -32,8 +32,9 @@
 #include "bathCamera02.inc"
 camera{BathCamera}
 light_source {	< RoomWidth/2, RoomHeight-1, -RoomDepth/2> White*0.6 }
+#include "tubwater.inc" // Has to be included before bathtub.inc!
 #include "bathtub.inc" // Has to be included after Ducky position declaration for normals!
-#include "roomSteam.inc" // Needs Room geometry declarations
+//#include "roomSteam.inc" // Needs Room geometry declarations
 #include "roomWalls.inc" // Needs Room geometry declarations
 #include "bathShelf.inc"
 #include "tubFiller.inc"
@@ -46,6 +47,8 @@ light_source {	< RoomWidth/2, RoomHeight-1, -RoomDepth/2> White*0.6 }
 #include "mirror.inc"
 #include "transforms.inc"
 #include "duckySpline01.inc"
+#include "helferleinSitting.inc"
+#include "kugel.inc"
 //==================SCENE OBJECTS HERE==================
 object{RoomWalls}
 object{BathDoor scale <3,3.5,1> rotate y*-90 translate z*-4/5*RoomDepth }
@@ -76,4 +79,9 @@ object{tub_filler  scale 0.3	 translate <0.3*RoomWidth, 0.45*RoomHeight, -RoomDe
 object{FillerKnob scale 2 rotate y*180 translate <0.25*RoomWidth, 0.45*RoomHeight, -RoomDepth>}
 object{FillerKnob scale 2 rotate y*180 translate <0.35*RoomWidth, 0.45*RoomHeight, -RoomDepth>}
 // Water rising, flood the bath
+#declare TubWaterPhase = 10*pi*clock; // Optimized for 10 sec per scene
 object{Water translate y*WaterHeight}
+//=======================OTHER OBJECTS========================
+#declare CamKugelRotFreq = 360*20*clock; // Optimal for 10 sec per scene
+object{CamKugel 	scale 0.2 translate <2/5*RoomWidth, 5/6*RoomHeight, -5/6*RoomDepth> }
+object{ helferlein rotate y*-90 scale 1 translate <0.32*RoomWidth, 0.77*RoomHeight, -0.05*RoomDepth> }
