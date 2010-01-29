@@ -28,9 +28,10 @@ global_settings {
 // Camera and caustics angle
 #declare CamAngle = 0; // 0 is looking to +z axis
 // Entenposition
+#declare DuckZStart = -10;
 #declare DuckX = 0;
 #declare DuckY = 0;
-#declare DuckZ = 0+clock*40; // ca. 200 frames
+#declare DuckZ = DuckZStart+clock*60; // ca. 200 frames
 #declare DuckRot = <0,-90,0>;//180*clock;
 // Light: Sync light with moon/sun
 #declare LightPos = <0,40,1000>;//<500,500, -1000>;
@@ -38,7 +39,7 @@ global_settings {
 #declare KopfAngMax= 25;
 #declare KopfRollMax= 15;
 #declare KopfPitch = 0*KopfAngMax;
-#declare KopfRoll = KopfRollMax*sin(pi*5*clock);
+#declare KopfRoll = KopfRollMax*sin(pi*2.5*clock);
 #declare KopfYaw = 0;//KopfAngMax*sin(pi*5*clock);
 #declare BuerzelPitch= KopfAngMax * abs(sin(pi*5*clock));
 #declare WingAngMax = 110;
@@ -52,7 +53,8 @@ texture{ Green_Glass
 //           bumps 0.3 // Mor turbulenced, e.g. outdoor, but no dynamics!
              scale 2
              turbulence 0.75
-		sine_wave phase -1/2*pi*clock  // Dynamic waves
+		sine_wave phase -10*pi*clock  // Dynamic waves
+		translate -z*100
 	}
        finish{
        	ambient 0.00
@@ -62,10 +64,16 @@ texture{ Green_Glass
 }// end of texture
 #declare WaterInterior = interior{I_Glass}
 //================CAMERA==============================
+#declare CamDefaultY = 1;
 camera {
 	angle 36
-	location <0,1,-10>
-	look_at <DuckX,DuckY,DuckZ>
+	#if (DuckZ < 0)
+		location <0,CamDefaultY+ (1/DuckZStart *DuckZ) ,-10>
+		look_at <DuckX, DuckY, 0>
+	#else
+		location <0,CamDefaultY,-10>
+		look_at <DuckX,DuckY,DuckZ>
+	#end
 	rotate y*CamAngle
 }
 //=================LIGHT SOURCES======================
@@ -75,6 +83,7 @@ sphere {0, 	80
 //	normal { wrinkles 180 scale 30}
 	finish { 	ambient 20 }
 	photons { collect off }
+	scale x*1.2
 }
 light_source{ LightPos White*2
 	#if(Photons)
@@ -83,30 +92,34 @@ light_source{ LightPos White*2
 	looks_like {object{Moon}}
 }
 light_source{ // Only used for caustics from behind
-	<0,800,-500> White *0.3
+	<0,100,-500> White *0.1
 	#if(Photons)
 		photons {refraction off reflection on}
 	#end
 	rotate y*CamAngle	
 }
 //==================HORIZONT========================
-#declare SkyCeiling =
-sky_sphere{
-	S_Cloud1 // Day sky
-//	S_Cloud4 // Darker sky
-      rotate  y*90*clock// Rotate around polaris.
-}
+//#declare SkyCeiling =
+//sky_sphere{
+//	S_Cloud1 // Day sky
+////	S_Cloud4 // Darker sky
+//      rotate  y*90*clock// Rotate around polaris.
+//}
 #declare HorizontFog =
 fog{ fog_type 2
 	distance 85
 //	color rgb<1,0.99,0.9>
 //	color rgb <0.687648, 0.692653, 0.443503>
 //	rgb <0.646250, 0.351247, 0.174563>
-	rgb <0.677562, 0.407568, 0.195331>	fog_offset 0.1
+	rgb <0.677562, 0.407568, 0.195331>
+	fog_offset 0.1
     	fog_alt  8
     	turbulence 0.2
 //	turbulence 1000
-//	omega 0.5//	lambda 0.2*100//	octaves 6//	turb_depth 0.5
+//	omega 0.5
+//	lambda 0.2*100
+//	octaves 6
+//	turb_depth 0.5
 }
 //====================WATER COMPONENTS============
 //Water
@@ -120,7 +133,7 @@ difference {
 }
 #declare WaterInner=
 box{
-	<DuckX-2.001,-1.001,DuckZ+2.001>, <DuckX+2.001,0.002,DuckZ-2.001>
+	<DuckX-2.00001,-1.00001,DuckZ+2.00001>, <DuckX+2.00001,0.00002,DuckZ-2.00001>
 	texture{WaterTexture }// end of texture
 	interior{WaterInterior}
 	PhotonBlock()
@@ -128,7 +141,7 @@ box{
 #declare WaterOuter=
 difference{
 	object{Water}
-	box{ <DuckX-2,-1,DuckZ+2>, <DuckX+2,0.001,DuckZ-2>
+	box{ <DuckX-2,-1,DuckZ+2>, <DuckX+2,0.00001,DuckZ-2>
 		     texture{WaterTexture}
 		     interior{WaterInterior}
 	}
@@ -145,7 +158,8 @@ background {
 //	rgb <0.084459, 0.201663, 0.233783>
 //	rgb <0.025971, 0.062058, 0.071931>
 //	rgb <0.000000, 0.015442, 0.017975>
-	rgb <0.009369, 0.031022, 0.035950>}
+	rgb <0.009369, 0.031022, 0.035950>
+}
 //sky_sphere{SkyCeiling}
 //object{O_Cloud1} // Night sky
 fog{HorizontFog}

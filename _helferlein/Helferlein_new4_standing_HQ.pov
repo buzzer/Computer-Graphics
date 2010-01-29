@@ -56,7 +56,20 @@ light_source {<1,2,0> rgb <1.0, 1.0, 0.95>*1.5}                 //in-hall lamp
               }             
 }
 
+//-------------------------------------
 
+#declare Custom_SilverFinish = finish
+{
+   metallic
+   ambient 0.25
+   diffuse 0.95
+   reflection 0.05
+   brilliance 6
+   phong 1
+   phong_size 100
+}
+
+//-------------------------------------
 
 //object{Koordinaten}
 
