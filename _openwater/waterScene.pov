@@ -43,9 +43,9 @@ global_settings {
 #declare KopfPitch = 0*KopfAngMax;
 #declare KopfRoll = KopfRollMax*sin(pi*2.5*clock);
 #declare KopfYaw = 0;//KopfAngMax*sin(pi*5*clock);
-#declare BuerzelPitch= KopfAngMax * abs(sin(pi*5*clock));
+#declare BuerzelPitch= KopfAngMax * abs(sin(pi*2.5*clock));
 #declare WingAngMax = 110;
-#declare WingRAngle= WingAngMax * abs(sin(pi*5*clock));
+#declare WingRAngle= WingAngMax * abs(sin(pi*2.5*clock));
 #declare WingLAngle = WingRAngle;
 // Water
 #declare WaterTexture =
@@ -91,16 +91,20 @@ sphere {0, 	80
 	scale x*1.2
 }
 light_source{ LightPos White*2
-	#if(Photons)
-		photons {refraction off reflection on}
-	#end
+//	#if(Photons)
+//		photons {refraction off reflection on}
+//	#end
 	looks_like {object{Moon}}
 }
 light_source{ // Only used for caustics from behind
 //	<0,100,-500> White *0.1
 	<CamX, CamY, CamZ> White *0.1
 	#if(Photons)
+	#if(DuckZ > 0)
+	#if(DuckZ < 5)
 		photons {refraction off reflection on}
+	#end
+	#end
 	#end
 	rotate y*CamAngle	
 }
