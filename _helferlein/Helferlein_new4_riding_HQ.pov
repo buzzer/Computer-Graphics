@@ -16,7 +16,7 @@
 
 global_settings { max_trace_level 5 ambient_light rgb <1.0, 1.0, 0.95> }
 
-camera {location <10,2.0,0> direction 2*z look_at < -4, 0.7, 0 >} 
+camera {location <-6,2.0,-10> direction 3*z look_at < 4, 1.2, 0 >} 
 //camera {location <4,2.0,2> direction 2*z look_at < 4, 2.0, 0 >}
 //camera {location <7.6,1.8,-1.8> direction 1*z look_at < 7.6, 1.8, 1.8 >}    
 //camera {location <25,30,25> direction 2*z look_at < 0, 0, 5 >}  
@@ -115,7 +115,7 @@ light_source {<1,2,0> rgb <1.0, 1.0, 0.95>*1.5}                 //in-hall lamp
 
 #declare B_  = A    + <0, 0 , hip_width / 2>;                                          //left hip joint
 #declare C_  = B_   + <-femoral_length, 0, 0>;                                         //left knee joint
-#declare C_  = vrotate( C_, <0,0,left_hip_angle> );                                    // "    "     "
+#declare C_  = vrotate( C_, <0,20,40> );                         //##linker Schenkel   // "    "     "
 #declare D_  = A    + <0,-shank_length, 0>;                                            //left ankle
 #declare D_  = vrotate( D_, <0,0,left_shank_angle> );                                  // "     "
 #declare D_  = D_   + C_;                                                              // "     "
@@ -124,7 +124,7 @@ light_source {<1,2,0> rgb <1.0, 1.0, 0.95>*1.5}                 //in-hall lamp
 
 #declare B__  = A   + <0, 0 ,-hip_width / 2>;                                          //right hip joint
 #declare C__  = B__ + <-femoral_length, 0, 0>;                                         //right knee joint
-#declare C__  = vrotate( C__, <0,0,right_hip_angle> );                                 //  "    "     "
+#declare C__  = vrotate( C__, <0,-20,40> );                     //##rechter Schenkel   //  "    "     "
 #declare D__  = A   + <0,-shank_length, 0>;                                            //right ankle
 #declare D__  = vrotate( D__, <0,0,right_shank_angle> );                               //  "     "
 #declare D__  = D__ + C__;                                                             //  "     "
@@ -144,10 +144,10 @@ light_source {<1,2,0> rgb <1.0, 1.0, 0.95>*1.5}                 //in-hall lamp
 
 #declare F_   = E   + <0,0, shoulder_width / 2> ;                                      //left shoulder joint
 #declare G_   = A   + <-upper_arm_length, 0, 0>;                                       //left ellbow joint
-#declare G_   = vrotate( G_, <0,0,left_shoulder_angle> );                              // "     "      "
+#declare G_   = vrotate( G_, <0,0,270> );                              // "     "      "
 #declare G_   = G_  + F_ + <0,0,tube_diameter*1.9>;                                   // "     "      "
 #declare H_   = A  + <0, -lower_arm_length, 0>;                                        //left hand joint
-#declare H_   = vrotate( H_, <0,0,left_ellbow_angle> );                                // "    "     "
+#declare H_   = vrotate( H_, <0,0,  180> );                                // "    "     "
 #declare H_   = H_  + G_;                                                              // "    "     "
 
 //right arm
@@ -157,10 +157,10 @@ light_source {<1,2,0> rgb <1.0, 1.0, 0.95>*1.5}                 //in-hall lamp
 
 #declare F__  = E   + <0,0,-shoulder_width / 2> ;                                      //right shoulder joint
 #declare G__  = A   + <-upper_arm_length, 0, 0>;                                       //right ellbow joint
-#declare G__  = vrotate( G__, <0,0,right_shoulder_angle> );                            //  "     "      "
+#declare G__  = vrotate( G__, <0,0,270> );                            //  "     "      "
 #declare G__  = G__ + F__ + <0,0,-tube_diameter*1.9>;                                   //  "     "      "
 #declare H__  = A   + <0, -lower_arm_length, 0>;                                       //right hand joint
-#declare H__  = vrotate( H__, <0,0,right_ellbow_angle> );                              //  "    "     "
+#declare H__  = vrotate( H__, <0,0,   180> );                              //  "    "     "
 #declare H__  = H__ + G__;                                                             //  "    "     "
 
 
@@ -346,7 +346,7 @@ object{ helferlein scale world_scale translate <body_x_offset,0,0>}
 
 object{ 
         lamp_free 
-        //rotate <0, 0 + 1440*clock, 0>
+        rotate <0, 0 + 1440*clock, 0>
         translate E_*world_scale + <body_x_offset, ( 3.6 )*lamp_scale*world_scale, 0>
         translate < 0,screw_height , 0> 
       }

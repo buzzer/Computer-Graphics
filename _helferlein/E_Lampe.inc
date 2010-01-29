@@ -43,6 +43,13 @@ light_source {<140,200,-300> rgb <0.9, 0.9, 1.00>*0.8 shadowless}
 
 //object{Koordinaten}
 
+#declare plastic_finish = finish
+{
+        ambient 0.5
+        diffuse 0.5
+        brilliance 2
+        phong 1
+} 
 
 //sphere{ <0,1,0> 1 pigment{ Yellow } }        
      
