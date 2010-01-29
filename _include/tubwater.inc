@@ -1,6 +1,8 @@
 #include "glass.inc" // for Water
 #include "textures.inc" // for green glass texture
 
+#declare TubWaterPhase = 20*pi*clock; // Default for 20 sec per scene, change if needed.
+
 // Water
 #declare Water =
 plane{y, 0
@@ -12,7 +14,7 @@ plane{y, 0
       turbulence 0.75
       // turbulence 1
 //      translate <DuckX, 0, DuckZ> // Dynamic take duck position
-      sine_wave phase 20*pi*clock  // Dynamic waves
+      sine_wave phase TubWaterPhase  // Dynamic waves
     }
     finish{
       ambient 0.15
