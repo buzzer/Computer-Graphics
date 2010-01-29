@@ -43,7 +43,7 @@
    #declare particle_drag      = 0.0;
    #declare particle_transfer  = 0.0;
    
-   #macro particle_gravity  (Clock,Point) -1200*y   #end
+   #macro particle_gravity  (Clock,Point) -10*y   #end
    #macro particle_wind     (Clock,Point) <0,0,0> #end
    
 // Emitter options
@@ -52,7 +52,7 @@
    #macro particle_emitter  (Clock) TubFillerOpening #end
    #macro particle_emitting (Clock) on      #end
 //   #macro particle_emitvect (Clock) vrotate(6.5*y,(30+20*sin(Clock*2*pi))*z) #end
-   #macro particle_emitvect (Clock) <0, 60, -20> #end
+   #macro particle_emitvect (Clock) <0, -1, -1> #end
    #macro particle_emitturb (Clock) 0.2     #end
    //#macro particle_emitobj  (Clock) object {} #end
    #macro particle_emitobjn (Clock) 0.0     #end
