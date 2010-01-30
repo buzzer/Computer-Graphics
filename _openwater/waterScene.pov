@@ -1,21 +1,23 @@
 // Open Water scene duration shall be 20 sec!
-#include "colors.inc"
-#include "skies.inc"
-#include "textures.inc"
-#include "glass.inc"
-#include "Ente.inc"
-//#include "fastsky.inc"
-#include "helferleinSitting.inc"
-#include "kugel.inc"
 //================POVRAY GLOBALS======================
 #include "ScenesGlobals.inc"
-#declare Photons = on;
+//================PHOTONS CONTROL====================
+#declare DuckZStart = -10;
+#declare DuckZ = DuckZStart+clock*60; // ca. 200 frames
+#declare Photons = off;
+#if(DuckZ > -10)
+	#if(DuckZ < 5)
+		#declare Photons = on;
+	#end
+#end
 global_settings {
-	max_trace_level 10	
-	photons {
-		spacing 0.005
-//	      jitter 0.5
-	}
+	max_trace_level 10
+	#if(Photons)
+		photons {
+			spacing 0.005
+	//	      jitter 0.5
+		}
+	#end
 }
 #macro PhotonBlock()
 	#if(Photons)
@@ -31,25 +33,34 @@ global_settings {
 // Camera and caustics angle
 #declare CamAngle = 0; // 0 is looking to +z axis
 // Entenposition
-#declare DuckZStart = -10;
 #declare DuckX = 0;
 #declare DuckY = 0;
-#declare DuckZ = DuckZStart+clock*60; // ca. 200 frames
 #declare DuckRot = <0,-90,0>;//180*clock;
 // Light: Sync light with moon/sun
 #declare LightPos = <0,40,1000>;//<500,500, -1000>;
 // Ducky movement
-#declare KopfAngMax= 25;
-#declare KopfRollMax= 15;
+#declare KopfAngMax = 25;
+#declare KopfRollMax = 15;
 #declare KopfPitch = 0*KopfAngMax;
 #declare KopfRoll = KopfRollMax*sin(pi*20*clock);
 #declare KopfYaw = KopfAngMax*sin(pi*20*clock);
-#declare BuerzelPitch= KopfAngMax * abs(sin(pi*40*clock));
+#declare BuerzelPitch = KopfAngMax * abs(sin(pi*40*clock));
 #declare WingAngMax = 110;
-#declare WingRAngle= WingAngMax * abs(sin(pi*40*clock));
+#declare WingRAngle = WingAngMax * abs(sin(pi*40*clock));
 #declare WingLAngle = WingRAngle;
+#declare CamKugelRotFreq = 360*20*clock; // Optimal for 20 sec per scene
 // Water
 #declare WaterPhase = -10*pi*clock; // Optimized for 20 sec per scene
+//=================INCLUDE FILES=======================
+#include "colors.inc"
+#include "skies.inc"
+#include "textures.inc"
+#include "glass.inc"
+#include "Ente.inc"
+//#include "fastsky.inc"
+#include "helferleinSitting.inc"
+#include "kugel.inc"
+//=================SEA WATER==========================
 #declare WaterTexture =
 texture{ Green_Glass
 	normal{
@@ -102,11 +113,7 @@ light_source{ // Only used for caustics from behind
 //	<0,100,-500> White *0.1
 	<CamX, CamY, CamZ> White *0.1
 	#if(Photons)
-	#if(DuckZ > 0)
-	#if(DuckZ < 5)
 		photons {refraction off reflection on}
-	#end
-	#end
 	#end
 	rotate y*CamAngle	
 }

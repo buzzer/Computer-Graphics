@@ -31,7 +31,7 @@
 #declare KopfPitch = 0*KopfAngMax;
 #declare KopfRoll = KopfRollMax*sin(pi*10*clock);
 #declare KopfYaw = KopfAngMax*sin(pi*10*clock);
-#declare BuerzelPitch= KopfAngMax * abs(sin(pi*20*clock));
+#declare BuerzelPitch = KopfAngMax * abs(sin(pi*20*clock));
 #declare WingAngMax = 110;
 #declare WingRAngle= WingAngMax * abs(sin(pi*20*clock));
 #declare WingLAngle = WingRAngle;
