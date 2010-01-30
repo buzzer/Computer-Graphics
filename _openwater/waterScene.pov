@@ -48,7 +48,7 @@ global_settings {
 #declare WingAngMax = 110;
 #declare WingRAngle = WingAngMax * abs(sin(pi*40*clock));
 #declare WingLAngle = WingRAngle;
-#declare CamKugelRotFreq = 360*20*clock; // Optimal for 20 sec per scene
+#declare CamKugelRotFreq = 360*40*clock; // Optimal for 20 sec per scene
 // Water
 #declare WaterPhase = -10*pi*clock; // Optimized for 20 sec per scene
 //=================INCLUDE FILES=======================
