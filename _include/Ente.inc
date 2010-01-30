@@ -28,17 +28,16 @@
     	scale DuckyScale150
     	rotate DuckyAng
 }
-
-#declare KopfAngMax= 25;
-#declare KopfRollMax= 15;
-#declare KopfPitch = 0*KopfAngMax;
-#declare KopfRoll = KopfRollMax*sin(pi*40*clock);
-#declare KopfYaw = KopfAngMax*sin(pi*40*clock);
-#declare BuerzelPitch= KopfAngMax * abs(sin(pi*80*clock));
-#declare WingAngMax = 110;
-#declare WingRAngle= WingAngMax * abs(sin(pi*80*clock));
-#declare WingLAngle = WingRAngle;
-
+// Optimized for scene duration of 20 sec!
+//#declare KopfAngMax= 25;
+//#declare KopfRollMax= 15;
+//#declare KopfPitch = 0*KopfAngMax;
+//#declare KopfRoll = KopfRollMax*sin(pi*40*clock);
+//#declare KopfYaw = KopfAngMax*sin(pi*40*clock);
+//#declare BuerzelPitch= KopfAngMax * abs(sin(pi*80*clock));
+//#declare WingAngMax = 110;
+//#declare WingRAngle= WingAngMax * abs(sin(pi*80*clock));
+//#declare WingLAngle = WingRAngle;
 //====================BUERZEL
 #declare EntenBuerzel= blob{
 		threshold 1.2

@@ -24,6 +24,21 @@
 // Room walls
 #declare TileScaleWall = 2.5;
 #declare TileScaleFloor = 3.5;
+//================SCENE CONSTANTS====================//Used in include files!
+// Ducky movement
+#declare KopfAngMax= 25;
+#declare KopfRollMax= 15;
+#declare KopfPitch = 0*KopfAngMax;
+#declare KopfRoll = KopfRollMax*sin(pi*10*clock);
+#declare KopfYaw = KopfAngMax*sin(pi*10*clock);
+#declare BuerzelPitch= KopfAngMax * abs(sin(pi*20*clock));
+#declare WingAngMax = 110;
+#declare WingRAngle= WingAngMax * abs(sin(pi*20*clock));
+#declare WingLAngle = WingRAngle;
+#declare TubWaterPhase = 5*pi*clock; // Optimized for 10 sec per scene
+#declare CamKugelRotFreq = 360*10*clock; // Optimal for 10 sec per scene
+#declare CamKugY = 3+RoomHeight-((RoomHeight-2)*clock);
+#declare HelferleinY = 2+RoomHeight-(3+(RoomHeight-2)*clock);
 //==================INCLUDE FILES HERE=================
 #include "toiletx01.inc"
 #include "Ente.inc"
@@ -50,21 +65,6 @@ light_source {	< RoomWidth/2, RoomHeight-1, -RoomDepth/2> White*0.6 }
 #include "duckySpline02.inc"
 #include "helferleinSitting.inc"
 #include "kugel.inc"
-//================SCENE CONSTANTS====================
-// Ducky movement
-#declare KopfAngMax= 25;
-#declare KopfRollMax= 15;
-#declare KopfPitch = 0*KopfAngMax;
-#declare KopfRoll = KopfRollMax*sin(pi*1.25*clock);
-#declare KopfYaw = 0;//KopfAngMax*sin(pi*5*clock);
-#declare BuerzelPitch= KopfAngMax * abs(sin(pi*1.25*clock));
-#declare WingAngMax = 110;
-#declare WingRAngle= WingAngMax * abs(sin(pi*1.25*clock));
-#declare WingLAngle = WingRAngle;
-#declare TubWaterPhase = 0.5*pi*clock; // Optimized for 10 sec per scene
-#declare CamKugelRotFreq = 360*20*clock; // Optimal for 10 sec per scene
-#declare CamKugY = 3+RoomHeight-((RoomHeight-2)*clock);
-#declare HelferleinY = 2+RoomHeight-(3+(RoomHeight-2)*clock);
 //==================SCENE OBJECTS HERE==================
 object{RoomWalls}
 object{BathDoor scale <3,3.5,1> rotate y*-90 translate z*-4/5*RoomDepth }

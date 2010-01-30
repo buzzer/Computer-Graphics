@@ -1,7 +1,7 @@
 #include "glass.inc" // for Water
 #include "textures.inc" // for green glass texture
 
-#declare TubWaterPhase = 20*pi*clock; // Default for 20 sec per scene, change if needed.
+//#declare TubWaterPhase = 20*pi*clock; // Default for 20 sec per scene, change if needed.
 
 // Water
 #declare Water =

@@ -1,3 +1,4 @@
+// Scene duration shall be 20 sec!
 //================POVRAY SPECIFIC======================
 #include "ScenesGlobals.inc"
 //================SCENE EFFECTS=======================
@@ -12,15 +13,29 @@
 // Room walls
 #declare TileScaleWall = 2.5;
 #declare TileScaleFloor = 3.5;
+// Water
+#declare WaterDefault = 4;
 // Ducky
-// Entenposition
-#declare DuckX = 27-11*clock;
-#declare DuckY = 4;
-#declare DuckZ = -4;
-#declare DuckRot = 180*clock;
+// Entenposition, defined by spline
+#declare DuckY = WaterDefault;
+//#declare DuckX = 27-11*clock;
+//#declare DuckY = 4;
+//#declare DuckZ = -4;
+//#declare DuckRot = 180*clock;
+// Ducky movement, optimized for scene duration of 20 sec
+#declare KopfAngMax= 25;
+#declare KopfRollMax= 15;
+#declare KopfPitch = 0*KopfAngMax;
+#declare KopfRoll = KopfRollMax*sin(pi*40*clock);
+#declare KopfYaw = KopfAngMax*sin(pi*40*clock);
+#declare BuerzelPitch= KopfAngMax * abs(sin(pi*80*clock));
+#declare WingAngMax = 110;
+#declare WingRAngle= WingAngMax * abs(sin(pi*80*clock));
+#declare WingLAngle = WingRAngle;
 //Tub Filler
 #declare TubFillerPos = <RoomWidth*13/18, 6.5, 0>;
 #declare TubFillerOpening = TubFillerPos - < 0, 0.4, 2.2>;
+#declare TubWaterPhase = 20*pi*clock; // Optimized for 20 sec per scene
 //==================INCLUDE FILES HERE=================
 #include "toiletx01.inc"
 #include "Ente.inc"

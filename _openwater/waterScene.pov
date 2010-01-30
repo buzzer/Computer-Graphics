@@ -1,3 +1,4 @@
+// Open Water scene duration shall be 20 sec!
 #include "colors.inc"
 #include "skies.inc"
 #include "textures.inc"
@@ -41,13 +42,14 @@ global_settings {
 #declare KopfAngMax= 25;
 #declare KopfRollMax= 15;
 #declare KopfPitch = 0*KopfAngMax;
-#declare KopfRoll = KopfRollMax*sin(pi*2.5*clock);
-#declare KopfYaw = 0;//KopfAngMax*sin(pi*5*clock);
-#declare BuerzelPitch= KopfAngMax * abs(sin(pi*2.5*clock));
+#declare KopfRoll = KopfRollMax*sin(pi*20*clock);
+#declare KopfYaw = KopfAngMax*sin(pi*20*clock);
+#declare BuerzelPitch= KopfAngMax * abs(sin(pi*40*clock));
 #declare WingAngMax = 110;
-#declare WingRAngle= WingAngMax * abs(sin(pi*2.5*clock));
+#declare WingRAngle= WingAngMax * abs(sin(pi*40*clock));
 #declare WingLAngle = WingRAngle;
 // Water
+#declare WaterPhase = -10*pi*clock; // Optimized for 20 sec per scene
 #declare WaterTexture =
 texture{ Green_Glass
 	normal{
@@ -55,8 +57,8 @@ texture{ Green_Glass
 //           bumps 0.3 // Mor turbulenced, e.g. outdoor, but no dynamics!
              scale 2
              turbulence 0.75
-		sine_wave phase -10*pi*clock  // Dynamic waves
-		translate -z*100
+		sine_wave phase WaterPhase  // Dynamic waves
+		translate -z*100 // Normal should not be visible
 	}
        finish{
        	ambient 0.00
