@@ -26,6 +26,7 @@ spline {
 // Follows the same path as the first aircraft
 #declare BathCamera =
 camera {
+	angle 90
       location 0
       look_at z
       translate <0,0.4,0.4>

@@ -33,7 +33,7 @@
 #declare KopfYaw = KopfAngMax*sin(pi*10*clock);
 #declare BuerzelPitch = KopfAngMax * abs(sin(pi*20*clock));
 #declare WingAngMax = 110;
-#declare WingRAngle= WingAngMax * abs(sin(pi*20*clock));
+#declare WingRAngle = WingAngMax * abs(sin(pi*20*clock));
 #declare WingLAngle = WingRAngle;
 #declare TubWaterPhase = 5*pi*clock; // Optimized for 10 sec per scene
 #declare CamKugelRotFreq = 360*10*clock; // Optimal for 10 sec per scene

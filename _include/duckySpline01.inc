@@ -1,3 +1,4 @@
+// Two rounds in the bath tub.
 #declare NumDuckyPos = 12;
 #declare YawAdvance = 0.5;
 #declare RollAdvance = 0.2;

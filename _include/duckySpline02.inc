@@ -1,4 +1,5 @@
-#declare NumDuckyPos = 12;
+// One round in the bath tub.
+#declare NumDuckyPos = 06;
 #declare YawAdvance = 0.5;
 #declare RollAdvance = 0.2;
 #declare ViewAxis = y;
@@ -9,13 +10,6 @@
 #declare P4 = < (RoomWidth-TubWidth)+0.25*TubWidth, DuckY, -0.75*TubDepth>;
 #declare P5 = < (RoomWidth-TubWidth)+0.25*TubWidth, DuckY, -0.25*TubDepth>;
 #declare P6 = < (RoomWidth-TubWidth)+0.50*TubWidth, DuckY, -0.25*TubDepth>;
-//// Flooded bath
-//#declare P7 = < 0.75*RoomWidth, DuckY, -0.25*RoomDepth>;
-//#declare P8 = < 0.75*RoomWidth, DuckY, -0.75*RoomDepth>;
-//#declare P9 = < 0.50*RoomWidth, DuckY, -0.75*RoomDepth>;
-//#declare P10 = < 0.25*RoomWidth, DuckY, -0.75*RoomDepth>;
-//#declare P11 = < 0.25*RoomWidth, DuckY, -0.25*RoomDepth>;
-//#declare P12 = < 0.50*RoomWidth, DuckY, -0.25*RoomDepth>;
 
 #declare DuckySpline =
 spline {
