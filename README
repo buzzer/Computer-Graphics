@@ -18,3 +18,12 @@ _ente:  3D model of the ducky
 _misc:  Misc. stuff, e.g. broken egg
 _sky:   Model of sky
 
+(Ducky scene ordering):
+# | Name | Label  | Length (sec)  | # Frames
+=============================================
+1 | Bath 01 | Overview  | 20  | 500
+3 | Bath 02 | Flooding  | 10  | 250
+2 | Bath 03 | Falling | 5 | 125
+4 | Water 01  | Sunset  | 20  | 500
+
+Summary: 55 sec | 1375 frames
