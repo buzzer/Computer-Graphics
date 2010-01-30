@@ -5,8 +5,8 @@
 #declare DuckZStart = -10;
 #declare DuckZ = DuckZStart+clock*60; // ca. 200 frames
 #declare Photons = off;
-#if(DuckZ > -10)
-	#if(DuckZ < 5)
+#if(DuckZ > -6.6)
+	#if(DuckZ < 15)
 		#declare Photons = on;
 	#end
 #end
