@@ -19,11 +19,11 @@ _misc:  Misc. stuff, e.g. broken egg
 _sky:   Model of sky
 
 (Ducky scene ordering):
-# | Name | Label  | Length (sec)  | # Frames
-=============================================
-1 | Bath 01 | Overview  | 20  | 500
-3 | Bath 02 | Flooding  | 10  | 250
-2 | Bath 03 | Falling | 5 | 125
-4 | Water 01  | Sunset  | 20  | 500
+# | Name | Label  | Length (sec)  | # Frames  | Render time (h)*
+============================================================
+1 | Bath 01 | Overview  | 20  | 500 | 4,25
+3 | Bath 02 | Flooding  | 10  | 250 | 8,5
+2 | Bath 03 | Falling | 5 | 125 | 1,75
+4 | Water 01  | Sunset  | 20  | 500 | 5
 
-Summary: 55 sec | 1375 frames
+Summary: 55 sec | 1375 frames | 19,5 h rendern
