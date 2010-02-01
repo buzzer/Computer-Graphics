@@ -1,0 +1,43 @@
+"A Patched World"
+
+A Film by
+JMSS
+
+An Animation Project at the University Hamburg
+Department of Informatik
+Interactive Visual Computing
+2010
+
+Starring
+Rubber Duck
+
+Edited by
+Sebastian Rockel
+
+Produced by
+Jörg Maibaum
+Maryam Reza
+Sebastian Schaaf
+Sebastian Rockel
+
+Scene 1 - Children Mailbox by
+Maryam Reza
+
+Scene 2 - Camera Sphere by
+Jörg Maibaum
+
+Scene 3 - Helferlein by
+Sebastian Schaaf
+
+Scene 4 - Rubber Duck by
+Sebastian Rockel
+
+Music by
+Apple iMovie Loops
+http://free-loops.com
+
+POV-Ray Tools
+http://runevision.com    Particles, Splines
+http://www.oyonale.com    3D Models
+http://www.wings3d.com    Mesh 3D Modeling
+http://www.deakin.edu.au    Miscellaneous
