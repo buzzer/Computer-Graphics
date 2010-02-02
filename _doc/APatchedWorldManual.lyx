@@ -1,0 +1,220 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass scrreprt
+\begin_preamble
+\usepackage{color}
+\usepackage{listings}
+%\usepackage{fancyvrb} 		% More advanced code listing styles
+% Code listings
+\lstset{ %
+language=POV,                % choose the language of the code
+%basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+%numbers=left,                   % where to put the line-numbers
+numberstyle=\color{gray}\tiny,      % the size of the fonts that are used for the line-numbers
+stepnumber=1,                   % the step between two line-numbers. If it's 1 each line will be numbered
+numbersep=5pt,                  % how far the line-numbers are from the code
+%backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=none,	                % adds a frame around the code
+tabsize=2,	                % sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+escapeinside={\%*}{*)},          % if you want to add a comment within your code
+%fancyvrb=true	% Enable fancy verbatim code listing
+keywordstyle=\color{blue}\bfseries,
+commentstyle=\color{black}\emph,
+identifierstyle=\color{black}\bfseries,
+stringstyle=\ttfamily,
+}
+\end_preamble
+\use_default_options false
+\language german
+\inputencoding auto
+\font_roman times
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_title "A Patched World"
+\pdf_author "S. Rockel, S. Schaaf, J. Maibaum, M. Reza"
+\pdf_subject "Animationsfilm mit POV-Ray, IVC 2010"
+\pdf_keywords "Uni Hamburg povray IVC 3d imovie"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_amsmath 2
+\use_esint 0
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\defskip medskip
+\quotes_language german
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Titlehead
+joerg.maibaum.uni@gmx.de
+\begin_inset Newline newline
+\end_inset
+
+mar.reza@yahoo.com
+\begin_inset Newline newline
+\end_inset
+
+s.schaaf@gmx.de
+\begin_inset Newline newline
+\end_inset
+
+sebastianrockel@gmail.com
+\end_layout
+
+\begin_layout Subject
+Übung Interactive Visual Computing 2010
+\end_layout
+
+\begin_layout Title
+A Patched World
+\end_layout
+
+\begin_layout Author
+Jörg Maibaum
+\begin_inset Newline newline
+\end_inset
+
+Maryam Reza
+\begin_inset Newline newline
+\end_inset
+
+Sebastian Schaaf
+\begin_inset Newline newline
+\end_inset
+
+Sebastian Rockel
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Publishers
+Universität Hamburg, Department Informatik
+\end_layout
+
+\begin_layout Abstract
+Dieser Bericht soll Hintergrundinformation geben zum Film 
+\begin_inset Quotes gld
+\end_inset
+
+A Patched World
+\begin_inset Quotes grd
+\end_inset
+
+, der mit dem Ray-Tracer POV-Ray erstellt wurde.
+\end_layout
+
+\begin_layout Abstract
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset CommandInset nomencl_print
+LatexCommand printnomenclature
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Kapitel 1 - Mailbox-Szene
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "_mailbox/DocUebungIVC1.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

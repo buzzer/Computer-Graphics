@@ -2,9 +2,9 @@
 \lyxformat 345
 \begin_document
 \begin_header
-\textclass article
+\textclass scrreprt
 \use_default_options true
-\language english
+\language german
 \inputencoding auto
 \font_roman default
 \font_sans default
@@ -17,6 +17,7 @@
 
 \graphics default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -29,26 +30,52 @@
 \tocdepth 3
 \paragraph_separation indent
 \defskip medskip
-\quotes_language english
+\quotes_language german
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
 \tracking_changes false
 \output_changes false
 \author "" 
+\author "" 
 \end_header
 
 \begin_body
 
+\begin_layout Chapter
+Mailbox-Szene
+\end_layout
+
+\begin_layout Section
+Szenenbeschreibung
+\end_layout
+
 \begin_layout Standard
-Szene Beschreibung Item in diese szene sind: mailbox, Haus, canoo, Palm,
- Grüne Wiese, Strand, see.
- Zwei Lightsource: color white ein Camera: ein Lightsource und Camera haben
- gleiche Richtung.
- Die zweite Lightsource ist im Mailbox drin, und hat Color Gray50(zwischen
+Itemin diese szene sind: mailbox, Haus, canoo, Palm, Grüne Wiese, Strand,
+ see.
+\end_layout
+
+\begin_layout Standard
+Zwei Lightsource: color white
+\end_layout
+
+\begin_layout Standard
+ein Camera: ein Lightsource und Camera haben gleiche Richtung.
+ 
+\end_layout
+
+\begin_layout Standard
+Die zweite Lightsource ist im Mailbox drin, und hat Color Gray50(zwischen
  Weiss und Schwarz).
- Sky: texture{pigment{Bright_Blue_Sky quick_color Blue scale 3.5 translate<8,0,10
->} finish {ambient 1 diffuse 0} } scale 10000}
+\end_layout
+
+\begin_layout Standard
+Sky: texture{pigment{Bright_Blue_Sky quick_color Blue scale 3.5 translate<8,0,10>
+}
+\end_layout
+
+\begin_layout Standard
+finish {ambient 1 diffuse 0} } scale 10000}
 \end_layout
 
 \begin_layout Standard
@@ -56,15 +83,31 @@ See: texture { pigment { color rgb <0,0.8,3.4024>}}
 \end_layout
 
 \begin_layout Standard
-Grünewiese: texture{pigment{color rgb<0,1,0.03>} normal {bumps 0.013 scale
- .015}finish {ambient 0.4 diffuse 0.01 reflection 0.15 phong 1000.7}} Strand:
- texture{pigment{color rgb<0.5,0.5,0.7>} normal {bumps 0.013 scale .015} finish
- {ambient 1.1 diffuse 0.065 phong 10.1}} 
+Grünewiese: texture{pigment{color rgb<0,1,0.03>} 
 \end_layout
 
 \begin_layout Standard
-Mailbox : objekte, Texturen, Translate, union Objekte sind: Holzkasten,
- Box, Flage, Topschild, SignName 
+normal {bumps 0.013 scale .015}finish {ambient 0.4 diffuse 0.01
+\end_layout
+
+\begin_layout Standard
+reflection 0.15 phong 1000.7}}
+\end_layout
+
+\begin_layout Standard
+Strand: texture{pigment{color rgb<0.5,0.5,0.7>} normal {bumps 0.013 scale .015}
+\end_layout
+
+\begin_layout Standard
+finish {ambient 1.1 diffuse 0.065 phong 10.1}} 
+\end_layout
+
+\begin_layout Section
+Mailbox: objekte, Texturen, Translate, union
+\end_layout
+
+\begin_layout Standard
+Objekte sind: Holzkasten, Box, Flage, Topschild, SignName 
 \end_layout
 
 \begin_layout Standard
@@ -72,55 +115,150 @@ Holzkasten: pigment{ DMFWood4}, vordefiniert in „textures.inc“
 \end_layout
 
 \begin_layout Standard
-Box: #declare,polygon, union, intersection Objekte: vorne, Hinten, zwei
- Seite, oben und unten Teile Flage:#declare, polygen, pigment{color red},
- finish{ ambient 0.85}
+Box: #declare,polygon, union, intersection 
+\end_layout
+
+\begin_layout Standard
+Objekte: vorne, Hinten, zwei Seite, oben und unten Teile 
+\end_layout
+
+\begin_layout Standard
+Flage:#declare, polygen, pigment{color red}, finish{ ambient 0.85}
 \end_layout
 
 \begin_layout Standard
 Topschild: #declare, union, text, pigment{red}, finish{ambient 0.5, diffuse
- 0.5} Verschiben in die richtiger Platz mit ” translate” Name auf den Topschild
- schreiben: mit Hilfe TrueTypeFont(timrom.ttf)
+ 0.5}
+\end_layout
+
+\begin_layout Standard
+Verschiben in die richtiger Platz mit ” translate” 
+\end_layout
+
+\begin_layout Standard
+Name auf den Topschild schreiben: mit Hilfe TrueTypeFont(timrom.ttf)
 \end_layout
 
 \begin_layout Standard
 Final Texturen für die Mailbox: texture {pigment { color Silver }, normal
- { bumps 0.1 scale 10 } finish { ambient 0.2, brilliance 6.0, reflection 0.5}}
+ { bumps 0.1 scale 10 }
 \end_layout
 
 \begin_layout Standard
-Canoo: hat zwei Außer und Innen Seite Außerseite: #declare, intersection,
- inverse, transform Objekt sphere texture{pigment{color White*1.1}finish
- { phong 1}} mehrere Transformationen : { rotate, translate} Inenseite:
- interasection, union, Texturen Objekt sphere texture{ pigment{ color MediumWood
-}finish { phong 1}} Canoo verschiben in eine endgültige Lage : #declre,
- transform{rotate, translate}
+finish { ambient 0.2, brilliance 6.0, reflection 0.5}}
+\end_layout
+
+\begin_layout Section
+Canoo: hat zwei Außer und Innen Seite
 \end_layout
 
 \begin_layout Standard
-Haus: #declare, objekte,macro, union, intersection, translate, rotate Däche:
- jeder Teil wiederholt ein flach Quder und Zylinder Mit Hilfe „macros“ jeder
- teil stellen und verwenden.
- Texturen: texture{ pigment{color} scale<> quick_color} normal { bumps scale
- 0.015} finish { phong 1}} und Haus an der richtigen Stelle in der Szene
- bringen: translate, rotate 
+Außerseite: #declare, intersection, inverse, transform
 \end_layout
 
 \begin_layout Standard
-Palm : #declare, Texturen, plam macro, objekte Blatt: objekt sphere, Plam
- hat zwei Teil: Palm Kopf, Palm Körper Palm-Kopf macro: die Zahl den Äste
- und Finger von jeden Äste erstellen und positionieren.
- texture{pigment{color rgb<0.7,1.0,0.1>}normal {bumps 0.25 scale <1,0.5,0.002>}
- finish { ambient 0.4 diffuse 0.5 reflection 0.1 phong 0.7 } } Palm-Körper macro:
- mit Hilfe diese macro, erstellen Baumkörper und postionieren Palm-Kopf
- texture{pigment{color LightWood} normal {bumps 1.0 scale<0.005,0.2,0.005>}
- finish {ambient 0.45 diffuse 0.55 phong 0.1}}} Palms veschiben in eine endgültige
- Lage: translate, rotate
+Objekt sphere
 \end_layout
 
 \begin_layout Standard
-Mailboxdecke und das Flag wurde mit Hilfe „Clock“ animiniert.
- Mailboxdecke und das Flag wurde mit Hilfe „Clock“ animiniert, der animierte
+texture{pigment{color White*1.1}finish { phong 1}}
+\end_layout
+
+\begin_layout Standard
+mehrere Transformationen : { rotate, translate}
+\end_layout
+
+\begin_layout Standard
+Inenseite: interasection, union, Texturen 
+\end_layout
+
+\begin_layout Standard
+Objekt sphere
+\end_layout
+
+\begin_layout Standard
+texture{ pigment{ color MediumWood}finish { phong 1}}
+\end_layout
+
+\begin_layout Standard
+Canoo verschiben in eine endgültige Lage : #declre, transform{rotate, translate}
+\end_layout
+
+\begin_layout Section
+Haus: #declare, objekte,macro, union, intersection, translate, rotate
+\end_layout
+
+\begin_layout Standard
+Däche: jeder Teil wiederholt ein flach Quder und Zylinder 
+\end_layout
+
+\begin_layout Standard
+Mit Hilfe „macros“ jeder teil stellen und verwenden.
+\end_layout
+
+\begin_layout Standard
+Texturen: texture{ pigment{color} scale<> quick_color} normal { bumps scale
+ 0.015} 
+\end_layout
+
+\begin_layout Standard
+finish { phong 1}}
+\end_layout
+
+\begin_layout Standard
+und Haus an der richtigen Stelle in der Szene bringen: translate, rotate
+ 
+\end_layout
+
+\begin_layout Section
+Palm : #declare, Texturen, plam macro, objekte
+\end_layout
+
+\begin_layout Standard
+Blatt: objekt sphere,
+\end_layout
+
+\begin_layout Standard
+Plam hat zwei Teil: Palm Kopf, Palm Körper
+\end_layout
+
+\begin_layout Standard
+Palm-Kopf macro: die Zahl die Äste und der Finger von jeden Äste erstellen
+ und positionieren.
+ 
+\end_layout
+
+\begin_layout Standard
+texture{pigment{color rgb<0.7,1.0,0.1>}normal {bumps 0.25 scale <1,0.5,0.002>}
+\end_layout
+
+\begin_layout Standard
+finish { ambient 0.4 diffuse 0.5 reflection 0.1 phong 0.7 } } 
+\end_layout
+
+\begin_layout Standard
+Palm-Körper macro: mit Hilfe diese macro, erstellen Baumkörper und postionieren
+ Palm-Kopf
+\end_layout
+
+\begin_layout Standard
+texture{pigment{color LightWood}
+\end_layout
+
+\begin_layout Standard
+normal {bumps 1.0 scale<0.005,0.2,0.005>}
+\end_layout
+
+\begin_layout Standard
+finish {ambient 0.45 diffuse 0.55 phong 0.1}}} 
+\end_layout
+
+\begin_layout Standard
+Palms veschiben in eine endgültige Lage: translate, rotate
+\end_layout
+
+\begin_layout Standard
+Mailboxdecke und das Flag wurde mit Hilfe „Clock“ animiniert, der animierte
  Film wurde mit Hilfe IMovie mit dem Film meinen Kindern zusammen geschnitten.
  
 \end_layout
