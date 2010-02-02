@@ -183,6 +183,60 @@ LatexCommand printnomenclature
 
 \end_layout
 
+\begin_layout Chapter
+Einleitung
+\end_layout
+
+\begin_layout Section
+Story
+\end_layout
+
+\begin_layout Standard
+Zur Story kann man sagen, dass am Anfang des Projekts jedes Team-Mitglied
+ seine eigene sehr interessante Idee gehabt hat.
+ Deswegen haben wir uns entschieden, jedem Handlungsfaden erst einmal freien
+ Lauf zu lassen.
+ Gegen Ende des Projekts gab es dann doch einige Kordination der Szenen,
+ wie man besonders an der Enten-Szene sehen kann.
+\end_layout
+
+\begin_layout Section
+Titel
+\end_layout
+
+\begin_layout Standard
+Ein Titel sollte unserer Meinung nach den Charakter des Films am Besten
+ wiedergeben.
+ Deshalb 
+\begin_inset Quotes gld
+\end_inset
+
+Eine geflickte Welt
+\begin_inset Quotes grd
+\end_inset
+
+ (
+\emph on
+A Patched World
+\emph default
+), als Anspielung an die Szenen (
+\begin_inset Quotes gld
+\end_inset
+
+Flicken
+\begin_inset Quotes grd
+\end_inset
+
+), die den Film ausmachen.
+ Nichtsdestotrotz wurde bei der Zusammenfügung, dem Schneiden des Films,
+ sehr darauf geachtet aus allen verschiedenen Szenen ein möglichst harmonischen
+ Gesamt-Handlungsfaden zu kreieren.
+\end_layout
+
+\begin_layout Standard
+In den folgenden Kapiteln werden nun die vier Hauptszenen des Films erläutert.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Note Note
 status open
@@ -211,7 +265,7 @@ filename "_mailbox/DocUebungIVC1.lyx"
 status open
 
 \begin_layout Plain Layout
-Kapitle 2 - Kugel-Szene
+Kapitel 2 - Kugel-Szene
 \end_layout
 
 \end_inset
