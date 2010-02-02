@@ -153,7 +153,7 @@ LatexCommand tableofcontents
 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 \begin_inset Note Note
 status collapsed
 
@@ -200,6 +200,75 @@ Kapitel 1 - Mailbox-Szene
 \begin_inset CommandInset include
 LatexCommand include
 filename "_mailbox/DocUebungIVC1.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Kapitle 2 - Kugel-Szene
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "_sphere/CamSphereIVC.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Kapitel 3 - Helferlein-Szene
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "_helferlein/HelferleinIVC.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Kapitel 4 - Enten-Szene
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "_rubberduck/RubberDuckIVC.lyx"
 
 \end_inset
 
