@@ -81,48 +81,220 @@ Hauptdarsteller
 \end_layout
 
 \begin_layout Standard
-Das Polygon-Modell stammt urprünglich aus einer anderen POV-Ray-Szene 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TOTO Ref Ducky
-\end_layout
+Das Polygon-Modell stammt ursprünglich aus einer anderen POV-Ray-Szene 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Oyon:ys"
 
 \end_inset
 
 .
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO Ref Wings3D
-\end_layout
+ Damit sie in POV-Ray animierbar ist, wurde das Mesh-Modell der Ente mittels
+ Wings3D 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wing:vn"
 
 \end_inset
 
- Damit sie in POV-Ray animierbar ist
+ bearbeitet.
+ Dabei sind der Kopf und Bürzel abgetrennt worden.
+ In POV-Ray selber konnte so die getrennte Animation von Kopf und Rumpf
+ realisiert werden.
 \end_layout
 
 \begin_layout Standard
-in Wings3D separiert
+Der erste Versuch das Entenmodell (Mesh-Modell) ganz in POV-Ray, mit Hilfe
+ der Constructive Solid Geometry (CSG), zu animieren, scheiterte daran,
+ dass 
+\begin_inset Quotes gld
+\end_inset
+
+abgeschnittene
+\begin_inset Quotes grd
+\end_inset
+
+ Mesh-Gliedmaßen unschöne Artefakte produzierten.
+ Anscheinend ist die Verwebung von Mesh-Modellen und CSG in POV-Ray nicht
+ ganz nahtlos.
 \end_layout
 
 \begin_layout Standard
-gestaucht und Kopf vergrößert um niedlich zu wirken
+Der Bürzel und die Flügel sind ganz in POV-Ray mittels (Zylinder-) Blobs
+ entstanden.
+ Um ein niedlicheres Modell zu erschaffen wurden dann noch der Rumpf auf
+ der Längsachse gestaucht, sowie der Kopf im Verhältnis zum Rumpf sehr vergrößer
+t.
 \end_layout
 
 \begin_layout Subsection
 Texturen
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsubsection
 Wände
 \end_layout
 
 \begin_layout Standard
+Das Modell einer Fließe stammt von 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Deak:uq"
+
+\end_inset
+
+.
+ Um einfach Räume zu modellieren, hat der Autor ein POV-Ray-Macro geschrieben,
+ das bei Angabe von Höhe, Breite und Fließengröße beliebige fertige Fließenwände
+ erstellt.
+ Das eckige Fließenmodell wurde letztendlich einem vielleicht ansprechenderem
+ abgerundeten Modell aus Renderzeit-Gründen vorgezogen.
+\end_layout
+
+\begin_layout Subsubsection
 Wasser
+\end_layout
+
+\begin_layout Standard
+Das sehr realistisch wirkende Wasser wurde komplett in POV-Ray erstellt
+ und zwar mittels vorhandenen Textur- und Glas-Deklarationen (siehe Code-Beispie
+l 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Alg:WaterDeclaration"
+
+\end_inset
+
+).
+ 
+\begin_inset Float algorithm
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+#include "glass.inc" // for water
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "textures.inc" // for green glass texture
+\end_layout
+
+\begin_layout Plain Layout
+
+plane{y, 0
+\end_layout
+
+\begin_layout Plain Layout
+
+  texture{ Green_Glass
+\end_layout
+
+\begin_layout Plain Layout
+
+    normal{
+\end_layout
+
+\begin_layout Plain Layout
+
+      ripples 0.3
+\end_layout
+
+\begin_layout Plain Layout
+
+      scale 0.75
+\end_layout
+
+\begin_layout Plain Layout
+
+      turbulence 0.75
+\end_layout
+
+\begin_layout Plain Layout
+
+      sine_wave phase 20*pi*clock // Dynamic waves
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    finish{
+\end_layout
+
+\begin_layout Plain Layout
+
+      ambient 0.15
+\end_layout
+
+\begin_layout Plain Layout
+
+      diffuse 0.65
+\end_layout
+
+\begin_layout Plain Layout
+
+      reflection 0.3
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+  } // end of texture
+\end_layout
+
+\begin_layout Plain Layout
+
+  interior{ I_Glass }
+\end_layout
+
+\begin_layout Plain Layout
+
+} // end of water
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Wasser-Deklaration
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Alg:WaterDeclaration"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ Das Meer-Wasser in der Schlussszene entspringt der gleichen Deklaration
+ nur mit maßstabstreuer Skalierung der Wellen.
 \end_layout
 
 \begin_layout Subsection
@@ -130,15 +302,17 @@ Bewegungsmodell
 \end_layout
 
 \begin_layout Standard
-Hauptdarsteller
-\end_layout
-
-\begin_layout Standard
-Kamera
-\end_layout
-
-\begin_layout Subsection
-Kamera
+Die Bewegungen der Ente, sowie der Kamera wurden entlang einer Splinekurve
+ geführt.
+ Dafür wurde das Macro 
+\emph on
+Spline_Trans
+\emph default
+ aus 
+\emph on
+transform.inc
+\emph default
+ für eine weichere Bewegung verwendet.
 \end_layout
 
 \begin_layout Section
@@ -146,36 +320,202 @@ Verwendete Tools
 \end_layout
 
 \begin_layout Standard
-wings3d
+Siehe Tabelle 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Tab:Tools"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
-Poseray
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Name
 \end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Zweck
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+POV-Ray v3.7 beta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ray-Tracer
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MegaPOV
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+GUI
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PoseRay
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mesh-Konvertierung
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Wings3D
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3D-Modellierer
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+QuickTime
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Filmsequenzer
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+iMovie
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Schnittprogramm
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-MegaPOV
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Verwendete Tools
 \end_layout
 
-\begin_layout Standard
-POV-Ray beta 3.7
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Tab:Tools"
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
-iMovie
+\begin_layout Plain Layout
+
 \end_layout
 
-\begin_layout Standard
-QuickTime
+\end_inset
+
+
 \end_layout
 
 \end_body

@@ -27,8 +27,8 @@ breakatwhitespace=false,        % sets if automatic breaks should only happen at
 escapeinside={\%*}{*)},          % if you want to add a comment within your code
 %fancyvrb=true	% Enable fancy verbatim code listing
 keywordstyle=\color{blue}\bfseries,
-commentstyle=\color{black}\emph,
-identifierstyle=\color{black}\bfseries,
+commentstyle=\color{red}\emph,
+identifierstyle=\color{green}\bfseries,
 stringstyle=\ttfamily,
 }
 \end_preamble
@@ -56,7 +56,7 @@ stringstyle=\ttfamily,
 \pdf_bookmarksnumbered false
 \pdf_bookmarksopen false
 \pdf_bookmarksopenlevel 1
-\pdf_breaklinks false
+\pdf_breaklinks true
 \pdf_pdfborder false
 \pdf_colorlinks false
 \pdf_backref false
@@ -196,7 +196,7 @@ Zur Story kann man sagen, dass am Anfang des Projekts jedes Team-Mitglied
  seine eigene sehr interessante Idee gehabt hat.
  Deswegen haben wir uns entschieden, jedem Handlungsfaden erst einmal freien
  Lauf zu lassen.
- Gegen Ende des Projekts gab es dann doch einige Kordination der Szenen,
+ Gegen Ende des Projekts gab es dann doch einige Koordination der Szenen,
  wie man besonders an der Enten-Szene sehen kann.
 \end_layout
 
@@ -329,10 +329,12 @@ filename "_rubberduck/RubberDuckIVC.lyx"
 
 \end_layout
 
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-1"
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintAll"
+bibfiles "/Users/sebastian/Documents/_BibPapers/POVRay"
+options "bibtotoc,plaindin"
 
 \end_inset
 
