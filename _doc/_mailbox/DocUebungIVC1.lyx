@@ -51,175 +51,394 @@ Szenenbeschreibung
 \end_layout
 
 \begin_layout Standard
-Itemin diese szene sind: mailbox, Haus, canoo, Palm, Grüne Wiese, Strand,
- see.
+Objekte in der Szene sind: Mailbox, Haus, Canoo, Palm, Grüne Wiese, Strand,
+ See.
 \end_layout
 
-\begin_layout Standard
-Zwei Lightsource: color white
+\begin_layout Itemize
+Zwei Lichtquellen: 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+color white
 \end_layout
 
-\begin_layout Standard
-ein Camera: ein Lightsource und Camera haben gleiche Richtung.
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Eine Kamera: Die Lichtquelle und Kamera haben die gleiche Richtung.
  
 \end_layout
 
-\begin_layout Standard
-Die zweite Lightsource ist im Mailbox drin, und hat Color Gray50(zwischen
+\begin_layout Itemize
+Die zweite Lichtquelle ist in der Mailbox drin, und hat Color Gray50 (zwischen
  Weiss und Schwarz).
 \end_layout
 
-\begin_layout Standard
-Sky: texture{pigment{Bright_Blue_Sky quick_color Blue scale 3.5 translate<8,0,10>
-}
+\begin_layout Itemize
+Himmel: 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+texture{
 \end_layout
 
-\begin_layout Standard
-finish {ambient 1 diffuse 0} } scale 10000}
+\begin_layout Plain Layout
+
+  
+\lang german
+pigment{Bright_Blue_Sky
+ 
+\lang german
+quick_color Blue scale 3.5 translate<8,0,10>}
 \end_layout
 
-\begin_layout Standard
-See: texture { pigment { color rgb <0,0.8,3.4024>}} 
+\begin_layout Plain Layout
+
+  
+\lang german
+finish {ambient 1 diffuse 0}
 \end_layout
 
-\begin_layout Standard
-Grünewiese: texture{pigment{color rgb<0,1,0.03>} 
+\begin_layout Plain Layout
+} scale 10000}
 \end_layout
 
-\begin_layout Standard
-normal {bumps 0.013 scale .015}finish {ambient 0.4 diffuse 0.01
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
+See: 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+texture{ pigment { color rgb <0,0.8,3.4024>}} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Grüne Wiese: 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+texture{
+ 
+\lang german
+pigment{color rgb<0,1,0.03>}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\lang german
+normal {bumps 0.013 scale .015}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\lang german
+finish {ambient 0.4 diffuse 0.01
+ 
+\lang german
 reflection 0.15 phong 1000.7}}
 \end_layout
 
-\begin_layout Standard
-Strand: texture{pigment{color rgb<0.5,0.5,0.7>} normal {bumps 0.013 scale .015}
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
-finish {ambient 1.1 diffuse 0.065 phong 10.1}} 
+\begin_layout Itemize
+Strand: 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+texture{
+ 
+\lang german
+pigment{color rgb<0.5,0.5,0.7>}
 \end_layout
 
-\begin_layout Section
-Mailbox: objekte, Texturen, Translate, union
+\begin_layout Plain Layout
+
+  
+\lang german
+normal {bumps 0.013 scale .015}
 \end_layout
 
-\begin_layout Standard
-Objekte sind: Holzkasten, Box, Flage, Topschild, SignName 
+\begin_layout Plain Layout
+
+  
+\lang german
+finish {ambient 1.1 diffuse 0.065 phong 10.1}}
 \end_layout
 
-\begin_layout Standard
-Holzkasten: pigment{ DMFWood4}, vordefiniert in „textures.inc“
-\end_layout
+\end_inset
 
-\begin_layout Standard
-Box: #declare,polygon, union, intersection 
-\end_layout
-
-\begin_layout Standard
-Objekte: vorne, Hinten, zwei Seite, oben und unten Teile 
-\end_layout
-
-\begin_layout Standard
-Flage:#declare, polygen, pigment{color red}, finish{ ambient 0.85}
-\end_layout
-
-\begin_layout Standard
-Topschild: #declare, union, text, pigment{red}, finish{ambient 0.5, diffuse
- 0.5}
-\end_layout
-
-\begin_layout Standard
-Verschiben in die richtiger Platz mit ” translate” 
-\end_layout
-
-\begin_layout Standard
-Name auf den Topschild schreiben: mit Hilfe TrueTypeFont(timrom.ttf)
-\end_layout
-
-\begin_layout Standard
-Final Texturen für die Mailbox: texture {pigment { color Silver }, normal
- { bumps 0.1 scale 10 }
-\end_layout
-
-\begin_layout Standard
-finish { ambient 0.2, brilliance 6.0, reflection 0.5}}
-\end_layout
-
-\begin_layout Section
-Canoo: hat zwei Außer und Innen Seite
-\end_layout
-
-\begin_layout Standard
-Außerseite: #declare, intersection, inverse, transform
-\end_layout
-
-\begin_layout Standard
-Objekt sphere
-\end_layout
-
-\begin_layout Standard
-texture{pigment{color White*1.1}finish { phong 1}}
-\end_layout
-
-\begin_layout Standard
-mehrere Transformationen : { rotate, translate}
-\end_layout
-
-\begin_layout Standard
-Inenseite: interasection, union, Texturen 
-\end_layout
-
-\begin_layout Standard
-Objekt sphere
-\end_layout
-
-\begin_layout Standard
-texture{ pigment{ color MediumWood}finish { phong 1}}
-\end_layout
-
-\begin_layout Standard
-Canoo verschiben in eine endgültige Lage : #declre, transform{rotate, translate}
-\end_layout
-
-\begin_layout Section
-Haus: #declare, objekte,macro, union, intersection, translate, rotate
-\end_layout
-
-\begin_layout Standard
-Däche: jeder Teil wiederholt ein flach Quder und Zylinder 
-\end_layout
-
-\begin_layout Standard
-Mit Hilfe „macros“ jeder teil stellen und verwenden.
-\end_layout
-
-\begin_layout Standard
-Texturen: texture{ pigment{color} scale<> quick_color} normal { bumps scale
- 0.015} 
-\end_layout
-
-\begin_layout Standard
-finish { phong 1}}
-\end_layout
-
-\begin_layout Standard
-und Haus an der richtigen Stelle in der Szene bringen: translate, rotate
  
 \end_layout
 
 \begin_layout Section
-Palm : #declare, Texturen, plam macro, objekte
+Mailbox: Objekte und Texturen
 \end_layout
 
 \begin_layout Standard
-Blatt: objekt sphere,
+Objekte sind: Holzkasten, Box, Flage, Topschild, SignName .
+\end_layout
+
+\begin_layout Itemize
+Holzkasten: 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#include "textures.inc"
+\end_layout
+
+\begin_layout Plain Layout
+
+pigment{ DMFWood4}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Box: 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+#declare,polygon, union, intersection
+\end_layout
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Standard
-Plam hat zwei Teil: Palm Kopf, Palm Körper
+Objekte: Vorne, Hinten, zwei Seiten, obenere und untere Teile 
+\end_layout
+
+\begin_layout Itemize
+Flage:
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+#declare, polygen, pigment{color red}, finish{ ambient 0.85}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Topschild: 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+#declare, union, text, pigment{red}, finish{ambient 0.5, diffuse 0.5}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Verschieben an die richtige Stelle mit 
+\begin_inset Quotes gld
+\end_inset
+
+translate
+\begin_inset Quotes grd
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Name auf das Topschild schreiben: mit TrueTypeFont (
+\emph on
+timrom.ttf
+\emph default
+)
+\end_layout
+
+\begin_layout Itemize
+Finale Texturen für die Mailbox: 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+texture {pigment { color Silver }
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\lang german
+normal { bumps 0.1 scale 10 }
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\lang german
+finish { ambient 0.2, brilliance 6.0, reflection 0.5}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Canoo mit zwei Außen- und Innen-Seiten
+\end_layout
+
+\begin_layout Itemize
+Außenseite: 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+#declare, intersection, inverse, transform
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Objekt Sphere:
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+texture{pigment{color White*1.1}finish { phong 1}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Mehrere Transformationen : { rotate, translate}
+\end_layout
+
+\begin_layout Itemize
+Innenseite: intersection, union, Texturen 
+\end_layout
+
+\begin_layout Itemize
+Objekt Sphere
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+texture{ pigment{ color MediumWood}finish { phong 1}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Canoo in die endgültige Lage verschieben: 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+#declare, transform{rotate, translate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Haus
+\end_layout
+
+\begin_layout Standard
+Dach: Jeder Ziegel wiederholt sich und besteht aus einem flachen Quader
+ und einem Zylinder.
+ Mit Hilfe von „macros“ wird jeder Teil an seine Stelle verschoben und verwendet.
+\end_layout
+
+\begin_layout Plain Layout
+Texturen: 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+texture{ pigment{color} scale<> quick_color} normal { bumps scale 0.015}
+ 
+\end_layout
+
+\begin_layout Plain Layout
+finish { phong 1}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das Haus wird nun an die richtige Stelle in der Szene verschoben: translate,
+ rotate 
+\end_layout
+
+\begin_layout Section
+Palmen
+\end_layout
+
+\begin_layout Standard
+Blatt: objekt sphere.
+ Palme hat zwei Teile: Palmen-Kopf, Palmen-Körper
 \end_layout
 
 \begin_layout Standard
@@ -228,12 +447,22 @@ Palm-Kopf macro: die Zahl die Äste und der Finger von jeden Äste erstellen
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
 texture{pigment{color rgb<0.7,1.0,0.1>}normal {bumps 0.25 scale <1,0.5,0.002>}
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 finish { ambient 0.4 diffuse 0.5 reflection 0.1 phong 0.7 } } 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -241,16 +470,26 @@ Palm-Körper macro: mit Hilfe diese macro, erstellen Baumkörper und postioniere
  Palm-Kopf
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
 texture{pigment{color LightWood}
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 normal {bumps 1.0 scale<0.005,0.2,0.005>}
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 finish {ambient 0.45 diffuse 0.55 phong 0.1}}} 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

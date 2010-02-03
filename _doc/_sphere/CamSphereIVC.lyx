@@ -69,14 +69,34 @@ Aufbau der KUGL
 \end_layout
 
 \begin_layout Standard
-Der Grundkörper (Abb.1) besteht aus der „difference“ einer Sphere und eines
- Polypoden (Abb.2), der durch Rotation eines Zylinders entsteht.
+Der Grundkörper (Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Fig:Abb1"
+
+\end_inset
+
+, A) besteht aus der „difference“ einer Sphere und eines Polypoden (Abbildung
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Fig:Abb2"
+
+\end_inset
+
+, B), der durch Rotation eines Zylinders entsteht.
  Ähnlich werden die Klappen aus verschiedenen „difference“s von zwei Hohlkugeln
  und einem Zylinder erstellt.
  Aus dieser Basisversion der Klappe entstehen durch individuelle Modifizierung
- binär durchnummerierte Abdeckungen (Abb.3) die, entsprechend der ursprünglichen
- Planung verschiedene Gadgets zu verwenden, jeweils einzeln angesprochen
- werden können.
+ binär durchnummerierte Abdeckungen (Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Fig:Abb3"
+
+\end_inset
+
+, C) die, entsprechend der ursprünglichen Planung verschiedene Gadgets zu
+ verwenden, jeweils einzeln angesprochen werden können.
  
 \begin_inset Float figure
 wide false
@@ -84,8 +104,10 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename Abb1.png
+	lyxscale 30
 	width 30text%
 
 \end_inset
@@ -93,6 +115,7 @@ status collapsed
 
 \begin_inset Graphics
 	filename Abb2.png
+	lyxscale 30
 	width 30text%
 
 \end_inset
@@ -100,6 +123,7 @@ status collapsed
 
 \begin_inset Graphics
 	filename Abb3.png
+	lyxscale 30
 	width 30text%
 
 \end_inset
@@ -111,8 +135,29 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Abb.1 Grundkörper Abb.2 Polypode Abb.3 Abdeckungsklappen
+Aufbau: A) Grundkörper, B) Polypode, C) Abdeckungsklappen
 \end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Fig:Abb1"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Fig:Abb2"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Fig:Abb3"
 
 \end_inset
 
@@ -125,8 +170,15 @@ Abb.1 Grundkörper Abb.2 Polypode Abb.3 Abdeckungsklappen
 \end_layout
 
 \begin_layout Standard
-Eines der ersten Gadgets stellt der Rotor (Abb.4) dar, der aus einer einfachen
- „union“ von „cylinder“- und „box“- Elementen besteht.
+Eines der ersten Gadgets stellt der Rotor (Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Fig:Abb4"
+
+\end_inset
+
+) dar, der aus einer einfachen „union“ von „cylinder“- und „box“- Elementen
+ besteht.
  
 \begin_inset Float figure
 wide false
@@ -137,6 +189,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename Abb4.png
+	height 15theight%
 
 \end_inset
 
@@ -147,8 +200,15 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Abb.4 Rotor
+Rotor
 \end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Fig:Abb4"
 
 \end_inset
 
@@ -167,7 +227,15 @@ Abb.4 Rotor
 \begin_layout Standard
 Die Kameras, die in der endgültigen Fassung des Films alle freien Slots
  der KUGL ausfüllen, stellen eine Kombination aus einem ausgehöhlten „cylinder“
- und einem Kugelausschnitt einer „sphere“ mit Glas-„finish“ dar.
+ und einem Kugelausschnitt einer „sphere“ mit Glas-„finish“ dar (Abbildung
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Fig:Abb5"
+
+\end_inset
+
+).
  
 \begin_inset Float figure
 wide false
@@ -178,6 +246,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename Abb5.png
+	height 15theight%
 
 \end_inset
 
@@ -188,9 +257,15 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Abb.
- 5 Kamera
+Kamera
 \end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Fig:Abb5"
 
 \end_inset
 
@@ -207,8 +282,15 @@ Abb.
 \end_layout
 
 \begin_layout Standard
-Den (vorerst) letzten Bestandteil der KUGL stellen die Landebeine (Abb.
- 6) dar, die aus einer einfachen Kombination aus „cylinder“, „sphere“ und
+Den (vorerst) letzten Bestandteil der KUGL stellen die Landebeine (Abbildung
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Fig:Abb6"
+
+\end_inset
+
+) dar, die aus einer einfachen Kombination aus „cylinder“, „sphere“ und
  der zum jeweiligen Slot gehörenden Abdeckklappe bestehen.
  
 \begin_inset Float figure
@@ -220,6 +302,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename Abb6.png
+	height 20theight%
 
 \end_inset
 
@@ -230,9 +313,15 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Abb.
- 6 Landebein
+Landebein
 \end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Fig:Abb6"
 
 \end_inset
 
@@ -257,7 +346,14 @@ Als „pigment“ wird „silver“ für die Bestandteile des Rotors eingesetzt.
  Für die restlichen Oberflächen wurden die „texture“ „T_Silver_5E“ für den
  Grundkörper und die Klappen eingesetzt, sowie die „texture“ „T_Copper_3B“
  für die Landebeine, die Kameragehäuse und die Markierungen auf den Klappen
- (Abb.7).
+ (Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Fig:Abb7"
+
+\end_inset
+
+).
  
 \begin_inset Float figure
 wide false
@@ -265,23 +361,27 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename Abb7a.png
-	width 30text%
+	lyxscale 30
+	height 15theight%
 
 \end_inset
 
 
 \begin_inset Graphics
 	filename Abb7b.png
-	width 30text%
+	lyxscale 30
+	height 15theight%
 
 \end_inset
 
 
 \begin_inset Graphics
 	filename Abb7c.png
-	width 30text%
+	lyxscale 30
+	height 15theight%
 
 \end_inset
 
@@ -292,9 +392,15 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Abb.
- 7
+Pigmente und Texturen
 \end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Fig:Abb7"
 
 \end_inset
 
@@ -317,7 +423,7 @@ Die Landschaft, das Tor
 \begin_layout Standard
 Die Landschaft sollte sich deutlich von einer normalen Umgebung abheben.
  Aus diesem Grund viel die Wahl der „texture“ auf ein möglichst ungewöhnliches
- Muster (
+ Muster (Code-Beispiel 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Alg:LandscapeText"
@@ -386,7 +492,14 @@ name "Alg:LandscapeText"
 Für den Rauscheffekt des Dimensionstores werden 10000 Plättchen („cylinder“)
  mit einer zufälligen Verteilung um den Tormittelpunkt verwendet, wobei
  das „Aufziehen“ des Tors durch ein einfaches Vergrößern des Radius erreicht
- wird (Abb.8).
+ wird (Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Fig:Abb8"
+
+\end_inset
+
+).
  
 \begin_inset Float figure
 wide false
@@ -407,8 +520,15 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Abb.8 Dimensionstor (überbelichtet)
+Dimensionstor (überbelichtet)
 \end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Fig:Abb8"
 
 \end_inset
 
