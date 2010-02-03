@@ -46,28 +46,405 @@
 Kamerakugel-Szene
 \end_layout
 
-\begin_layout Section
-Szenenbeschreibung
+\begin_layout Standard
+Als Grundidee für die KUGL („Kybernetische Urban- Geographische Luftüberwachung“
+) stand das Spiel „Ballance“ Pate.
+ Geplant war der Lauf durch einen Hindernis-Parcours, bei dem verschiedene
+ Gadgets zur Bewältigung des Parcours zum Einsatz gebracht werden sollten.
+ Im Zuge dieser Ursprungsplanung entstanden die Bestandteile des Kugelkörpers,
+ der Abdeckungsklappen für die Öffnungen, der Rotor, die Kamera und die
+ Landebeine.
+ Auf die Entwicklung weiterer Komponenten musste allerdings aus Zeitmangel
+ leider verzichtet werden.
+ Hieraus resultiert die Beschränkung auf die Entwicklung einer Kamerakugel,
+ die als fliegendes Auge fungiert.
+ Die Szenerie der KUGL-Welt resultiert aus dem ursprünglichen Parcours-Gedanken
+ und der Überleitung in die anderen Welten, für den schon frühzeitig eine
+ Art von Dimensionstor festgelegt wurde.
+ 
 \end_layout
 
 \begin_layout Section
-Besondere Techniken
+Aufbau der KUGL
 \end_layout
 
-\begin_layout Subsection
-Texturen
+\begin_layout Standard
+Der Grundkörper (Abb.1) besteht aus der „difference“ einer Sphere und eines
+ Polypoden (Abb.2), der durch Rotation eines Zylinders entsteht.
+ Ähnlich werden die Klappen aus verschiedenen „difference“s von zwei Hohlkugeln
+ und einem Zylinder erstellt.
+ Aus dieser Basisversion der Klappe entstehen durch individuelle Modifizierung
+ binär durchnummerierte Abdeckungen (Abb.3) die, entsprechend der ursprünglichen
+ Planung verschiedene Gadgets zu verwenden, jeweils einzeln angesprochen
+ werden können.
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Abb1.png
+	width 30text%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Abb2.png
+	width 30text%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Abb3.png
+	width 30text%
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Subsection
-Bewegungsmodell
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Abb.1 Grundkörper Abb.2 Polypode Abb.3 Abdeckungsklappen
 \end_layout
 
-\begin_layout Subsection
-Kamera
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Eines der ersten Gadgets stellt der Rotor (Abb.4) dar, der aus einer einfachen
+ „union“ von „cylinder“- und „box“- Elementen besteht.
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Abb4.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Abb.4 Rotor
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Kameras, die in der endgültigen Fassung des Films alle freien Slots
+ der KUGL ausfüllen, stellen eine Kombination aus einem ausgehöhlten „cylinder“
+ und einem Kugelausschnitt einer „sphere“ mit Glas-„finish“ dar.
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Abb5.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Abb.
+ 5 Kamera
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Den (vorerst) letzten Bestandteil der KUGL stellen die Landebeine (Abb.
+ 6) dar, die aus einer einfachen Kombination aus „cylinder“, „sphere“ und
+ der zum jeweiligen Slot gehörenden Abdeckklappe bestehen.
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Abb6.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Abb.
+ 6 Landebein
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
-Verwendete Tools
+Pigmente und Texturen
+\end_layout
+
+\begin_layout Standard
+Als „pigment“ wird „silver“ für die Bestandteile des Rotors eingesetzt.
+ Für die restlichen Oberflächen wurden die „texture“ „T_Silver_5E“ für den
+ Grundkörper und die Klappen eingesetzt, sowie die „texture“ „T_Copper_3B“
+ für die Landebeine, die Kameragehäuse und die Markierungen auf den Klappen
+ (Abb.7).
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Abb7a.png
+	width 30text%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Abb7b.png
+	width 30text%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Abb7c.png
+	width 30text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Abb.
+ 7
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Die Landschaft, das Tor
+\end_layout
+
+\begin_layout Standard
+Die Landschaft sollte sich deutlich von einer normalen Umgebung abheben.
+ Aus diesem Grund viel die Wahl der „texture“ auf ein möglichst ungewöhnliches
+ Muster (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Alg:LandscapeText"
+
+\end_inset
+
+).
+ 
+\begin_inset Float algorithm
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "numbers=left"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+texture { pigment 
+\end_layout
+
+\begin_layout Plain Layout
+{ agate noise_generator 3 scale Scale color_map 
+\end_layout
+
+\begin_layout Plain Layout
+{ [0 color rgb 0] [1 color rgb 1] } } 
+\end_layout
+
+\begin_layout Plain Layout
+finish {ambient 0 diffuse 0.8} }
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Landschaftstextur
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Alg:LandscapeText"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Für den Rauscheffekt des Dimensionstores werden 10000 Plättchen („cylinder“)
+ mit einer zufälligen Verteilung um den Tormittelpunkt verwendet, wobei
+ das „Aufziehen“ des Tors durch ein einfaches Vergrößern des Radius erreicht
+ wird (Abb.8).
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Abb8.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Abb.8 Dimensionstor (überbelichtet)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Tools
+\end_layout
+
+\begin_layout Standard
+Für die Erstellung der Landschaft und der Objekte wurde POV-Ray 3.6.2 for
+ Windows eingesetzt.
+ Als Besonderheit am KUGL-Part wurde für die Erstellung der Einzelbilder
+ keine „clock“ verwendet.
+ An deren Stelle trat ein eigenes VisualBasic-(VB) Programm, das für jedes
+ Bild ein eigenes POV-Skript mit den nötigen Parametern für Flug und Bewegung
+ zusammenfügt.
+ Auf diese Weise konnten separat für alle auftretenden Objekte die Bewegungsablä
+ufe über gewöhnliche for-Schleifen und einen internen Bildzähler aufgebaut
+ werden.
+ Die einzelnen Objekte ließen sich dann im Anschluss bequem über Dateikonkatenie
+rung zu einer Sequenz zusammenfügen.
+ Ein weiterer Vorteil dieses Verfahrens war, dass ohne Aufwand beliebig
+ viele Skripte auf beliebig vielen Rechnern zur Bildberechung gestartet
+ werden konnten (auch mit POV-Ray v3.6.2).
+ 
 \end_layout
 
 \end_body

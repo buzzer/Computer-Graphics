@@ -12,7 +12,7 @@
 language=POV,                % choose the language of the code
 %basicstyle=\footnotesize,       % the size of the fonts that are used for the code
 %numbers=left,                   % where to put the line-numbers
-numberstyle=\color{gray}\tiny,      % the size of the fonts that are used for the line-numbers
+numberstyle=\color{black}\tiny,      % the size of the fonts that are used for the line-numbers
 stepnumber=1,                   % the step between two line-numbers. If it's 1 each line will be numbered
 numbersep=5pt,                  % how far the line-numbers are from the code
 %backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
@@ -229,8 +229,8 @@ Flicken
 
 ), die den Film ausmachen.
  Nichtsdestotrotz wurde bei der Zusammenfügung, dem Schneiden des Films,
- sehr darauf geachtet aus allen verschiedenen Szenen ein möglichst harmonischen
- Gesamt-Handlungsfaden zu kreieren.
+ sehr darauf geachtet aus allen verschiedenen Szenen einen möglichst harmonische
+n Gesamt-Handlungsfaden zu kreieren.
 \end_layout
 
 \begin_layout Standard

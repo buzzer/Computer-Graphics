@@ -44,7 +44,7 @@
 \begin_body
 
 \begin_layout Chapter
-Quitscheentchen-Szene
+Quietscheentchen-Szene
 \end_layout
 
 \begin_layout Section
@@ -56,7 +56,7 @@ Idee
 \end_layout
 
 \begin_layout Standard
-Die Quitscheentchen-Idee stammt aus realen Begegnungen mit der 
+Die Quietscheentchen-Idee stammt aus realen Begegnungen mit der 
 \begin_inset Quotes gld
 \end_inset
 
@@ -170,10 +170,11 @@ reference "Alg:WaterDeclaration"
 \begin_inset Float algorithm
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset listings
+lstparams "numbers=left"
 inline false
 status collapsed
 
