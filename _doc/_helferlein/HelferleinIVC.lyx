@@ -47,7 +47,139 @@ Helferlein-Szene
 \end_layout
 
 \begin_layout Section
-Szenenbeschreibung
+Idee
+\end_layout
+
+\begin_layout Standard
+Fest stand bereits zu Anfang, dass die Figur keine organische sein sollte.
+ Der Aufwand dafür wurde als hoch angesehen und das Ergebnis als nicht den
+ eigenen Ansprüchen genügend vorhergesagt.
+ Die vorgeführten Filme der letzten Jahrgänge, in denen organische Figuren
+ vorkamen, unterstrichen diesen Eindruck.
+\end_layout
+
+\begin_layout Standard
+Logische Konsequenz, da sich die Teilszene um eine bewegte humanoide Figur
+ drehen sollte, war, eine roboterartige Kreatur zu erschaffen.
+ Die Google-Bildersuche brachte einige Ergebnisse, von denen einzelne gespeicher
+t wurden.
+ Darunter waren auch Skizzen der klassischen Roboter der Science Fiction
+ der 1930er bis 1960er Jahre, wie z.B.
+ „Robby the Robot“ aus „Forbidden Planet“ (1956, Abb.
+ 1 links).
+ Diese zeichnen sich durch ihre einfache Konstruktion (auch in Bezug auf
+ CSG-Operationen) aus und thematisieren „Roboter“ im Sinne der Science Fiction
+ hervorragend.
+\end_layout
+
+\begin_layout Standard
+Andere Entwürfe (vergl.
+ Abb.
+ 1 rechts) sind noch einfacher gehalten und gehen mehr in den Comic-Bereich.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Robby.jpg
+	lyxscale 50
+	scale 80
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename robot-sketches-marsden72.jpg
+	lyxscale 20
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "Abb. 1 - "
+
+\end_inset
+
+Robby, the Robot (aus Forbidden Planet, 1956) und Vorlagen gefunden per
+ Google Bildersuche
+\end_layout
+
+\begin_layout Standard
+Die einfachen Modelle sollten es ermöglichen mehr Zeit auf die als komplex
+ empfundene Animation späterer Bewegungen zu verwenden.
+ Im Endeffekt fand im Zuge der Suche den meisten Anklang das „Helferlein“
+ aus den Disney Comics (Abb.
+ 2 links).
+ Es ist extrem einfach gehalten, spiegelt die humanoide Form gut wieder
+ und brachte die Idee ein, den Glühlampenkopf (der offensichtlich auf einer
+ Lampe der 30er Jahre basiert) gegen eine moderne Variante, eine Energiesparlamp
+e, zu ersetzen.
+ Diese Idee entstand aus einem weiteren gefundenen Bild (Abb.
+ 2, rechts).
+ Dieses Vorgehen löste Konflikte in Sachen Markenrecht im Vorhinein und
+ ermöglichte eine „humoristische“ Einlage in Bezug auf die EU-Verordnung
+ Nr.
+ 244/2009, die schrittweise Glühwendellampen gegen energiesparende Leuchtmittel
+ ersetzen soll.
+ Um die Kopfform bei zu behalten boten sich Modelle an, die eine runde Form
+ beibehalten.
+ Eine solche wurde modelliert.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename helferlein1.jpg
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename LED-Helferlein.jpg
+	lyxscale 30
+	scale 69
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "Abb. 2 -"
+
+\end_inset
+
+Helferlein original (Disney, links), und "moderne" Vorlage mit Energiesparlampe
+ als Kopf (rechts)
+\end_layout
+
+\begin_layout Standard
+Die ursprüngliche Idee war es, die Figur als solche in einer Fabrikhalle
+ zusammen zu setzen und sie dann laufen zu lassen.
+ In ihrer Welt wäre sie dann wenige Schritte vor die Tür gelangt und durch
+ ein Loch gefallen, das von der fallenden Kamerakugel (KUGL) in den Boden
+ der Welt gerissen wurde.
+ Die Fabrikhalle dazu wurde erstellt, die nötigen Montage-Robotor und ein
+ Fließband wurden mangels Zeit nicht mehr erstellt - und daher auch die
+ Montage der Figur eingespart, abgesehen vom finalen Aufsetzen des Kopfes.
+ Die Animation der Laufbewegung und die Erstellung der Lampe nahmen zuviel
+ Zeit in Anspruch.
+ Ebenso eingespart wurden Hände und Füße der Figur und eine Animation der
+ Extremitäten als verformbare Zylinder (wie es offensichtlich beim Original
+ gehandhabt wird).
+ Stattdessen wurden sichtbare Gelenke eingeführt, was auch das Studium und
+ die Umsetzung der Laufbewegung erleichterte.
+ Auf eine genauere Ausarbeitung der Welt wurde ebenso verzichtet.
+ Geplant war ein Industrie-Park aus vielen Fabrikhallen gleicher oder ähnlicher
+ Bauart sowie eine Straße.
+ 
 \end_layout
 
 \begin_layout Section
@@ -55,19 +187,356 @@ Besondere Techniken
 \end_layout
 
 \begin_layout Subsection
+Hauptdarsteller
+\end_layout
+
+\begin_layout Standard
+Der Hauptdarsteller (das Helferlein) besteht zunächst aus einfachen Zylindern
+ sowie Kugeln an den Gelenken.
+ Definiert werden die Positionen durch Punkte, auf denen die Kugeln lokalisiert
+ sind und zwischen denen sich die Zylinder spannen (siehe Abschnitt „Bewegungsmo
+dell“).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 19.bmp
+	lyxscale 30
+	scale 75
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename 08.bmp
+	lyxscale 40
+	scale 104
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "Abb. 3 -"
+
+\end_inset
+
+Hauptdarsteller laufen - links ohne Kopf (Lauftests), rechts mit Lampenkopf
+\end_layout
+
+\begin_layout Standard
+Die Energiesparlampe (der Kopf) wurde im Anschluss daran mittels B-Splines
+ in Form des Objekttyps „sphere_sweep“ erzeugt.
+ Dieser erzeugt eine eine komplexe Figur durch Entlangführen einer Kugel
+ an einer Spline-Kurve im Raum.
+ Die dabei gezogene „Spur“ der Kugel (im Grunde ein verbogener Zylinder
+ mit Halbkugeln an den Enden) bildet das geometrische Objekt.
+ Die Röhre der Lampe setzt sich im Grunde aus drei Grundelementen zusammen:
+ einer vollen Windung (dreifach eingesetzt) und zwei Ansatzstücken, die
+ die Spirale aus Windungen mit dem Sockel der Lampe verbinden.
+ Der untere Teil der Spirale wird über einen L-Winkel angebunden, der obere
+ Teil verjüngt sich dagegen erst und fällt dann durch die Mitte der Spirale
+ steil nach unten ab.
+ Der Sockel besteht im Grunde (von oben nach unten) aus einem flachen Zylinder,
+ einem Konus, einem weiteren Zylinder, einer verkleinerten Spirale aus vollen
+ Windungen wie die Lampenröhre selbst, einem weiteren Konus und einer abschließe
+nden Kugel.
+ Zusammen ergibt das einen Boden für die Lampe, ein Schraubgewinde sowie
+ eine elektrischen Kontaktstelle.
+ Um die Lampe einzuschalten wurde in die Mitte der Spirale eine Lichtquelle
+ positioniert, die durch die als leicht transparent und diffus deklarierten
+ Röhrenwendel und die Zwischenräume nach außen dringen kann.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename E_Lampe_save.PNG
+	lyxscale 30
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "Abb. 4 -"
+
+\end_inset
+
+Lampe aus- und eingeschaltet
+\end_layout
+
+\begin_layout Standard
+Der Sockel der Lampe ist eine CSG-Differenz aus einem Konus und dem Gewinde
+ der Lampe und dient der Helferlein-Figur als Hals.
+\end_layout
+
+\begin_layout Subsection
+Szenerie
+\end_layout
+
+\begin_layout Standard
+Für die Szene in der Fabrik wurden ein einfaches Regal und eine Art „Birnenhalte
+r“ konstruiert, in die dann die Lampen eingefügt wurden.
+ Die Birne, die der Figur eingeschraubt wird, wird mittels eines einfachen
+ Greifers transportiert, der im Grunde aus drei halben Tori, abschließenden
+ kleinen Kugeln, einer zentralen großen Kugel und einem senkrechten Zylinder
+ besteht, der die Verbindung zur Decke herstellt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename claw.bmp
+	lyxscale 40
+	scale 42
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "Abb. 5 -"
+
+\end_inset
+
+Einfacher, dreifingriger Greifer
+\end_layout
+
+\begin_layout Standard
+Die Fabrikhalle besteht im Wesentlichen aus zwei Teilen: der Halle selbst
+ und einer Sphäre an der Rückseite.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Factory_hall_save#4.bmp
+	lyxscale 30
+	scale 55
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "Abb. 6 -"
+
+\end_inset
+
+Grundkonzept der Fabrikhalle.
+ Boden in Schachmuster, Halle ohne Texturen.
+\end_layout
+
+\begin_layout Standard
+Die Halle ist eine große Box, mit abgeschrägten Seiten (Differenz mit weiterer
+ Box).
+ Sie wurde mit einer verkleinerten Kopie ihrer selbst ausgehöhlt, die Fensteröff
+nungen wurden beidseitig in den Schrägen ausgeschnitten und mit Fensterscheiben
+ und Gitterstäben gefüllt.
+ An der Kopfseite befindet sich eine Türöffnung mit zwei Türflügeln, die
+ sich öffnen lassen.
+ Innerhalb der Halle befindet sich eine Lichtquelle.
+ Ursprünglich war es geplant, die scharfen Kanten des CSG-Objekts mit Hilfe
+ von Differenz- und Vereinigungs-Operationen abzurunden.
+ Das verursachte aber an den Dachkanten der schrägen Flächen zu größere
+ Probleme, denen trotz großem rechnerischem und zeitlichem Aufwand zunächst
+ nicht beizukommen war.
+ Die Sphäre besteht aus Zylindern, Kugeln und transparenten Glasflächen,
+ die insgesamt ein komplexes geometrisches Objekt im Stile der Platonischen
+ Körper bilden, genauer ein halbes Pentakisdodecahedron.
+ Dieses Objekt entstammt ursprünglich der „poly.pov“-Datei, die sich bei
+ Wikipedia unter den Einträgen zu den Catalanischen Körpern findet.
+ Diese wurde modifiziert, so dass dieser Körper als Objekt (Vereinigung
+ aus den Stäben, den Fensterflächen und den die Ecken markierenden Kugeln)
+ nutzbar war.
+ Das Objekt wurde halbiert und mit einem Sockel (ein Torus) versehen, der
+ die Sphäre mit dem Boden verbindet.
+\end_layout
+
+\begin_layout Standard
+Innerhalb der Fabrikhalle befindet sich über Tür und damit zwischen den
+ Schränken (links: mit Lampen, rechts: leer) ein Porträt des „Firmengründers“
+ (echtes Helferlein-Bild) mit goldenem Rahmen.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Factory_hall_save#5.bmp
+	lyxscale 20
+	scale 68
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "Abb. 7 -"
+
+\end_inset
+
+Innenraum mit Schachboden und ohne den Greifer.
+ Texturen wie im finalen Video.
+\end_layout
+
+\begin_layout Subsection
 Texturen
+\end_layout
+
+\begin_layout Standard
+Ein großer Teil der Texturen ist reflektiv gehalten.
+ Das erhöhte zwar die Rechenzeit, lohnte aber in Anbetracht der ersten Ergebniss
+e aus dem „KUGL“-Teil.
+ Die Wände der Fabrikhalle sind mittelstark reflektierend, die Helferlein-Figur,
+ der Rahmen des Portraits, die Stäbe der Fenster und der Sphäre, der Sockel
+ der Sphäre, Teile des Greifers und der Schraubsockel der Lampe sind hochgradig
+ reflektierend und metallisch gehalten.
+ Der Boden der Halle und Teile des Greifers sind in einem selbst erstellten
+ Plastik-artigen Finish gehalten:
+\end_layout
+
+\begin_layout Standard
+#declare plastic_finish = finish { ambient 0.5 diffuse 0.5 brilliance 2 phong
+ 1 }
+\end_layout
+
+\begin_layout Standard
+Als Textur wurde im Falle des Portraits wie gefordert eine Bilddatei eingebunden
+ (Abb.
+ 3) und auf eine extrem flache Box (der „Leinwand“) projiziert.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Helferlein_image.png
+	lyxscale 30
+	scale 38
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "Abb. 8 -"
+
+\end_inset
+
+Helferlein-Portrait, im Film eingebunden als Textur
+\end_layout
+
+\begin_layout Standard
+Das Schrankmodell sowie die Türflügel wurden mit der Holztextur „T_Wood4“
+ ausgestattet.
 \end_layout
 
 \begin_layout Subsection
 Bewegungsmodell
 \end_layout
 
+\begin_layout Standard
+Die Position der den Hauptdarsteller definierenden Punkte im Raum wird über
+ vier Makros bestimmt, die abhängig von einer lokalen clock (z.B.
+ Teil der globalen clock) die Punkte auf Kreisbahnen umeinander positionieren.
+ Dadurch entsteht jeweils eine zeitgesteuerte Schwenkbewegung einer Extremität,
+ was in der Abstimmung der vier Makros aufeinander eine Laufbewegung der
+ Figur erzeugt.
+ Die Höhenkorrektur des Körpers im Zuge der Laufbewegung (durch das vorwärtsgeri
+chtete „Fallen“ der Figur über das aufgesetzte Bein) wird an der Hüfte vorgenomm
+en, die der definierte Basispunkt der Figur ist.
+ Die Parameter der Laufbewegung, sprich Gelenkwinkel zueinander in Abhängigkeit
+ von der Zeit, wurden mittels Videoanalyse erfasst.
+ Dazu wurde ein Video eines sehr einfachen, freilaufenden und nicht kreiselgeste
+uerten Roboters genutzt (Prinzip des kontrollierten Fallens nach vorne,
+ referenz siehe unten).
+ Durch Abspielen der Einzelbilder des gut einminütigen Videos wurden maximale
+ Auslenkwinkel und die Koordination der Gliedmaßen bestimmt.
+ Dies führte zu einer überraschend realistischen Laufbewegung.
+ Die Animation einer Nick- oder Beugebewegung in der Schlussszene hatte
+ in der Kürze der Zeit der letzten Stunden der Erstellung der Einzelbilder
+ nicht mehr funktioniert, ist aber grundsätzlich möglich.
+\end_layout
+
 \begin_layout Subsection
 Kamera
 \end_layout
 
+\begin_layout Standard
+In der Helferlein-Szene ist die Kameraarbeit recht einfach gehalten.
+ In der Szene, die in der Fabrikhalle spielt, ist die Kamera auf einen Punkt
+ hinter der Figur fixiert und schwenkt von der Mitte nach rechts zurück
+ über die Mitte nach links und schließlich in die Ausgangsposition.
+ Beim Gang der Figur aus der Halle hinaus ist die Kamera erst fixiert und
+ unbeweglich frontal auf die Figur gerichtet, im nächsten Schnitt dagegen
+ seitlich versetzt und auf die X-Position der Figur fixiert, was zu einem
+ Schwenk führt.
+ Die Figur wird dabei zunächst von schräg vorne, dann im weiteren Verlauf
+ von schräg hinten betrachtet.
+ In der Schlussszene wurde zwischenzeitlich aus der Totale in die Detailansicht
+ der Füße gewechselt, um das Abrutschen der Figur in das Loch zu verdeutlichen.
+\end_layout
+
 \begin_layout Section
 Verwendete Tools
+\end_layout
+
+\begin_layout Standard
+Verwendet wurden POV-Ray for Windows v3.6 für die Erstellung der Bilder,
+ VirtualDubMod zur Erstellung von Videosequenzen aus den Einzelbildern und
+ Advanced Renamer für die nummerierte Neubenennung der Bilddateien, das
+ für die Arbeit mit VirtualDubMod nötig ist.
+ Bilder wurden auf node104 des Clusters des Zentrums für Bioinformatik gerendert.
+ Verwendet und modifiziert wurde die „poly.pov“-Datei polyedrischer Körper
+ von Andrew Kepert (http://en.wikipedia.org/wiki/User:AndrewKepert/poly.pov).
+\end_layout
+
+\begin_layout Section
+Bildnachweise
+\end_layout
+
+\begin_layout Standard
+Abb.1 links: http://ia.media-imdb.com/images/M/MV5BMTczMzUzODU1Ml5BMl5BanBnXkFtZTYw
+MTI0NzQ2._V1._SX317_SY400_.jpg
+\end_layout
+
+\begin_layout Standard
+Abb.1 rechts: http://blog.marsdencartoons.com/wp-content/uploads/2008/07/robot-sket
+ches-marsden72.jpg
+\end_layout
+
+\begin_layout Standard
+Abb.2 links: http://www.uni-regensburg.de/Einrichtungen/FUTUR/assets/images/helferl
+ein1.jpg
+\end_layout
+
+\begin_layout Standard
+Abb.2 rechts: www.fhq-hosting.com/ui/Helferlein.jpg 
+\end_layout
+
+\begin_layout Standard
+Abb.8: http://img.fotocommunity.com/photos/2774317.jpg
+\end_layout
+
+\begin_layout Standard
+Video des laufenden Roboters: http://www.youtube.com/watch?v=trEzMlyfgXU
 \end_layout
 
 \end_body
