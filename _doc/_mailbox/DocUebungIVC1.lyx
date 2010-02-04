@@ -50,7 +50,296 @@ Mailbox-Szene
 Szenenbeschreibung
 \end_layout
 
+\begin_layout Subsection
+Idee
+\end_layout
+
 \begin_layout Standard
+„Eine Mischung aus realen und fiktiven Objekten verleiht der Szene mehr
+ Realität und Harmonie.
+ Die Mailbox als Abbild von etwas nicht Realem und die Kinder, die dieses
+ fiktive Objekt besitzen.” 
+\end_layout
+
+\begin_layout Section
+Besondere Techniken 
+\end_layout
+
+\begin_layout Standard
+Die Mailbox als Hauptelement wurde als vier getrennte Teile betrachtet:
+ Holzkasten, Box, Flagge und Topschild.
+ Das oberster Teil der Box ist ein Halb-Zylinder, mit Hilfe vorhandener
+ Shape-Deklarationen und Intersection-Methoden wurde dieser Teil modelliert.
+ Andere Teile wurden als Punkte betrachtet, und mittels Polygonen, Union,
+ translate und rotate realisiert.
+ Der Name unter dem Mailboxschild wurde als Objekttext mittels AdobTrue
+ Typefonts(ttf) gesetzt.
+ Andere Objekte stammen aus anderen Povray-Szenen, die mittels der Translate-
+ und Rotate-Methode an den richtigen Platz gesetzt wurden.
+ [4]
+\end_layout
+
+\begin_layout Standard
+Zwei Lichtquellen wurden installiert, eine davon im Innenbereich der Mailbox.
+ 
+\end_layout
+
+\begin_layout Subsection
+Texturen
+\end_layout
+
+\begin_layout Standard
+Eine Textur wurde dem gesamten Mailboxkörper, Himmel, grüne Wiese, See und
+ Strand zugewiesen, siehe Code-Beispiele [2.1][2.2][2.3][2.4][2.5].
+ 
+\begin_inset Float algorithm
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+texture{
+\end_layout
+
+\begin_layout Plain Layout
+
+  pigment{Bright_Blue_Sky quick_color Blue scale 3.5 translate<8,0,10>}
+\end_layout
+
+\begin_layout Plain Layout
+
+  finish {ambient 1 diffuse 0}
+\end_layout
+
+\begin_layout Plain Layout
+
+} scale 10000}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Himmeltextur
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Float algorithm
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+texture{ pigment { color rgb <0,0.8,3.4024>}} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Seetexture
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Float algorithm
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+texture{ pigment{color rgb<0,1,0.03>}
+\end_layout
+
+\begin_layout Plain Layout
+
+  normal {bumps 0.013 scale .015}
+\end_layout
+
+\begin_layout Plain Layout
+
+  finish {ambient 0.4 diffuse 0.01 reflection 0.15 phong 1000.7}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Grüne-Wiese-Textur
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Float algorithm
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+texture{ pigment{color rgb<0.5,0.5,0.7>}
+\end_layout
+
+\begin_layout Plain Layout
+
+  normal {bumps 0.013 scale .015}
+\end_layout
+
+\begin_layout Plain Layout
+
+  finish {ambient 1.1 diffuse 0.065 phong 10.1}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Strand
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Float algorithm
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+texture {pigment { color Silver }
+\end_layout
+
+\begin_layout Plain Layout
+
+  normal { bumps 0.1 scale 10 }
+\end_layout
+
+\begin_layout Plain Layout
+
+  finish { ambient 0.2, brilliance 6.0, reflection 0.5}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mailboxtextur
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Verwendete Tools 
+\end_layout
+
+\begin_layout Standard
+Die einzelnen Objekte wurden unter POV-Ray 3.6.2 modelliert und ge-rendert.
+ Die Mailboxklappe und das Flag wurde mit Hilfe von „Clock“ animiert.
+ Siehe auch Tabelle 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Tab:Tools"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
 Objekte in der Szene sind: Mailbox, Haus, Canoo, Palm, Grüne Wiese, Strand,
  See.
 \end_layout
@@ -62,6 +351,7 @@ inline false
 status open
 
 \begin_layout Plain Layout
+
 color white
 \end_layout
 
@@ -87,27 +377,22 @@ inline false
 status open
 
 \begin_layout Plain Layout
+
 texture{
 \end_layout
 
 \begin_layout Plain Layout
 
-  
-\lang german
-pigment{Bright_Blue_Sky
- 
-\lang german
-quick_color Blue scale 3.5 translate<8,0,10>}
+  pigment{Bright_Blue_Sky quick_color Blue scale 3.5 translate<8,0,10>}
 \end_layout
 
 \begin_layout Plain Layout
 
-  
-\lang german
-finish {ambient 1 diffuse 0}
+  finish {ambient 1 diffuse 0}
 \end_layout
 
 \begin_layout Plain Layout
+
 } scale 10000}
 \end_layout
 
@@ -123,6 +408,7 @@ inline false
 status open
 
 \begin_layout Plain Layout
+
 texture{ pigment { color rgb <0,0.8,3.4024>}} 
 \end_layout
 
@@ -138,27 +424,18 @@ inline false
 status open
 
 \begin_layout Plain Layout
-texture{
- 
-\lang german
-pigment{color rgb<0,1,0.03>}
+
+texture{ pigment{color rgb<0,1,0.03>}
 \end_layout
 
 \begin_layout Plain Layout
 
-  
-\lang german
-normal {bumps 0.013 scale .015}
+  normal {bumps 0.013 scale .015}
 \end_layout
 
 \begin_layout Plain Layout
 
-  
-\lang german
-finish {ambient 0.4 diffuse 0.01
- 
-\lang german
-reflection 0.15 phong 1000.7}}
+  finish {ambient 0.4 diffuse 0.01 reflection 0.15 phong 1000.7}}
 \end_layout
 
 \end_inset
@@ -173,24 +450,18 @@ inline false
 status open
 
 \begin_layout Plain Layout
-texture{
- 
-\lang german
-pigment{color rgb<0.5,0.5,0.7>}
+
+texture{ pigment{color rgb<0.5,0.5,0.7>}
 \end_layout
 
 \begin_layout Plain Layout
 
-  
-\lang german
-normal {bumps 0.013 scale .015}
+  normal {bumps 0.013 scale .015}
 \end_layout
 
 \begin_layout Plain Layout
 
-  
-\lang german
-finish {ambient 1.1 diffuse 0.065 phong 10.1}}
+  finish {ambient 1.1 diffuse 0.065 phong 10.1}}
 \end_layout
 
 \end_inset
@@ -202,7 +473,7 @@ finish {ambient 1.1 diffuse 0.065 phong 10.1}}
 Mailbox: Objekte und Texturen
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Objekte sind: Holzkasten, Box, Flage, Topschild, SignName .
 \end_layout
 
@@ -234,6 +505,7 @@ inline false
 status open
 
 \begin_layout Plain Layout
+
 #declare,polygon, union, intersection
 \end_layout
 
@@ -242,7 +514,7 @@ status open
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Objekte: Vorne, Hinten, zwei Seiten, obenere und untere Teile 
 \end_layout
 
@@ -253,6 +525,7 @@ inline false
 status open
 
 \begin_layout Plain Layout
+
 #declare, polygen, pigment{color red}, finish{ ambient 0.85}
 \end_layout
 
@@ -268,6 +541,7 @@ inline false
 status open
 
 \begin_layout Plain Layout
+
 #declare, union, text, pigment{red}, finish{ambient 0.5, diffuse 0.5}
 \end_layout
 
@@ -303,21 +577,18 @@ inline false
 status open
 
 \begin_layout Plain Layout
+
 texture {pigment { color Silver }
 \end_layout
 
 \begin_layout Plain Layout
 
-  
-\lang german
-normal { bumps 0.1 scale 10 }
+  normal { bumps 0.1 scale 10 }
 \end_layout
 
 \begin_layout Plain Layout
 
-  
-\lang german
-finish { ambient 0.2, brilliance 6.0, reflection 0.5}}
+  finish { ambient 0.2, brilliance 6.0, reflection 0.5}}
 \end_layout
 
 \end_inset
@@ -336,6 +607,7 @@ inline false
 status open
 
 \begin_layout Plain Layout
+
 #declare, intersection, inverse, transform
 \end_layout
 
@@ -351,6 +623,7 @@ inline false
 status open
 
 \begin_layout Plain Layout
+
 texture{pigment{color White*1.1}finish { phong 1}}
 \end_layout
 
@@ -374,6 +647,7 @@ inline false
 status open
 
 \begin_layout Plain Layout
+
 texture{ pigment{ color MediumWood}finish { phong 1}}
 \end_layout
 
@@ -389,6 +663,7 @@ inline false
 status open
 
 \begin_layout Plain Layout
+
 #declare, transform{rotate, translate}
 \end_layout
 
@@ -401,7 +676,7 @@ status open
 Haus
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Dach: Jeder Ziegel wiederholt sich und besteht aus einem flachen Quader
  und einem Zylinder.
  Mit Hilfe von „macros“ wird jeder Teil an seine Stelle verschoben und verwendet.
@@ -414,11 +689,13 @@ inline false
 status open
 
 \begin_layout Plain Layout
+
 texture{ pigment{color} scale<> quick_color} normal { bumps scale 0.015}
  
 \end_layout
 
 \begin_layout Plain Layout
+
 finish { phong 1}}
 \end_layout
 
@@ -427,7 +704,7 @@ finish { phong 1}}
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Das Haus wird nun an die richtige Stelle in der Szene verschoben: translate,
  rotate 
 \end_layout
@@ -436,12 +713,12 @@ Das Haus wird nun an die richtige Stelle in der Szene verschoben: translate,
 Palmen
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Blatt: objekt sphere.
  Palme hat zwei Teile: Palmen-Kopf, Palmen-Körper
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Palm-Kopf macro: die Zahl die Äste und der Finger von jeden Äste erstellen
  und positionieren.
  
@@ -453,10 +730,12 @@ inline false
 status open
 
 \begin_layout Plain Layout
+
 texture{pigment{color rgb<0.7,1.0,0.1>}normal {bumps 0.25 scale <1,0.5,0.002>}
 \end_layout
 
 \begin_layout Plain Layout
+
 finish { ambient 0.4 diffuse 0.5 reflection 0.1 phong 0.7 } } 
 \end_layout
 
@@ -465,7 +744,7 @@ finish { ambient 0.4 diffuse 0.5 reflection 0.1 phong 0.7 } }
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Palm-Körper macro: mit Hilfe diese macro, erstellen Baumkörper und postionieren
  Palm-Kopf
 \end_layout
@@ -476,14 +755,17 @@ inline false
 status open
 
 \begin_layout Plain Layout
+
 texture{pigment{color LightWood}
 \end_layout
 
 \begin_layout Plain Layout
+
 normal {bumps 1.0 scale<0.005,0.2,0.005>}
 \end_layout
 
 \begin_layout Plain Layout
+
 finish {ambient 0.45 diffuse 0.55 phong 0.1}}} 
 \end_layout
 
@@ -492,14 +774,19 @@ finish {ambient 0.45 diffuse 0.55 phong 0.1}}}
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Palms veschiben in eine endgültige Lage: translate, rotate
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Mailboxdecke und das Flag wurde mit Hilfe „Clock“ animiniert, der animierte
  Film wurde mit Hilfe IMovie mit dem Film meinen Kindern zusammen geschnitten.
  
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
